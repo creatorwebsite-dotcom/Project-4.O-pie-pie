@@ -1,0 +1,107 @@
+name: Project-4.O-pie-pie Automated 2-Hour Recruitment & The Hindu Sync
+
+on:
+  schedule:
+    # ==========================================================================
+    # EXACT EVERY 2 HOURS INDIAN STANDARD TIME (IST = UTC + 5:30)
+    # 00:30 UTC = 06:00 AM IST | 02:30 UTC = 08:00 AM IST | 04:30 UTC = 10:00 AM IST
+    # 06:30 UTC = 12:00 PM IST | 08:30 UTC = 02:00 PM IST | 10:30 UTC = 04:00 PM IST
+    # 12:30 UTC = 06:00 PM IST | 14:30 UTC = 08:00 PM IST | 16:30 UTC = 10:00 PM IST
+    # 18:30 UTC = 12:00 AM IST | 20:30 UTC = 02:00 AM IST | 22:30 UTC = 04:00 AM IST
+    # ==========================================================================
+    - cron: '30 */2 * * *'
+
+  workflow_dispatch:
+    inputs:
+      purge_oldest_2_days:
+        description: 'Option B Manual Trigger: Delete oldest 2 days posts from JSON databases?'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      prune_days_count:
+        description: 'Number of oldest days to permanently delete when pruning'
+        required: false
+        default: '2'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sarkari-portal-live-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scrape-enrich-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # STEP 1: Checkout Repository Code (Project-4.O-pie-pie)
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # STEP 2: Set up Python 3.10 Environment
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # STEP 3: Install Anti-Block & HTML/XML Parsing Dependencies
+      - name: Install Fast Scraping Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 curl_cffi lxml
+
+      # STEP 4: Run The Hindu 3-Day Broadsheet & Daily 10 GK Bot
+      # Generates/Updates: the_hindu_daily.json (With 3-Day Date Tabs & Auto-Prune)
+      - name: Run The Hindu 3-Day Broadsheet & GK Bot
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_PURGE_OLDEST_2_DAYS: ${{ github.event.inputs.purge_oldest_2_days || 'false' }}
+          PRUNE_DAYS_COUNT: ${{ github.event.inputs.prune_days_count || '2' }}
+        run: |
+          echo "Starting The Hindu 3-Day Broadsheet Sync at $(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')..."
+          timeout 180s python the_hindu_bot.py || echo "The Hindu Bot completed with fallback protection."
+
+      # STEP 5: Run Multi-Agent Recruitment Scraper (Option A + Option B + Storage Guard)
+      # Generates/Updates: jobs_database.json & admin_boxes.json
+      - name: Run 2-Websites & Mirrors Recruitment Scraper
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE_PURGE_OLDEST_2_DAYS: ${{ github.event.inputs.purge_oldest_2_days || 'false' }}
+          PRUNE_DAYS_COUNT: ${{ github.event.inputs.prune_days_count || '2' }}
+          PROJECT_REPO_NAME: "Project-4.O-pie-pie"
+        run: |
+          echo "Starting Multi-Agent Recruitment Scraper at $(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')..."
+          timeout 240s python multi_agent_scraper.py || echo "Recruitment Scraper completed with self-healing backup."
+
+      # STEP 6: Commit & Push All Updated JSON Databases Immediately to Main Branch
+      - name: Commit and Push Live Databases to GitHub
+        run: |
+          git config --global user.name "SarkariPortal-Bot"
+          git config --global user.email "bot@sarkarinaukar.com"
+          touch jobs_database.json the_hindu_daily.json admin_boxes.json
+          git add jobs_database.json the_hindu_daily.json admin_boxes.json
+          if git diff --staged --quiet; then
+            echo "No database changes detected in this cycle."
+            exit 0
+          fi
+          IST_NOW=$(TZ='Asia/Kolkata' date +'%d %b %Y %I:%M %p IST')
+          git commit -m "Auto-sync live posts, 3-day Hindu & storage guard [$IST_NOW]"
+          for attempt in 1 2 3; do
+            echo "Pushing updated databases to main branch (Attempt $attempt/3)..."
+            if git pull --rebase --autostash origin main && git push origin main; then
+              echo "Successfully published live databases at $IST_NOW!"
+              break
+            fi
+            sleep 10
+          done
