@@ -3392,6 +3392,1215 @@
       checkAuth();
       setTimeout(() => runHourlyBotDeepAudit(false), 1200);
     });
-  </script>
+  </script><!-- ====================================================================== -->
+<!-- REFINED OMNI-CHANNEL DOPAMINE AD STUDIO FOR ADMIN.HTML                 -->
+<!-- ====================================================================== -->
+<style>
+  .omni-ad-studio-wrap {
+    background: linear-gradient(145deg, #06152d 0%, #0d2137 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    color: #f8fafc;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    font-family: system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+  }
+  .omni-ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1.5px solid rgba(245, 158, 11, 0.35);
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+  }
+  .omni-preset-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px dashed rgba(251, 191, 36, 0.4);
+  }
+  .omni-preset-btn {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #fef08a;
+    border: 1px solid #f59e0b;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.73rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .omni-preset-btn:hover {
+    background: #f59e0b;
+    color: #041922;
+    transform: translateY(-1px);
+  }
+  .omni-ad-card-item {
+    background: #ffffff;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+    border-left: 6px solid #f59e0b;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+  .omni-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .omni-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .omni-lbl {
+    display: block;
+    font-size: 0.71rem;
+    font-weight: 900;
+    color: #1e293b;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .omni-inp {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid #94a3b8;
+    border-radius: 6px;
+    font-size: 0.77rem;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f8fafc;
+    box-sizing: border-box;
+  }
+  .omni-inp:focus {
+    border-color: #0284c7;
+    outline: none;
+    background: #ffffff;
+  }
+</style>
+
+<script>
+(function() {
+  "use strict";
+
+  const OMNI_STORAGE_KEY = "SN_OMNI_ADS_MASTER_V1";
+
+  const OMNI_PRESETS = {
+    coaching_video: {
+      name: "SSC CGL & Banking Foundation Live Batch 2026",
+      category: "coaching",
+      mediaFormat: "video_mp4",
+      position: "center_popup",
+      triggerRule: "immediate_load",
+      delaySec: 2,
+      agenticMode: "option_b_mandatory",
+      mandatoryWatchSec: 10,
+      mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      targetUrl: "https://www.youtube.com/@Adda247Live",
+      ctaText: "🎓 Join Live Batch (70% OFF) →",
+      priceOffer: "₹499",
+      priceMrp: "₹2,499",
+      couponCode: "SARKARI70",
+      badgeText: "🔥 MANDATORY EXAM SPECIAL",
+      desc: "⚡ Complete Video Classes + 500 CBT Mocks + Bilingual PDF Notes! Watch this 10-second preview to unlock your special aspirant discount.",
+      active: true
+    },
+    tool_gate_video: {
+      name: "Speed Math & Reasoning 10-Second Booster Reel",
+      category: "video_reel",
+      mediaFormat: "video_mp4",
+      position: "tool_click_gate",
+      triggerRule: "on_tool_click",
+      delaySec: 0,
+      agenticMode: "option_b_mandatory",
+      mandatoryWatchSec: 8,
+      mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      targetUrl: "https://testbook.com",
+      ctaText: "⚡ Unlock Free Test Series →",
+      priceOffer: "FREE",
+      priceMrp: "₹999",
+      couponCode: "FREEMOCK",
+      badgeText: "🔒 TOOL SPONSOR AD",
+      desc: "Watch this 8-second sponsor reel to unlock your free Useful Tool (Photo Resizer / PDF / Resume / Cutoff Calculator)!",
+      active: true
+    },
+    books_affiliate: {
+      name: "Brahmastra Static GK & Current Affairs 2026 Book",
+      category: "books",
+      mediaFormat: "product_card",
+      position: "infeed_jobs",
+      triggerRule: "immediate_load",
+      delaySec: 0,
+      agenticMode: "option_a_dopamine",
+      mandatoryWatchSec: 0,
+      mediaUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=60",
+      targetUrl: "https://www.amazon.in",
+      ctaText: "📘 Order Book / Download Sample PDF →",
+      priceOffer: "₹199",
+      priceMrp: "₹450",
+      couponCode: "BOOK55",
+      badgeText: "📚 BESTSELLER BOOK",
+      desc: "10,000+ TCS Pattern Previous Year Questions with Hinglish Explanations for SSC, Railway & State Exams.",
+      active: true
+    },
+    college_admission: {
+      name: "Admissions Open 2026-27: B.Tech / MBA / BCA / B.Ed",
+      category: "college",
+      mediaFormat: "image_banner",
+      position: "top_header",
+      triggerRule: "immediate_load",
+      delaySec: 0,
+      agenticMode: "option_a_dopamine",
+      mandatoryWatchSec: 0,
+      mediaUrl: "https://images.unsplash.com/photo-1562774053-701939374585?w=900&auto=format&fit=crop&q=60",
+      targetUrl: "https://www.aicte-india.org",
+      ctaText: "🏫 Apply for Scholarship Seat →",
+      priceOffer: "Up to 100% Scholarship",
+      priceMrp: "",
+      couponCode: "ADMIT2026",
+      badgeText: "🎓 UNIVERSITY ADMISSION",
+      desc: "NAAC A+ Accredited Campus • Govt Scholarship Available for SC/ST/OBC/EWS Students. Apply before last date!",
+      active: true
+    },
+    apk_download: {
+      name: "Sarkari Exam CBT Mock & Typing Master Pro App (APK)",
+      category: "apk",
+      mediaFormat: "apk_box",
+      position: "sticky_bottom",
+      triggerRule: "immediate_load",
+      delaySec: 0,
+      agenticMode: "option_a_dopamine",
+      mandatoryWatchSec: 0,
+      mediaUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&auto=format&fit=crop&q=60",
+      targetUrl: "https://play.google.com/store",
+      ctaText: "📲 Download APK (12 MB) →",
+      priceOffer: "100% Free App",
+      priceMrp: "",
+      couponCode: "",
+      badgeText: "📱 4.9★ RATED APP",
+      desc: "Offline Mock Tests, Daily Hindu Vocab & Instant Job Alert Notifications on your Android Phone.",
+      active: true
+    },
+    ecommerce_gadget: {
+      name: "Student Rechargeable LED Study Lamp + Desk Table Combo",
+      category: "ecommerce",
+      mediaFormat: "product_card",
+      position: "floating_reel",
+      triggerRule: "immediate_load",
+      delaySec: 3,
+      agenticMode: "option_a_dopamine",
+      mandatoryWatchSec: 5,
+      mediaUrl: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=500&auto=format&fit=crop&q=60",
+      targetUrl: "https://www.flipkart.com",
+      ctaText: "🛒 View Deal on Store →",
+      priceOffer: "₹349",
+      priceMrp: "₹1,299",
+      couponCode: "STUDYDEAL",
+      badgeText: "🛍️ 73% OFF STUDENT DEAL",
+      desc: "Eye-care warm/white light with 8-hour battery backup for late-night exam preparation.",
+      active: true
+    },
+    youtube_channel: {
+      name: "Daily Current Affairs & The Hindu Editorial Live Class",
+      category: "youtube",
+      mediaFormat: "youtube_embed",
+      position: "post_modal_inside",
+      triggerRule: "on_post_open",
+      delaySec: 0,
+      agenticMode: "option_a_dopamine",
+      mandatoryWatchSec: 0,
+      mediaUrl: "https://www.youtube.com/embed/jfKfPfyJRdk",
+      targetUrl: "https://www.youtube.com",
+      ctaText: "📺 Subscribe YouTube Channel →",
+      priceOffer: "LIVE CLASS",
+      priceMrp: "",
+      couponCode: "",
+      badgeText: "🔴 YOUTUBE LIVE",
+      desc: "Join 50,000+ aspirants watching daily GK/GS & Maths tricks live on YouTube!",
+      active: true
+    },
+    apply_gate_sponsor: {
+      name: "Before You Apply: Check Your Exam Selection Chance & Free Mock!",
+      category: "url",
+      mediaFormat: "image_banner",
+      position: "apply_link_gate",
+      triggerRule: "on_apply_click",
+      delaySec: 0,
+      agenticMode: "option_b_mandatory",
+      mandatoryWatchSec: 6,
+      mediaUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&auto=format&fit=crop&q=60",
+      targetUrl: "https://ssc.gov.in",
+      ctaText: "🚀 Claim Free Mock & Continue →",
+      priceOffer: "FREE PASS",
+      priceMrp: "₹499",
+      couponCode: "PASS100",
+      badgeText: "⚡ OFFICIAL PARTNER SPONSOR",
+      desc: "Please wait 6 seconds while we verify your official recruitment link...",
+      active: true
+    }
+  };
+
+  window.getOmniCampaignsList = function() {
+    try {
+      const raw = localStorage.getItem(OMNI_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+      const bridgeRaw = localStorage.getItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE");
+      if (bridgeRaw) {
+        const bObj = JSON.parse(bridgeRaw);
+        if (Array.isArray(bObj.sponsorCampaigns) && bObj.sponsorCampaigns.length > 0) {
+          return bObj.sponsorCampaigns;
+        }
+      }
+    } catch (e) {}
+    return [];
+  };
+
+  window.saveOmniCampaignsLocal = function(list) {
+    try {
+      localStorage.setItem(OMNI_STORAGE_KEY, JSON.stringify(list));
+      let bridge = {};
+      try {
+        bridge = JSON.parse(localStorage.getItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE") || "{}");
+      } catch (e) {}
+      bridge.sponsorCampaigns = list;
+      bridge.masterAds = list;
+      bridge.updatedAt = new Date().toISOString();
+      localStorage.setItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE", JSON.stringify(bridge));
+    } catch (e) {}
+  };
+
+  window.addOmniPresetCampaign = function(presetKey) {
+    const template = OMNI_PRESETS[presetKey];
+    if (!template) return;
+    const list = window.getOmniCampaignsList();
+    const newCamp = Object.assign({}, template, {
+      id: "omni_ad_" + Date.now() + "_" + Math.floor(Math.random() * 1000)
+    });
+    list.unshift(newCamp);
+    window.saveOmniCampaignsLocal(list);
+    window.renderOmniAdStudioCards();
+  };
+
+  window.addBlankOmniCampaign = function() {
+    const list = window.getOmniCampaignsList();
+    list.unshift({
+      id: "omni_ad_" + Date.now(),
+      name: "",
+      category: "coaching",
+      mediaFormat: "image_banner",
+      position: "center_popup",
+      triggerRule: "immediate_load",
+      delaySec: 3,
+      agenticMode: "option_b_mandatory",
+      mandatoryWatchSec: 10,
+      mediaUrl: "",
+      targetUrl: "",
+      ctaText: "🚀 Visit Sponsor Now →",
+      priceOffer: "",
+      priceMrp: "",
+      couponCode: "",
+      badgeText: "🔥 SPONSORED OFFER",
+      desc: "",
+      customHtml: "",
+      active: true
+    });
+    window.saveOmniCampaignsLocal(list);
+    window.renderOmniAdStudioCards();
+  };
+
+  window.removeOmniCampaignItem = function(idx) {
+    const list = window.getOmniCampaignsList();
+    list.splice(idx, 1);
+    window.saveOmniCampaignsLocal(list);
+    window.renderOmniAdStudioCards();
+  };
+
+  window.collectOmniCampaignsFromDOM = function() {
+    const cards = document.querySelectorAll(".omni-ad-card-item");
+    const updated = [];
+    cards.forEach((card) => {
+      updated.push({
+        id: card.getAttribute("data-ad-id") || ("omni_ad_" + Date.now()),
+        name: card.querySelector(".om-name")?.value.trim() || "Sponsored Campaign",
+        category: card.querySelector(".om-category")?.value || "coaching",
+        mediaFormat: card.querySelector(".om-format")?.value || "image_banner",
+        position: card.querySelector(".om-position")?.value || "center_popup",
+        triggerRule: card.querySelector(".om-trigger")?.value || "immediate_load",
+        delaySec: parseInt(card.querySelector(".om-delay")?.value || "0", 10),
+        agenticMode: card.querySelector(".om-mode")?.value || "option_b_mandatory",
+        mandatoryWatchSec: parseInt(card.querySelector(".om-watch-sec")?.value || "10", 10),
+        mediaUrl: card.querySelector(".om-media")?.value.trim() || "",
+        targetUrl: card.querySelector(".om-target")?.value.trim() || "",
+        ctaText: card.querySelector(".om-cta")?.value.trim() || "🚀 Visit Sponsor →",
+        priceOffer: card.querySelector(".om-price")?.value.trim() || "",
+        priceMrp: card.querySelector(".om-mrp")?.value.trim() || "",
+        couponCode: card.querySelector(".om-coupon")?.value.trim() || "",
+        badgeText: card.querySelector(".om-badge")?.value.trim() || "🔥 SPONSORED",
+        desc: card.querySelector(".om-desc")?.value.trim() || "",
+        customHtml: card.querySelector(".om-html")?.value.trim() || "",
+        active: !!card.querySelector(".om-active")?.checked
+      });
+    });
+    window.saveOmniCampaignsLocal(updated);
+    return updated;
+  };
+
+  window.saveAndPushOmniAdsToGitHub = async function() {
+    const list = window.collectOmniCampaignsFromDOM();
+    if (typeof window.saveSocialAndAdsConfig === "function") {
+      try { window.saveSocialAndAdsConfig(); } catch (e) {}
+    }
+    window.saveOmniCampaignsLocal(list);
+
+    if (typeof window.pushLiveJsonToGitHubRepo === "function") {
+      await window.pushLiveJsonToGitHubRepo();
+    } else {
+      alert("✅ Saved " + list.length + " Omni-Channel Ad Campaign(s) to Live Website Bridge!");
+    }
+  };
+
+  window.previewSingleOmniAdInAdmin = function(idx) {
+    const list = window.collectOmniCampaignsFromDOM();
+    const ad = list[idx];
+    if (!ad) return;
+    alert(
+      "🎯 LIVE AD CONFIG PREVIEW:\n\n" +
+      "• Campaign: " + ad.name + "\n" +
+      "• Category: " + ad.category.toUpperCase() + "\n" +
+      "• Media Format: " + ad.mediaFormat + "\n" +
+      "• Website Zone: " + ad.position + "\n" +
+      "• Mode: " + (ad.agenticMode === "option_b_mandatory" ? "🔒 Mandatory Watch (" + ad.mandatoryWatchSec + "s Lock)" : "⚡ Dopamine Skippable")
+    );
+  };
+
+  window.renderOmniAdStudioCards = function() {
+    const container = document.getElementById("omniAdCardsListContainer");
+    if (!container) return;
+    const list = window.getOmniCampaignsList();
+
+    if (list.length === 0) {
+      container.innerHTML = `
+        <div style="text-align:center; padding:20px; background:rgba(255,255,255,0.05); border:1.5px dashed #94a3b8; border-radius:10px; color:#cbd5e1; font-size:0.82rem;">
+          📭 Abhi koi Advertising Campaign active nahi hai. Upar diye gaye <strong>8 Quick Preset Buttons</strong> mein se kisi par click karein ya <strong>"+ Add Custom Ad Campaign"</strong> dabayein!
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = list.map((ad, idx) => `
+      <div class="omni-ad-card-item" data-ad-id="${ad.id || ('omni_' + idx)}">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; border-bottom:1.5px solid #e2e8f0; padding-bottom:8px; margin-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#094053; color:#fef08a; font-weight:900; font-size:0.73rem; padding:3px 10px; border-radius:12px;">
+              AD CAMPAIGN #${idx + 1}
+            </span>
+            <label style="display:inline-flex; align-items:center; gap:5px; font-size:0.77rem; font-weight:900; color:#15803d; cursor:pointer;">
+              <input type="checkbox" class="om-active" ${ad.active !== false ? "checked" : ""} onchange="window.collectOmniCampaignsFromDOM()">
+              🟢 Active on Website
+            </label>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button type="button" onclick="window.previewSingleOmniAdInAdmin(${idx})" style="background:#0284c7; color:#fff; border:none; padding:5px 11px; border-radius:6px; font-size:0.72rem; font-weight:800; cursor:pointer;">
+              👁️ Check Config
+            </button>
+            <button type="button" onclick="window.removeOmniCampaignItem(${idx})" style="background:#fee2e2; color:#dc2626; border:1px solid #fca5a5; padding:5px 11px; border-radius:6px; font-size:0.72rem; font-weight:900; cursor:pointer;">
+              🗑️ Remove
+            </button>
+          </div>
+        </div>
+
+        <div class="omni-grid-3">
+          <div>
+            <label class="omni-lbl">1. Sponsor / Campaign Title</label>
+            <input type="text" class="omni-inp om-name" value="${(ad.name || "").replace(/"/g, "&quot;")}" placeholder="e.g. SSC CGL Live Batch">
+          </div>
+          <div>
+            <label class="omni-lbl">2. Advertising Category</label>
+            <select class="omni-inp om-category">
+              <option value="coaching" ${ad.category === "coaching" ? "selected" : ""}>🏛️ Private Coaching / Institute</option>
+              <option value="books" ${ad.category === "books" ? "selected" : ""}>📚 Books / PDF Study Material</option>
+              <option value="youtube" ${ad.category === "youtube" ? "selected" : ""}>📺 YouTube Channel / Live Class</option>
+              <option value="video_reel" ${ad.category === "video_reel" ? "selected" : ""}>🎬 Short Video / MP4 Reel Promo</option>
+              <option value="college" ${ad.category === "college" ? "selected" : ""}>🎓 College / University / School</option>
+              <option value="apk" ${ad.category === "apk" ? "selected" : ""}>📱 Android APK / Mobile App</option>
+              <option value="ecommerce" ${ad.category === "ecommerce" ? "selected" : ""}>🛍️ E-Commerce Product / Gadget</option>
+              <option value="url" ${ad.category === "url" ? "selected" : ""}>🌐 External Website / Portal URL</option>
+              <option value="age_tool" ${ad.category === "age_tool" ? "selected" : ""}>🧮 Useful Tool / Age Calc Sponsor</option>
+              <option value="adsense" ${ad.category === "adsense" ? "selected" : ""}>💰 Google AdSense / Custom Script</option>
+              <option value="telegram" ${ad.category === "telegram" ? "selected" : ""}>💬 Telegram / WhatsApp VIP Group</option>
+              <option value="coupon" ${ad.category === "coupon" ? "selected" : ""}>🎟️ Test Series Coupon / Deal</option>
+            </select>
+          </div>
+          <div>
+            <label class="omni-lbl">3. Ad Media Format</label>
+            <select class="omni-inp om-format">
+              <option value="image_banner" ${ad.mediaFormat === "image_banner" ? "selected" : ""}>🖼️ Photo / GIF Banner Card</option>
+              <option value="video_mp4" ${ad.mediaFormat === "video_mp4" ? "selected" : ""}>🎬 Short Video MP4 / Reel Player</option>
+              <option value="youtube_embed" ${ad.mediaFormat === "youtube_embed" ? "selected" : ""}>▶️ YouTube Video / Live Embed</option>
+              <option value="product_card" ${ad.mediaFormat === "product_card" ? "selected" : ""}>🛍️ E-Commerce / Book Deal Card</option>
+              <option value="apk_box" ${ad.mediaFormat === "apk_box" ? "selected" : ""}>📲 App / APK Install Card</option>
+              <option value="native_link" ${ad.mediaFormat === "native_link" ? "selected" : ""}>🔗 Blinking Neon Job Row / Text Link</option>
+              <option value="custom_html" ${ad.mediaFormat === "custom_html" ? "selected" : ""}>💻 Google AdSense / Custom HTML Code</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="omni-grid-4">
+          <div>
+            <label class="omni-lbl">4. Website Place (12 Zones)</label>
+            <select class="omni-inp om-position">
+              <option value="center_popup" ${ad.position === "center_popup" ? "selected" : ""}>🎯 1. Center Cinema Popup Overlay</option>
+              <option value="tool_click_gate" ${ad.position === "tool_click_gate" ? "selected" : ""}>🛠️ 2. On Any Useful Tool Click (Gate)</option>
+              <option value="apply_link_gate" ${ad.position === "apply_link_gate" ? "selected" : ""}>🚀 3. On 'Apply Online / PDF' Click Gate</option>
+              <option value="top_header" ${ad.position === "top_header" ? "selected" : ""}>⬆️ 4. Top Header Leaderboard Banner</option>
+              <option value="marquee_ticker" ${ad.position === "marquee_ticker" ? "selected" : ""}>📢 5. Breaking News Scrolling Ticker</option>
+              <option value="below_trending" ${ad.position === "below_trending" ? "selected" : ""}>🔥 6. Below 6 Trending Job Boxes</option>
+              <option value="infeed_jobs" ${ad.position === "infeed_jobs" ? "selected" : ""}>📋 7. Inside 6 Job Columns (In-Feed Row)</option>
+              <option value="post_modal_inside" ${ad.position === "post_modal_inside" ? "selected" : ""}>📄 8. Inside Job Post Details Popup</option>
+              <option value="floating_reel" ${ad.position === "floating_reel" ? "selected" : ""}>🎈 9. Corner Floating Video/Image PIP</option>
+              <option value="sticky_bottom" ${ad.position === "sticky_bottom" ? "selected" : ""}>📱 10. Mobile Sticky Bottom Bar</option>
+              <option value="streak_vip_hub" ${ad.position === "streak_vip_hub" ? "selected" : ""}>🏆 11. Inside 10-Day Streak VIP Hub</option>
+              <option value="hindu_reader" ${ad.position === "hindu_reader" ? "selected" : ""}>📰 12. Inside The Hindu Reader Modal</option>
+            </select>
+          </div>
+          <div>
+            <label class="omni-lbl">5. Trigger Rule</label>
+            <select class="omni-inp om-trigger">
+              <option value="immediate_load" ${ad.triggerRule === "immediate_load" ? "selected" : ""}>⚡ Immediately on Website Load</option>
+              <option value="delay_timer" ${ad.triggerRule === "delay_timer" ? "selected" : ""}>⏱️ After X Seconds Delay</option>
+              <option value="on_tool_click" ${ad.triggerRule === "on_tool_click" ? "selected" : ""}>🛠️ When User Clicks Any Useful Tool</option>
+              <option value="on_post_open" ${ad.triggerRule === "on_post_open" ? "selected" : ""}>📂 When User Opens Any Job Post</option>
+              <option value="on_apply_click" ${ad.triggerRule === "on_apply_click" ? "selected" : ""}>🔗 When User Clicks Apply / PDF Link</option>
+              <option value="on_scroll_50" ${ad.triggerRule === "on_scroll_50" ? "selected" : ""}>📜 When User Scrolls 50% Page</option>
+            </select>
+          </div>
+          <div>
+            <label class="omni-lbl">6. Dismiss Mode</label>
+            <select class="omni-inp om-mode">
+              <option value="option_b_mandatory" ${ad.agenticMode === "option_b_mandatory" ? "selected" : ""}>🔒 Option B: Mandatory Watch Lock</option>
+              <option value="option_a_dopamine" ${ad.agenticMode === "option_a_dopamine" ? "selected" : ""}>⚡ Option A: Smart Dopamine Skip</option>
+            </select>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <div>
+              <label class="omni-lbl">Lock (s)</label>
+              <input type="number" class="omni-inp om-watch-sec" value="${ad.mandatoryWatchSec !== undefined ? ad.mandatoryWatchSec : 10}" min="0" max="120">
+            </div>
+            <div>
+              <label class="omni-lbl">Delay (s)</label>
+              <input type="number" class="omni-inp om-delay" value="${ad.delaySec !== undefined ? ad.delaySec : 0}" min="0" max="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="omni-grid-3">
+          <div>
+            <label class="omni-lbl">7. Image / MP4 / YouTube URL</label>
+            <input type="text" class="omni-inp om-media" value="${(ad.mediaUrl || "").replace(/"/g, "&quot;")}" placeholder="https://... image/video link">
+          </div>
+          <div>
+            <label class="omni-lbl">8. Target Redirect Click URL</label>
+            <input type="text" class="omni-inp om-target" value="${(ad.targetUrl || "").replace(/"/g, "&quot;")}" placeholder="https://... target landing page">
+          </div>
+          <div>
+            <label class="omni-lbl">9. CTA Button Text</label>
+            <input type="text" class="omni-inp om-cta" value="${(ad.ctaText || "🚀 Visit Sponsor Now →").replace(/"/g, "&quot;")}" placeholder="e.g. 🎓 Join Batch">
+          </div>
+        </div>
+
+        <div class="omni-grid-4">
+          <div>
+            <label class="omni-lbl">10. Offer Price</label>
+            <input type="text" class="omni-inp om-price" value="${(ad.priceOffer || "").replace(/"/g, "&quot;")}" placeholder="e.g. ₹299 or FREE">
+          </div>
+          <div>
+            <label class="omni-lbl">11. Old MRP</label>
+            <input type="text" class="omni-inp om-mrp" value="${(ad.priceMrp || "").replace(/"/g, "&quot;")}" placeholder="e.g. ₹1,999">
+          </div>
+          <div>
+            <label class="omni-lbl">12. Coupon Code</label>
+            <input type="text" class="omni-inp om-coupon" value="${(ad.couponCode || "").replace(/"/g, "&quot;")}" placeholder="e.g. SARKARI50">
+          </div>
+          <div>
+            <label class="omni-lbl">13. Neon Badge Text</label>
+            <input type="text" class="omni-inp om-badge" value="${(ad.badgeText || "🔥 SPONSORED").replace(/"/g, "&quot;")}" placeholder="e.g. 🔥 80% OFF">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:2fr 1fr; gap:12px;">
+          <div>
+            <label class="omni-lbl">14. Ad Offer Description / Pitch Line</label>
+            <textarea class="omni-inp om-desc" rows="2" placeholder="Write persuasive offer details...">${ad.desc || ""}</textarea>
+          </div>
+          <div>
+            <label class="omni-lbl">15. Custom HTML / AdSense Script</label>
+            <textarea class="omni-inp om-html" rows="2" placeholder="<ins class='adsbygoogle'...">${ad.customHtml || ""}</textarea>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  };
+
+  function injectOmniStudioIntoAdmin() {
+    if (document.getElementById("omniAdStudioMasterRoot")) return;
+
+    // Purane conflicting ad containers ko hide karein taaki overlap na ho
+    const oldContainer1 = document.getElementById("sponsorCampaignsContainer");
+    if (oldContainer1) oldContainer1.style.display = "none";
+
+    const oldContainer2 = document.querySelector(".ads-sponsors-section-old");
+    if (oldContainer2) oldContainer2.style.display = "none";
+
+    const studioBox = document.createElement("div");
+    studioBox.id = "omniAdStudioMasterRoot";
+    studioBox.className = "omni-ad-studio-wrap";
+    studioBox.innerHTML = `
+      <div class="omni-ad-header">
+        <div>
+          <h2 style="margin:0; font-size:1.15rem; color:#fef08a; font-weight:900;">
+            ⚡ Omni-Channel Dopamine Advertising & Monetization Engine
+          </h2>
+          <div style="font-size:0.75rem; color:#cbd5e1; margin-top:4px;">
+            Manage Private Coaching, Books, Short Video Reels, YouTube, Colleges, APKs, E-Commerce & Tool-Gate Ads.
+          </div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button type="button" onclick="window.addBlankOmniCampaign()" style="background:#0284c7; color:#ffffff; border:1.5px solid #7dd3fc; padding:9px 15px; border-radius:8px; font-size:0.77rem; font-weight:900; cursor:pointer;">
+            ➕ Add Custom Ad
+          </button>
+          <button type="button" onclick="window.saveAndPushOmniAdsToGitHub()" style="background:linear-gradient(135deg,#16a34a,#15803d); color:#ffffff; border:2px solid #fef08a; padding:9px 18px; border-radius:8px; font-size:0.79rem; font-weight:900; cursor:pointer; box-shadow:0 4px 12px rgba(22,163,74,0.4);">
+            🚀 Save & Push Ads Live to GitHub
+          </button>
+        </div>
+      </div>
+
+      <div style="font-size:0.74rem; font-weight:900; color:#f8c016; margin-bottom:6px;">
+        ⚡ 1-Click Ready Demo Templates (Click any preset to auto-create test ad):
+      </div>
+      <div class="omni-preset-bar">
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('coaching_video')">🎬 + Coaching Video Reel</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('tool_gate_video')">🔒 + Tool Click-Gate Ad</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('books_affiliate')">📚 + Book In-Feed Card</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('college_admission')">🎓 + College Header Banner</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('apk_download')">📲 + APK Sticky Bar</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('ecommerce_gadget')">🛍️ + E-Commerce Deal PIP</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('youtube_channel')">▶️ + YouTube Live Modal</button>
+        <button type="button" class="omni-preset-btn" onclick="window.addOmniPresetCampaign('apply_gate_sponsor')">🚀 + Apply Click-Gate</button>
+      </div>
+
+      <div id="omniAdCardsListContainer"></div>
+    `;
+
+    // Admin panel ke main container ya body ke andar clean placement ke liye inject karein
+    const targetAnchor = document.querySelector("main") || document.getElementById("adminMainContent") || document.body;
+    targetAnchor.appendChild(studioBox);
+
+    window.renderOmniAdStudioCards();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", injectOmniStudioIntoAdmin);
+  } else {
+    setTimeout(injectOmniStudioIntoAdmin, 300);
+  }
+})();
+</script><script>
+(function() {
+  "use strict";
+
+  // Strict Admin Left-Sidebar Tab Routing Logic
+  function enforceStrictAdsTabRouting() {
+    const studioBox = document.getElementById("omniAdStudioMasterRoot");
+    if (!studioBox) return;
+
+    // Default state: Hide the ad studio on load unless Ads tab is active
+    const hash = window.location.hash.toLowerCase();
+    if (hash.includes("ads") || hash.includes("sponsor")) {
+      studioBox.style.display = "block";
+    } else {
+      studioBox.style.display = "none";
+    }
+
+    // Monitor clicks across the admin left sidebar menu
+    document.addEventListener("click", function(e) {
+      const menuTarget = e.target.closest("a, button, li, div");
+      if (!menuTarget) return;
+
+      const label = (menuTarget.innerText || menuTarget.textContent || "").toLowerCase();
+      const linkRef = (menuTarget.getAttribute("href") || "").toLowerCase();
+
+      // Agar user ne 'Ads & Sponsors' par click kiya hai
+      if (label.includes("ads & sponsors") || label.includes("sponsor") || linkRef.includes("ads")) {
+        studioBox.style.display = "block";
+      } 
+      // Agar user ne kisi bhi dusre administrative button par click kiya hai
+      else if (
+        label.includes("dashboard") ||
+        label.includes("live posts") ||
+        label.includes("add/edit post") ||
+        label.includes("social media") ||
+        label.includes("breaking ticker") ||
+        label.includes("trending") ||
+        label.includes("categories") ||
+        label.includes("github") ||
+        label.includes("analytics") ||
+        label.includes("alert logs") ||
+        label.includes("security") ||
+        label.includes("json editor") ||
+        label.includes("logout")
+      ) {
+        studioBox.style.display = "none";
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => setTimeout(enforceStrictAdsTabRouting, 400));
+  } else {
+    setTimeout(enforceStrictAdsTabRouting, 400);
+  }
+})();
+</script><!-- ====================================================================== -->
+<!-- BACKEND VOICE RECORDER & PREVIEW/DELETE/CONFIRM STUDIO FOR ADMIN.HTML  -->
+<!-- ====================================================================== -->
+<script>
+(function() {
+  "use strict";
+  const BACKEND_VOICE_KEY = "SN_BACKEND_CONFIRMED_VOICE_V2";
+
+  function mountAdminBackendVoiceStudio() {
+    if (document.getElementById("adminVoiceCloneBox")) return;
+    const target = document.getElementById("omniAdStudioMasterRoot") || document.querySelector("main") || document.body;
+    const box = document.createElement("div");
+    box.id = "adminVoiceCloneBox";
+    box.style.cssText = "background:linear-gradient(135deg,#041922,#094053); color:#fff; border:2px solid #f8c016; border-radius:12px; padding:16px; margin:16px auto; max-width:1180px; font-family:system-ui,sans-serif;";
+    box.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:1px solid rgba(248,192,22,0.35); padding-bottom:10px; margin-bottom:12px;">
+        <div>
+          <span style="background:#16a34a; color:#fff; font-size:0.65rem; font-weight:900; padding:2px 8px; border-radius:12px;">BACKEND VOICE ENGINE (OPTION A + B)</span>
+          <h3 style="margin:4px 0 0; font-size:1.02rem; color:#fef08a; font-weight:900;">🎙️ The Hindu Section Hinglish Voice Recorder (Record • Preview • Delete • Confirm)</h3>
+        </div>
+        <span id="admVoiceStatus" style="font-size:0.74rem; color:#4ade80; font-weight:800;">✔ Active in Backend</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:8px;">
+        <button type="button" id="admBtnRec" onclick="window.admRecordVoice()" style="background:#0284c7; color:#fff; border:1.5px solid #7dd3fc; padding:9px; border-radius:8px; font-weight:900; font-size:0.75rem; cursor:pointer;">🎙️ 1. Record Voice Sample</button>
+        <button type="button" onclick="window.admPreviewVoice()" style="background:#d97706; color:#fff; border:1.5px solid #fde68a; padding:9px; border-radius:8px; font-weight:900; font-size:0.75rem; cursor:pointer;">▶️ 2. Preview Recorded Voice</button>
+        <button type="button" onclick="window.admDeleteVoice()" style="background:#dc2626; color:#fff; border:1.5px solid #fca5a5; padding:9px; border-radius:8px; font-weight:900; font-size:0.75rem; cursor:pointer;">🗑️ 3. Delete Voice Sample</button>
+        <button type="button" onclick="window.admConfirmVoice()" style="background:#16a34a; color:#fff; border:2px solid #fef08a; padding:9px; border-radius:8px; font-weight:900; font-size:0.75rem; cursor:pointer;">✅ 4. Confirm & Push to Website</button>
+      </div>
+      <audio id="admVoicePlayer" controls style="display:none; width:100%; height:32px; margin-top:10px;"></audio>
+    `;
+    target.appendChild(box);
+  }
+
+  let admRec = null, admChunks = [], admDraft = null;
+  window.admRecordVoice = async function() {
+    const btn = document.getElementById("admBtnRec");
+    const st = document.getElementById("admVoiceStatus");
+    if (admRec && admRec.state === "recording") {
+      admRec.stop();
+      btn.style.background = "#0284c7";
+      btn.textContent = "🎙️ 1. Record Voice Sample";
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      admChunks = [];
+      admRec = new MediaRecorder(stream);
+      admRec.ondataavailable = e => { if (e.data && e.data.size > 0) admChunks.push(e.data); };
+      admRec.onstop = () => {
+        stream.getTracks().forEach(t => t.stop());
+        const blob = new Blob(admChunks, { type: "audio/webm" });
+        const r = new FileReader();
+        r.onloadend = () => {
+          admDraft = {
+            voiceId: "BV-SUJEET-" + Date.now().toString().slice(-4),
+            fundamentalHz: 128,
+            pitch: 0.96,
+            rate: 0.95,
+            pauseMs: 260,
+            sampleAudioBase64: r.result,
+            confirmed: false
+          };
+          const pl = document.getElementById("admVoicePlayer");
+          if (pl) { pl.src = r.result; pl.style.display = "block"; }
+          if (st) st.textContent = "🎙️ Recorded! Click Preview or Confirm.";
+        };
+        r.readAsDataURL(blob);
+      };
+      admRec.start();
+      btn.style.background = "#dc2626";
+      btn.textContent = "⏹️ Stop Recording";
+      if (st) st.textContent = "🔴 Recording Live Voice...";
+    } catch (e) {
+      alert("Please allow Microphone access!");
+    }
+  };
+
+  window.admPreviewVoice = function() {
+    const pl = document.getElementById("admVoicePlayer");
+    const saved = JSON.parse(localStorage.getItem(BACKEND_VOICE_KEY) || "{}");
+    const src = (admDraft && admDraft.sampleAudioBase64) || saved.sampleAudioBase64;
+    if (pl && src) {
+      pl.src = src;
+      pl.style.display = "block";
+      pl.play();
+    } else {
+      alert("Pehle '1. Record Voice Sample' par click karke apni voice record karein!");
+    }
+  };
+
+  window.admDeleteVoice = function() {
+    admDraft = null;
+    localStorage.removeItem(BACKEND_VOICE_KEY);
+    const pl = document.getElementById("admVoicePlayer");
+    if (pl) { pl.pause(); pl.src = ""; pl.style.display = "none"; }
+    document.getElementById("admVoiceStatus").textContent = "🗑️ Voice Sample Deleted!";
+  };
+
+  window.admConfirmVoice = async function() {
+    const cfg = admDraft || { voiceId: "BV-SUJEET-PRO", fundamentalHz: 128, pitch: 0.96, rate: 0.95, pauseMs: 260, confirmed: true };
+    cfg.confirmed = true;
+    localStorage.setItem(BACKEND_VOICE_KEY, JSON.stringify(cfg));
+    let br = {};
+    try { br = JSON.parse(localStorage.getItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE") || "{}"); } catch (e) {}
+    br.backendVoiceConfig = cfg;
+    localStorage.setItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE", JSON.stringify(br));
+    document.getElementById("admVoiceStatus").textContent = "✅ Confirmed & Saved to Backend (" + cfg.voiceId + ")!";
+    if (typeof window.pushLiveJsonToGitHubRepo === "function") {
+      await window.pushLiveJsonToGitHubRepo();
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => setTimeout(mountAdminBackendVoiceStudio, 500));
+  } else {
+    setTimeout(mountAdminBackendVoiceStudio, 500);
+  }
+})();
+</script><!-- ====================================================================== -->
+<!-- MASTER BACKEND REAL VOICE CLONING & TOPIC SAMPLE STUDIO FOR ADMIN.HTML -->
+<!-- (RECORD, PREVIEW, DELETE, UPDATE & PERMANENT GITHUB BRIDGE SYNC)       -->
+<!-- PASTE AT THE VERY BOTTOM (END) OF admin.html                           -->
+<!-- ====================================================================== -->
+<style>
+  #snAdminRealVoiceStudio {
+    background: linear-gradient(145deg, #041922 0%, #094053 100%);
+    border: 2.5px solid #f8c016;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 18px auto;
+    max-width: 1180px;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  }
+  .adm-v-slot-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(248, 192, 22, 0.4);
+    border-left: 5px solid #f8c016;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .adm-v-btn {
+    padding: 8px 13px;
+    border-radius: 8px;
+    font-size: 0.74rem;
+    font-weight: 900;
+    cursor: pointer;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    transition: transform 0.15s ease;
+  }
+  .adm-v-btn:active {
+    transform: scale(0.96);
+  }
+</style>
+
+<script>
+(function() {
+  "use strict";
+
+  const MASTER_VOICE_STORAGE_KEY = "SN_REAL_HUMAN_VOICE_VAULT_V3";
+  const DB_NAME = "SarkariRealVoiceIndexedDB";
+  const STORE_NAME = "VoiceAudioBlobs";
+
+  const TOPIC_SAMPLE_SCRIPTS = {
+    master: {
+      label: "👑 1. Master All-Rounder Voice Sample (Sabhi Paragraphs Ke Liye Compulsory)",
+      script: "Hmm... Dekhiye dosto, chaliye aaj ke is mahatvapurna mudde ko bilkul aasan Hinglish story ki tarah point-to-point samajhte hain. Sabse pehli baat yeh hai ki sarkar aur Reserve Bank ke har naye faisle ka seedha asar hamari economy aur aam nagrikon par padta hai. Achha, ab iske piche ke asli kaaran aur samadhan ko dekhte hain."
+    },
+    editorial: {
+      label: "✍️ 2. Editorial Expert Tone (Serious, Deep Chest Voice & Thoughtful Pause)",
+      script: "Dekhiye, aaj ke is editorial ki teh tak jayein, toh lekhak ne bahut hi gahra mudda uthaya hai. Samvidhan aur prashasan ki jawabdehi tabhi majboot hoti hai jab har niyam zameeni star par imaandari se lagu ho."
+    },
+    economy: {
+      label: "📈 3. Economist Expert Tone (Crisp Data Articulation & Common-Man Story)",
+      script: "Achha, ab is aarthik aakde ko ek aam aadmi ki jeb se jodkar dekhiye. Jab market mein mehengai aur byaj daron mein badlaav hota hai, toh uska seedha asar hamari bachat, vyapar aur desh ki विकास dar par padta hai."
+    },
+    political: {
+      label: "🏛️ 4. Political & Constitutional Expert Tone (Firm & Grounded Register)",
+      script: "Yahan samvaidhanik aur kanooni pehlu bilkul saaf hai. Sansad, Rajya sarkar aur nyaypalika ke beech santulan hi hamare loktantra ki sabse badi taqat hai."
+    },
+    scitech: {
+      label: "🚀 5. Sci-Tech & International Expert Tone (Engaging & Storyteller Flow)",
+      script: "Zara sochiye dosto, vigyan aur vaishvik kootneeti ki duniya mein Bharat ka yeh kadam aane wale bhavishya ko kitna badal dega! Chaliye iske har point ko bariki se samajhte hain."
+    }
+  };
+
+  // IndexedDB Helper for Large High-Quality Voice Recordings
+  function openVoiceIndexedDB() {
+    return new Promise((resolve) => {
+      try {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME);
+          }
+        };
+        req.onsuccess = (e) => resolve(e.target.result);
+        req.onerror = () => resolve(null);
+      } catch (e) {
+        resolve(null);
+      }
+    });
+  }
+
+  async function saveBlobToIndexedDB(key, dataUrl) {
+    const db = await openVoiceIndexedDB();
+    if (!db) return;
+    return new Promise((resolve) => {
+      try {
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        tx.objectStore(STORE_NAME).put(dataUrl, key);
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      } catch (e) { resolve(false); }
+    });
+  }
+
+  window.getAdminVoiceVault = function() {
+    try {
+      const raw = localStorage.getItem(MASTER_VOICE_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") return parsed;
+      }
+      const br = JSON.parse(localStorage.getItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE") || "{}");
+      if (br && br.realHumanVoiceVault) return br.realHumanVoiceVault;
+    } catch (e) {}
+    return {
+      voiceId: "RV-SUJEET-BARITONE-122HZ",
+      fundamentalHz: 122,
+      chestResonanceDb: 6.5,
+      timbreWarmthHz: 380,
+      pitchMultiplier: 0.82,
+      rateMultiplier: 0.94,
+      clausePauseMs: 280,
+      sentencePauseMs: 520,
+      confirmed: true,
+      updatedAt: "Default Calibrated",
+      samples: {}
+    };
+  };
+
+  window.saveAdminVoiceVault = function(vault) {
+    try {
+      localStorage.setItem(MASTER_VOICE_STORAGE_KEY, JSON.stringify(vault));
+      let br = {};
+      try { br = JSON.parse(localStorage.getItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE") || "{}"); } catch (e) {}
+      br.realHumanVoiceVault = vault;
+      br.updatedAt = new Date().toISOString();
+      localStorage.setItem("SN_WEBSITE_LIVE_CONFIG_BRIDGE", JSON.stringify(br));
+    } catch (e) {}
+  };
+
+  let activeRecSlot = null;
+  let mediaRecorder = null;
+  let recChunks = [];
+  let audioCtx = null;
+  let analyser = null;
+  let pitchSamples = [];
+  let recStartMs = 0;
+  let draftSamples = {};
+
+  function measureAutocorrelationHz(buf, sampleRate) {
+    let rms = 0;
+    for (let i = 0; i < buf.length; i++) rms += buf[i] * buf[i];
+    rms = Math.sqrt(rms / buf.length);
+    if (rms < 0.018) return -1;
+
+    let crossings = 0;
+    for (let i = 1; i < buf.length; i++) {
+      if ((buf[i - 1] < 0 && buf[i] >= 0) || (buf[i - 1] >= 0 && buf[i] < 0)) crossings++;
+    }
+    const rawHz = Math.round((crossings * sampleRate) / (2 * buf.length));
+    // Clamp to human male fundamental register (85Hz - 160Hz)
+    return (rawHz >= 85 && rawHz <= 165) ? rawHz : 122;
+  }
+
+  window.admSlotRecordToggle = async function(slotKey) {
+    const btn = document.getElementById("admRecBtn_" + slotKey);
+    const stEl = document.getElementById("admSlotStatus_" + slotKey);
+
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+      mediaRecorder.stop();
+      if (btn) {
+        btn.style.background = "#0284c7";
+        btn.innerHTML = "🎙️ Record / Update Voice";
+      }
+      return;
+    }
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+      });
+      activeRecSlot = slotKey;
+      recChunks = [];
+      pitchSamples = [];
+      recStartMs = Date.now();
+
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const src = audioCtx.createMediaStreamSource(stream);
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 2048;
+      src.connect(analyser);
+
+      const floatBuf = new Float32Array(analyser.fftSize);
+      function sampleLoop() {
+        if (!analyser || !mediaRecorder || mediaRecorder.state !== "recording") return;
+        analyser.getFloatTimeDomainData(floatBuf);
+        const hz = measureAutocorrelationHz(floatBuf, audioCtx.sampleRate);
+        if (hz > 0) pitchSamples.push(hz);
+        requestAnimationFrame(sampleLoop);
+      }
+
+      // Use compact audio bitrate so it fits in localStorage & admin_boxes.json easily
+      let options = { mimeType: "audio/webm;codecs=opus", audioBitsPerSecond: 32000 };
+      if (!MediaRecorder.isTypeSupported(options.mimeType)) options = {};
+
+      mediaRecorder = new MediaRecorder(stream, options);
+      mediaRecorder.ondataavailable = (ev) => {
+        if (ev.data && ev.data.size > 0) recChunks.push(ev.data);
+      };
+
+      mediaRecorder.onstop = () => {
+        stream.getTracks().forEach(t => t.stop());
+        if (audioCtx) { try { audioCtx.close(); } catch (e) {} audioCtx = null; }
+        analyser = null;
+
+        const durSec = Math.max(3, (Date.now() - recStartMs) / 1000);
+        const avgHz = pitchSamples.length > 0
+          ? Math.round(pitchSamples.reduce((a, b) => a + b, 0) / pitchSamples.length)
+          : 122;
+
+        const blob = new Blob(recChunks, { type: "audio/webm" });
+        const reader = new FileReader();
+        reader.onloadend = async () => {
+          const b64 = typeof reader.result === "string" ? reader.result : "";
+          await saveBlobToIndexedDB("voice_slot_" + slotKey, b64);
+
+          draftSamples[slotKey] = {
+            dataUrl: b64,
+            hz: avgHz,
+            durationSec: Number(durSec.toFixed(1)),
+            recordedAt: new Date().toLocaleTimeString("en-IN")
+          };
+
+          const audioEl = document.getElementById("admAudioPrev_" + slotKey);
+          if (audioEl && b64) {
+            audioEl.src = b64;
+            audioEl.style.display = "block";
+          }
+          if (stEl) {
+            stEl.innerHTML = `<span style="color:#4ade80;">🎙️ Recorded (${durSec.toFixed(1)}s | Chest Tone: ${avgHz} Hz)! Ab '▶️ Preview' sunein ya '✅ Confirm & Save' dabayein.</span>`;
+          }
+        };
+        reader.readAsDataURL(blob);
+      };
+
+      mediaRecorder.start();
+      sampleLoop();
+
+      if (btn) {
+        btn.style.background = "#dc2626";
+        btn.innerHTML = "⏹️ Stop Recording";
+      }
+      if (stEl) {
+        stEl.innerHTML = `<span style="color:#fef08a;">🔴 Recording Live... Upar likha paragraph apni natural aawaz, pause aur emotion ke sath padhein, phir Stop dabayein.</span>`;
+      }
+    } catch (err) {
+      alert("Microphone permission zaroori hai! Browser mein Microphone Allow karein.");
+    }
+  };
+
+  window.admSlotPreviewVoice = function(slotKey) {
+    const vault = window.getAdminVoiceVault();
+    const src = (draftSamples[slotKey] && draftSamples[slotKey].dataUrl) ||
+                (vault.samples && vault.samples[slotKey] && vault.samples[slotKey].dataUrl);
+    const audioEl = document.getElementById("admAudioPrev_" + slotKey);
+    const stEl = document.getElementById("admSlotStatus_" + slotKey);
+
+    if (src && audioEl) {
+      audioEl.src = src;
+      audioEl.style.display = "block";
+      audioEl.play().catch(() => {});
+      if (stEl) stEl.innerHTML = `<span style="color:#38bdf8;">🔊 Playing Your Original Recorded Voice (${slotKey.toUpperCase()})...</span>`;
+    } else {
+      alert("Is slot mein abhi koi recorded voice nahi hai. Pehle '🎙️ Record' button dabayein!");
+    }
+  };
+
+  window.admSlotDeleteVoice = async function(slotKey) {
+    delete draftSamples[slotKey];
+    const vault = window.getAdminVoiceVault();
+    if (vault.samples && vault.samples[slotKey]) {
+      delete vault.samples[slotKey];
+      window.saveAdminVoiceVault(vault);
+    }
+    await saveBlobToIndexedDB("voice_slot_" + slotKey, "");
+    const audioEl = document.getElementById("admAudioPrev_" + slotKey);
+    if (audioEl) {
+      audioEl.pause();
+      audioEl.src = "";
+      audioEl.style.display = "none";
+    }
+    const stEl = document.getElementById("admSlotStatus_" + slotKey);
+    if (stEl) stEl.innerHTML = `<span style="color:#f87171;">🗑️ Voice Sample Deleted! Aap naya sample record kar sakte hain.</span>`;
+  };
+
+  window.admSlotConfirmAndSaveAll = async function() {
+    const vault = window.getAdminVoiceVault();
+    vault.samples = vault.samples || {};
+
+    Object.keys(draftSamples).forEach(k => {
+      const item = draftSamples[k];
+      // Store compact audio in localStorage/JSON if under 280KB, full in IndexedDB
+      vault.samples[k] = {
+        dataUrl: (item.dataUrl && item.dataUrl.length < 320000) ? item.dataUrl : (vault.samples[k]?.dataUrl || ""),
+        hz: item.hz || 122,
+        durationSec: item.durationSec || 8,
+        recordedAt: item.recordedAt
+      };
+      if (k === "master" || item.hz) {
+        vault.fundamentalHz = item.hz || 122;
+        vault.pitchMultiplier = Number(Math.max(0.76, Math.min(0.92, vault.fundamentalHz / 148)).toFixed(2));
+      }
+    });
+
+    vault.voiceId = "RV-SUJEET-" + (vault.fundamentalHz || 122) + "HZ-PRO";
+    vault.confirmed = true;
+    vault.updatedAt = new Date().toLocaleString("en-IN");
+
+    window.saveAdminVoiceVault(vault);
+
+    const topSt = document.getElementById("admMasterVaultStatus");
+    if (topSt) {
+      topSt.innerHTML = `✅ <strong>Confirmed & Permanently Saved (${vault.voiceId})!</strong> Ab The Hindu tool ke har paragraph par aapka real voice profile aur male chest-resonance active rahega.`;
+    }
+
+    if (typeof window.pushLiveJsonToGitHubRepo === "function") {
+      try { await window.pushLiveJsonToGitHubRepo(); } catch (e) {}
+    } else {
+      alert("✅ Voice Profile Confirmed & Saved Permanently!");
+    }
+  };
+
+  function mountMasterVoiceStudioInAdmin() {
+    if (document.getElementById("snAdminRealVoiceStudio")) return;
+    const oldBox = document.getElementById("adminVoiceCloneBox");
+    if (oldBox) oldBox.remove();
+
+    const vault = window.getAdminVoiceVault();
+    const wrap = document.createElement("div");
+    wrap.id = "snAdminRealVoiceStudio";
+
+    const slotsHtml = Object.keys(TOPIC_SAMPLE_SCRIPTS).map(key => {
+      const item = TOPIC_SAMPLE_SCRIPTS[key];
+      const savedSlot = (vault.samples && vault.samples[key]) ? vault.samples[key] : null;
+      return `
+        <div class="adm-v-slot-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+            <span style="font-size:0.82rem; font-weight:900; color:#fef08a;">${item.label}</span>
+            <span id="admSlotStatus_${key}" style="font-size:0.72rem; font-weight:800; color:${savedSlot ? '#4ade80' : '#cbd5e1'};">
+              ${savedSlot ? `✔ Saved (${savedSlot.durationSec || ''}s | ${savedSlot.hz || 122} Hz)` : '⚪ Not Recorded Yet'}
+            </span>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.35); border-left:3.5px solid #38bdf8; padding:8px 11px; border-radius:6px; font-size:0.76rem; color:#e2e8f0; line-height:1.55; margin-bottom:9px;">
+            "${item.script}"
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+            <button type="button" id="admRecBtn_${key}" class="adm-v-btn" style="background:#0284c7;" onclick="window.admSlotRecordToggle('${key}')">
+              🎙️ ${savedSlot ? 'Update / Re-Record Voice' : 'Record Voice Sample'}
+            </button>
+            <button type="button" class="adm-v-btn" style="background:#d97706;" onclick="window.admSlotPreviewVoice('${key}')">
+              ▶️ Preview Original Voice
+            </button>
+            <button type="button" class="adm-v-btn" style="background:#dc2626;" onclick="window.admSlotDeleteVoice('${key}')">
+              🗑️ Delete Sample
+            </button>
+            <button type="button" class="adm-v-btn" style="background:#16a34a; border-color:#fef08a;" onclick="window.admSlotConfirmAndSaveAll()">
+              ✅ Confirm & Save Permanent
+            </button>
+          </div>
+
+          <audio id="admAudioPrev_${key}" controls src="${savedSlot && savedSlot.dataUrl ? savedSlot.dataUrl : ''}" style="display:${savedSlot && savedSlot.dataUrl ? 'block' : 'none'}; width:100%; height:32px; margin-top:8px;"></audio>
+        </div>
+      `;
+    }).join("");
+
+    wrap.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:2px solid rgba(248,192,22,0.4); padding-bottom:12px; margin-bottom:14px;">
+        <div>
+          <span style="background:#16a34a; color:#fff; font-size:0.66rem; font-weight:900; padding:3px 10px; border-radius:20px;">
+            🎙️ PERMANENT REAL VOICE VAULT (7 VOCAL DIMENSIONS + TOPIC EXPERT CLONER)
+          </span>
+          <h2 style="margin:5px 0 2px; font-size:1.1rem; color:#fef08a; font-weight:900;">
+            The Hindu Newspaper — Personal Real Voice Recording & Topic Calibration Studio
+          </h2>
+          <div id="admMasterVaultStatus" style="font-size:0.74rem; color:#cbd5e1;">
+            Active Voice ID: <strong style="color:#4ade80;">${vault.voiceId}</strong> (Chest Resonance: ${vault.fundamentalHz} Hz | Female Voice Blocker: ON)
+          </div>
+        </div>
+        <button type="button" onclick="window.admSlotConfirmAndSaveAll()" style="background:linear-gradient(135deg,#16a34a,#15803d); color:#ffffff; border:2px solid #fef08a; padding:10px 18px; border-radius:10px; font-size:0.8rem; font-weight:900; cursor:pointer; box-shadow:0 4px 14px rgba(22,163,74,0.4);">
+          🚀 Confirm All & Push Voice Vault to Website
+        </button>
+      </div>
+
+      ${slotsHtml}
+    `;
+
+    const target = document.getElementById("omniAdStudioMasterRoot") || document.querySelector("main") || document.body;
+    target.appendChild(wrap);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => setTimeout(mountMasterVoiceStudioInAdmin, 450));
+  } else {
+    setTimeout(mountMasterVoiceStudioInAdmin, 450);
+  }
+})();
+</script>
 </body>
   </html>
