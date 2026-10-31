@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-10-31 10:53:06 PM IST",
+  "updated_at": "2026-11-01 12:10:41 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 0,
-  "unseen_auto_published_count": 145,
+  "pruned_posts_last_run": 7,
+  "unseen_auto_published_count": 246,
   "category_counts": {
-    "latest_jobs": 44,
-    "results": 27,
-    "admit_cards": 43,
-    "answer_keys": 11,
-    "syllabus": 10,
-    "admissions": 10
+    "latest_jobs": 89,
+    "results": 42,
+    "admit_cards": 53,
+    "answer_keys": 25,
+    "syllabus": 16,
+    "admissions": 21
   },
   "trending_top_6": [
     {
@@ -32,6 +32,24 @@
       "active": true
     },
     {
+      "id": "420d7f6e39e6",
+      "title": "UPESSC PRT Assistant Teacher Online Form 2026 (12405 Posts) – Date Extend",
+      "sub": "Date Extended",
+      "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 138,
+      "active": true
+    },
+    {
+      "id": "505c1f5ae4b4",
+      "title": "BPSC School Teacher TRE 4.0 Online Form 2026 (33,320 Posts)",
+      "sub": "Date Extended",
+      "url": "https://bpsc.bihar.gov.in/wp-content/uploads/BPSC_content/Notices/Important-Notice-cum-Corrigendum-152026-School-Teacher-Class-9-10-11-12-remaining-vacancies_BPSC-20260929-qxkdgl.pdf",
+      "details": "Application Fee For All Category Candidates : ₹ 100/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 138,
+      "active": true
+    },
+    {
       "id": "3919c89162dd",
       "title": "UPESSC TGT Online Form (17,735 Posts)",
       "sub": "Latest Jobs",
@@ -41,30 +59,12 @@
       "active": true
     },
     {
-      "id": "490c9c564aee",
-      "title": "RRB NTPC UG CBT 2 Result 2026",
-      "sub": "Result",
-      "url": "https://rrb.indianrailways.gov.in/",
-      "details": "Result Details Official Link RRB NTPC UG CBT 2 Result 2026 Check Region-Wise Result RRB NTPC UG CBT 2 Scorecard 2026 Check Scorecard RRB NTPC UG CBT 2 Cutoff 2026 Download Cutoff PDF RRB Chandigarh CEN 07/2025 Notices Check Official Notices Railway Recruitment Boards Official Directory Visit Website",
-      "rushScore": 116,
-      "active": true
-    },
-    {
-      "id": "45ccfd97e84b",
-      "title": "Kolkata Police Vacancy 2026 Out For 5893 Posts, Notification Soon",
+      "id": "75eb3e7c4019",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
       "sub": "Latest Jobs",
-      "url": "https://uppbpb.gov.in",
-      "details": "Official notification for Kolkata Police Vacancy 2026 Out For 5893 Posts, Notification Soon. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 114,
-      "active": true
-    },
-    {
-      "id": "2e642ff2b067",
-      "title": "SBI Recruitment 2026 Notification: Registration Deadline Extended",
-      "sub": "Date Extended",
-      "url": "https://sbi.co.in/web/careers",
-      "details": "Official notification for SBI Recruitment 2026 Notification: Registration Deadline Extended. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 113,
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 123,
       "active": true
     }
   ],
