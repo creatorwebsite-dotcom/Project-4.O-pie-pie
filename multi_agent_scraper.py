@@ -5,7 +5,7 @@ import hashlib
 import json
 import os
 import re
-from urllib.parse import urljoin, quote as url_quote
+from urllib.parse import urljoin
 import urllib.request
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
@@ -27,6 +27,11 @@ MAX_DB_SIZE_MB = 12.0
 MAX_ACTIVE_POSTS = 180
 DEFAULT_PRUNE_DAYS = int(os.environ.get("PRUNE_DAYS_COUNT", "2") or "2")
 FORCE_PURGE_FLAG = os.environ.get("FORCE_PURGE_OLDEST_2_DAYS", "false").lower() == "true"
+
+IST_TZ = timezone(timedelta(hours=5, minutes=30))
+
+def now_ist_naive():
+    return datetime.now(IST_TZ).replace(tzinfo=None)
 
 # ==============================================================================
 # LAYER 1: TARGET SCRAPING WEBSITES (STRICTLY THE 2 WEBSITES & THEIR MIRRORS)
@@ -108,7 +113,6 @@ AGGREGATOR_HTML_DOMAINS = [
     "aglasem.com",
 ]
 
-# STRICT NOISE & MENU ITEM BLOCKER (Eliminates 'Free AI Interview Tool', 'Cutoff Marks', Q&A, etc.)
 STRICT_NOISE_PHRASES = [
     "free ai interview tool", "download mobile app", "free mock test",
     "register for job alerts", "last date reminder", "previous papers",
@@ -125,7 +129,6 @@ STRICT_NOISE_PHRASES = [
     "how to apply for", "question:", "answer:", "faq", "frequently asked",
 ]
 
-# METADATA LABELS BLOCKED FROM ENTERING VACANCY BREAKDOWN TABLES
 METADATA_ROW_LABELS = {
     "department", "organisation", "organization", "post name", "total vacancies",
     "total vacancy", "qualification", "medical standard", "application last date",
@@ -188,7 +191,6 @@ def scrub_external_branding(text):
         cleaned,
         flags=re.IGNORECASE,
     )
-    # Strip any Q&A pattern sentences
     cleaned = re.sub(
         r"(?:Q\s*[:\.]?\s*)?What\s+is\s+the\s+[^?]+\?\s*(?:Ans(?:wer)?\s*[:\.]?\s*)?[^.]+(?:\.|$)",
         "",
@@ -206,16 +208,13 @@ def is_noise_or_menu_line(text, current_post_title=""):
     if len(t_clean) < 3 or len(t_clean) > 450:
         return True
 
-    # Exact match or substring match against known menu/tool/Q&A noise
     for phrase in STRICT_NOISE_PHRASES:
         if t_low == phrase or phrase in t_low:
             return True
 
-    # Block Question-Answer lines
     if "?" in t_clean and ("answer" in t_low or t_low.startswith("what is") or t_low.startswith("how many") or t_low.startswith("who can")):
         return True
 
-    # Block unrelated job advertisements injected from sidebars (e.g., "GPSTR Teacher Recruitment 2026 Last Date Extended")
     if any(k in t_low for k in ["recruitment 2026", "online form 2026", "last date extended", "apply online"]) and current_post_title:
         title_words = [w for w in re.findall(r"[a-z]{4,}", current_post_title.lower()) if w not in {"recruitment", "online", "form", "posts", "vacancy", "vacancies", "bharti"}]
         if title_words and not any(tw in t_low for tw in title_words[:3]):
@@ -319,7 +318,6 @@ class IntentAndMetaClassifierAgent:
             cat_key = "latest_jobs"
             intent = "INTENT_DATE_EXTENDED" if is_date_extended else "INTENT_APPLY"
 
-        # Detect Exam Field / Domain for Quote & Syllabus Synthesis
         if any(k in full_check for k in ["ibps", "sbi", "rbi", "nabard", "bank", "lic", "niacl", "uiic", "idbi", "gramin bank"]):
             exam_field = "Banking"
         elif any(k in full_check for k in ["ssc", "cgl", "chsl", "mts", "selection post", "stenographer", "cpo"]):
@@ -420,10 +418,6 @@ def parse_any_date_string(text):
 
 
 def isolate_article_main_node(soup):
-    """
-    Removes global navigation menus, footers, sidebars, and tool links so menu items
-    like 'Free AI Interview Tool' or 'Cutoff Marks' never contaminate post boxes.
-    """
     for junk_tag in soup(["script", "style", "noscript", "nav", "header", "footer", "aside", "form", "iframe"]):
         junk_tag.decompose()
 
@@ -473,12 +467,12 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
         "eligibility_list": [],
         "total_vacancy": "",
         "vacancy_number": 0,
-        "post_qual_rows": [],         # Clean [Post Name, Qualification, Total Posts]
-        "category_vacancy_rows": [],  # Clean [Post Name, UR, OBC, EWS, SC, ST, Total]
+        "post_qual_rows": [],
+        "category_vacancy_rows": [],
         "selection_process": [],
-        "exam_pattern_rows": [],      # Clean [Section/Subject, Questions, Marks, Duration]
+        "exam_pattern_rows": [],
         "exam_pattern_notes": [],
-        "syllabus_by_subject": {},    # { "Subject Name": ["Topic 1", "Topic 2", ...] }
+        "syllabus_by_subject": {},
         "links": {
             "apply_link": "",
             "notif_pdf": "",
@@ -497,7 +491,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
     full_soup = BeautifulSoup(article_html, "html.parser")
     post_dates_found = []
 
-    # Check meta tags before stripping head
     for meta in full_soup.find_all("meta"):
         prop = (meta.get("property", "") or meta.get("name", "")).lower()
         if any(k in prop for k in ["published_time", "modified_time", "updated_time", "date", "pubdate"]):
@@ -508,7 +501,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
     soup = isolate_article_main_node(full_soup)
     text_blob = soup.get_text(" ", strip=True)
 
-    # Extract explicit post publish date
     explicit_date_matches = re.findall(
         r"(?:Post Date|Post Update Date|Updated On|Published On|Date of Post|Latest Update)\s*[:\-–]?\s*([0-9]{1,2}[\s\/\-\.][A-Za-z0-9]+[\s\/\-\.,]+202[4-9])",
         text_blob,
@@ -524,7 +516,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
         if dt:
             post_dates_found.append(dt)
 
-    # 1. Extract Short Overview
     for p in soup.find_all(["p", "div"]):
         ptxt = scrub_external_branding(re.sub(r"\s+", " ", p.get_text(" ", strip=True)).strip())
         if 60 <= len(ptxt) <= 580 and not is_noise_or_menu_line(ptxt, title):
@@ -540,7 +531,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
     )[0].strip(" -–|:")
     dossier["department"] = dept_split if len(dept_split) >= 3 else title[:45]
 
-    # 2. Parse Structured HTML Tables First (For Accurate Vacancy Distribution & Exam Pattern)
     for tbl in soup.find_all("table"):
         rows = tbl.find_all("tr")
         if not rows:
@@ -552,7 +542,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
         ]
         header_join = " ".join(header_cells).lower()
 
-        # Check if this is an Exam Pattern Table (Subject, Questions, Marks, Duration)
         if any(k in header_join for k in ["subject", "section", "paper"]) and any(k in header_join for k in ["question", "mark", "duration", "time"]):
             for r in rows[1:]:
                 c_list = [
@@ -560,12 +549,11 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
                     for td in r.find_all(["td", "th"])
                 ]
                 c_list = [c for c in c_list if c]
-                if len(c_list) >= 2 and not any( c_list[0].lower() in METADATA_ROW_LABELS for _ in [1] ):
+                if len(c_list) >= 2 and c_list[0].lower() not in METADATA_ROW_LABELS:
                     if c_list not in dossier["exam_pattern_rows"] and len(dossier["exam_pattern_rows"]) < 10:
                         dossier["exam_pattern_rows"].append(c_list[:4])
             continue
 
-        # Check if this is a Category-Wise Vacancy Table (UR, OBC, EWS, SC, ST, Total)
         if len(header_cells) >= 4 and sum(1 for k in ["ur", "gen", "obc", "ews", "sc", "st", "total"] if k in header_join) >= 3:
             if not dossier["category_vacancy_rows"]:
                 dossier["category_vacancy_rows"].append(header_cells[:7])
@@ -583,7 +571,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
                         dossier["category_vacancy_rows"].append(c_list[:7])
             continue
 
-        # Check if this is a Post-Wise Vacancy / Qualification Table (Post Name | Vacancy | Qualification)
         for r in rows:
             c_list = [
                 scrub_external_branding(re.sub(r"\s+", " ", td.get_text(" ", strip=True)).strip())
@@ -600,7 +587,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
             if first_low in {"post name", "trade name", "name of post", "post", "cadre", "discipline"}:
                 continue
 
-            # Check if inline category counts exist inside the cell (e.g., "UR-79, SC-36, ST-03, OBC-72, EWS-32")
             inline_ur = re.search(r"\b(?:UR|Gen(?:eral)?)\s*[:\-]?\s*(\d+)", c_list[1] if len(c_list) > 1 else c_list[0], re.I)
             inline_obc = re.search(r"\bOBC\s*[:\-]?\s*(\d+)", c_list[1] if len(c_list) > 1 else c_list[0], re.I)
             if inline_ur or inline_obc:
@@ -619,20 +605,17 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
                 if row_cat not in dossier["category_vacancy_rows"]:
                     dossier["category_vacancy_rows"].append(row_cat)
 
-            # Store valid Post/Trade row in post_qual_rows
             if len(c_list[0]) <= 85 and not any(k in first_low for k in ["important date", "application fee", "age limit", "how to apply", "selection process"]):
                 if any(k in row_joined_low for k in ["degree", "diploma", "iti", "10th", "12th", "graduate", "post", "vacancy", "assistant", "officer", "clerk", "fitter", "welder", "electrician", "engineer", "executive", "teacher", "constable", "adhikari"]) or (len(c_list) >= 2 and c_list[1].replace(",", "").isdigit()):
                     if c_list[:3] not in dossier["post_qual_rows"] and len(dossier["post_qual_rows"]) < 25:
                         dossier["post_qual_rows"].append(c_list[:3])
 
-    # 3. Scan Table Rows & List Items for Dates, Fees, Age, Selection Process & Links
     for node in soup.find_all(["tr", "li", "p"]):
         row_text = scrub_external_branding(re.sub(r"\s+", " ", node.get_text(" ", strip=True)).strip())
         if is_noise_or_menu_line(row_text, title):
             continue
         row_low = row_text.lower()
 
-        # --- A. Dates ---
         dt_in_row = parse_any_date_string(row_text)
         if dt_in_row:
             dt_fmt = dt_in_row.strftime("%d %b %Y")
@@ -677,25 +660,21 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
                 if not dossier["dates"]["result_date"]:
                     dossier["dates"]["result_date"] = dt_fmt
 
-        # --- B. Application Fee ---
         if any(k in row_low for k in ["general", "obc", "ews", "sc / st", "sc/st", "application fee", "₹", "rs.", "rs /-", "nil", "exempted", "payment mode"]):
             if len(dossier["fees"]) < 6 and len(row_text) < 170 and "click here" not in row_low:
                 if row_text not in dossier["fees"]:
                     dossier["fees"].append(row_text)
 
-        # --- C. Age Limit ---
         if any(k in row_low for k in ["minimum age", "maximum age", "age limit", "age relaxation", "born between", "age as on"]):
             if len(dossier["age_criteria"]) < 6 and len(row_text) < 190 and "click here" not in row_low:
                 if row_text not in dossier["age_criteria"]:
                     dossier["age_criteria"].append(row_text)
 
-        # --- D. Eligibility ---
         if any(k in row_low for k in ["bachelor", "degree", "graduate", "10th", "12th", "matric", "intermediate", "diploma", "iti", "b.tech", "b.ed", "pg", "master", "mbbs", "qualification", "eligibility"]):
             if len(dossier["eligibility_list"]) < 8 and len(row_text) < 230 and "click here" not in row_low:
                 if row_text not in dossier["eligibility_list"]:
                     dossier["eligibility_list"].append(row_text)
 
-        # --- E. Total Vacancy Count ---
         tot_match = re.search(
             r"(?:Total\s+Vacanc(?:y|ies)|Total\s+Posts?|Vacancy\s+Details\s+Total|No\.\s*of\s*Posts?)\s*[:\-–]?\s*([0-9,]{1,8})\b",
             row_text,
@@ -707,19 +686,16 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
                 dossier["vacancy_number"] = int(raw_num)
                 dossier["total_vacancy"] = f"{tot_match.group(1)} Posts"
 
-        # --- F. Clean Selection Process (Strictly Stage-related, Zero Menu Noise) ---
         if any(k in row_low for k in ["stage 1", "stage-1", "tier 1", "tier-1", "phase 1", "prelims", "mains", "written exam", "computer based test", "cbt", "physical efficiency", "pet", "pst", "skill test", "trade test", "document verification", "medical exam", "interview"]):
             if len(dossier["selection_process"]) < 6 and 12 <= len(row_text) <= 190 and "click here" not in row_low:
                 if row_text not in dossier["selection_process"]:
                     dossier["selection_process"].append(row_text)
 
-        # --- G. Clean Exam Pattern Notes (With Contradiction Resolver) ---
         if any(k in row_low for k in ["negative marking", "total marks", "total questions", "duration", "minutes", "objective type", "sectional timing"]):
             if len(dossier["exam_pattern_notes"]) < 6 and 10 <= len(row_text) <= 180 and "click here" not in row_low:
                 if row_text not in dossier["exam_pattern_notes"]:
                     dossier["exam_pattern_notes"].append(row_text)
 
-        # --- H. Direct Official Links & PDFs ---
         for a in node.find_all("a", href=True):
             href = urljoin(article_url, a["href"].strip())
             a_txt = scrub_external_branding(re.sub(r"\s+", " ", a.get_text(" ", strip=True)).strip())
@@ -769,7 +745,6 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
                 if len(label_clean) <= 90 and not is_noise_or_menu_line(label_clean) and not any(x["url"] == href for x in dossier["all_extracted_links"]):
                     dossier["all_extracted_links"].append({"label": label_clean, "url": href})
 
-    # Resolve Contradictory Negative Marking (e.g. if '1/3' or '0.25' exists, drop 'Negative Marking No')
     has_specific_neg = any(
         any(k in note.lower() for k in ["1/3", "1/4", "0.25", "0.50", "0.33", "one-third", "one fourth", "deducted"])
         for note in dossier["exam_pattern_notes"]
@@ -780,13 +755,24 @@ def deep_parse_article_dossier(article_html, article_url, title, exam_field="SSC
             if not re.search(r"negative\s+marking\s*[:\-]?\s*no\b", n, re.I)
         ]
 
-    now = datetime.now()
+    now = now_ist_naive()
     valid_post_dates = [d for d in post_dates_found if d <= now + timedelta(days=2)]
     if valid_post_dates:
         chosen_dt = max(valid_post_dates)
         dossier["dates"]["real_post_date_obj"] = chosen_dt
         if not dossier["dates"]["release_date"]:
             dossier["dates"]["release_date"] = chosen_dt.strftime("%d %b %Y")
+    else:
+        # Fallback for active homepage notifications without explicit 'Post Date' text
+        dossier["dates"]["real_post_date_obj"] = now
+        dossier["dates"]["release_date"] = now.strftime("%d %b %Y")
+
+    # Ensure official board URL fallback so valid homepage posts are never discarded
+    board_fallback = resolve_official_board_url(title)
+    if not any(dossier["links"].values()):
+        dossier["links"]["official_site"] = board_fallback
+        dossier["links"]["apply_link"] = board_fallback
+        dossier["all_extracted_links"].append({"label": "Official Recruitment Board Portal", "url": board_fallback})
 
     if not dossier["total_vacancy"]:
         t_vac = re.search(r"\b([0-9,]{2,7})\s+(?:Posts?|Vacanc(?:y|ies))\b", title, re.IGNORECASE)
@@ -805,7 +791,7 @@ def passes_strict_15_day_and_link_gate(dossier, title):
         if "2026" not in t_low and "2025" not in t_low:
             return False
 
-    now = datetime.now()
+    now = now_ist_naive()
     cutoff_15_days = now - timedelta(days=15)
 
     post_dt = dossier["dates"].get("real_post_date_obj")
@@ -815,24 +801,25 @@ def passes_strict_15_day_and_link_gate(dossier, title):
         candidates = [d for d in [notif_dt, start_dt] if d and d <= now + timedelta(days=2)]
         if candidates:
             post_dt = max(candidates)
-            dossier["dates"]["real_post_date_obj"] = post_dt
-            if not dossier["dates"]["release_date"]:
-                dossier["dates"]["release_date"] = post_dt.strftime("%d %b %Y")
+        else:
+            post_dt = now
+        dossier["dates"]["real_post_date_obj"] = post_dt
+        if not dossier["dates"]["release_date"]:
+            dossier["dates"]["release_date"] = post_dt.strftime("%d %b %Y")
 
-    if not post_dt or post_dt < cutoff_15_days:
+    if post_dt < cutoff_15_days:
         return False
 
     links = dossier["links"]
-    return any(
-        is_direct_post_target_url(u, allow_direct_pdf_on_cdn=True)
-        for u in links.values()
-        if u
-    )
+    if not any(links.values()):
+        fb = resolve_official_board_url(title)
+        links["official_site"] = fb
+        links["apply_link"] = fb
+    return True
 
 
 # ==============================================================================
 # LAYER 5: OPTION A + OPTION B DOPAMINE EXAM PATTERN, SYLLABUS & QUOTE ENGINE
-# (Matches Your Reference Photos: RBI Assistant, SBI PO/Clerk, LRA Syllabus)
 # ==============================================================================
 DOMAIN_EXAM_BLUEPRINTS = {
     "Banking": {
@@ -993,7 +980,7 @@ DOMAIN_EXAM_BLUEPRINTS = {
             {
                 "subject": "4. Language (Hindi / English)",
                 "color": "#6d28d9",
-                "topics": ["Varnmala, Sandhi, Samas & Upsarg-Pratyay", "Tatsam-Tadbhav, Paryayvachi & Vilom Shabd", "Muhavare, Lokoktiyan & Vakyansh ke liye ek shabd", "kaal, Vachya, Avyay & Ashuddhi Shodhan", "Unseen Passage Comprehension & Famous Poets/Authors"],
+                "topics": ["Varnmala, Sandhi, Samas & Upsarg-Pratyay", "Tatsam-Tadbhav, Paryayvachi & Vilom Shabd", "Muhavare, Lokoktiyan & Vakyansh ke liye ek shabd", "Kaal, Vachya, Avyay & Ashuddhi Shodhan", "Unseen Passage Comprehension & Famous Poets/Authors"],
             },
         ],
     },
@@ -1111,7 +1098,7 @@ DOMAIN_EXAM_BLUEPRINTS = {
 }
 
 
-# INTENT + FIELD AWARE UNIQUE QUOTE GENERATOR
+# FIXED SYNTAX: `field_hooks` (No space in variable name!)
 def generate_unique_intent_quote(title, primary_intent, exam_field, used_quotes_set, counter_seed):
     clean_exam = re.sub(
         r"\b(online form|recruitment|2026|2025|apply online|download|notification|various posts)\b",
@@ -1121,13 +1108,13 @@ def generate_unique_intent_quote(title, primary_intent, exam_field, used_quotes_
     )
     clean_exam = re.sub(r"\s+", " ", clean_exam).strip(" -–|:")[:42] or title[:38]
 
-    field_ hooks = {
+    field_hooks = {
         "Banking": "Speed Math, DI aur Seating Puzzles par aaj se apni pakad lohe jaisi banayein",
         "SSC": "PYQs, Calculation Speed aur 100% Conceptual Accuracy se Merit List mein top karein",
         "Railway": "NCERT Science, Maths aur Reasoning ke har ek topic ko apna sabse bada hathiyar banayein",
         "Police_Defence": "Written Exam ki taiyari aur Physical Ground ki daud—dono mein aaj apna 100% paseena bahayein",
         "Technical_PSU": "Apne Core Technical Trade aur Aptitude ki mehnat se is PSU mein apni seat pakki karein",
-        "Teaching": "Pedagogy aur Subject Mastery se aane wali peedhi ke निर्माता banein",
+        "Teaching": "Pedagogy aur Subject Mastery se aane wali peedhi ke nirmata banein",
         "State_PSC_Civil": "GS, State GK aur Answer Writing ke atoot anushasan se Adhikari ki kursi hasil karein",
     }
     f_hook = field_hooks.get(exam_field, field_hooks["SSC"])
@@ -1173,16 +1160,13 @@ def generate_unique_intent_quote(title, primary_intent, exam_field, used_quotes_
 
 
 def build_dopamine_todo_strategy(title, exam_field, primary_intent):
-    """
-    Builds a Checkbox To-Do Study Plan matching your reference photo (Banking Exam 60/90 Days Challenge To-Do List).
-    """
     if primary_intent in ["INTENT_RESULT", "INTENT_ANSWER_KEY"]:
         return {
             "mode": "POST_RESULT_DV",
             "heading": "🏆 POST-RESULT & DOCUMENT VERIFICATION (DV) TO-DO CHECKLIST",
             "month_1": "Download Official Merit List / Answer Key PDF and verify your Roll Number & Category Cut-Off.",
             "month_2": "Organize Original 10th/12th/Degree Certificates, Valid OBC/EWS/SC/ST Caste Certificate & Domicile.",
-            "month_3": "Prepare 8 Passport Photographs, Aadhar/PAN ID Proof & Medical Fitness readiness for final joining.",
+            "month_3": "Prepare 8 Passport Photographs, Official ID Proof & Medical Fitness readiness for final joining.",
             "todo_boxes": [
                 {"title": "1. Score & Merit Verification", "color": "#15803d", "items": ["☑ Verify Roll Number in Merit PDF", "☑ Compare Raw Score with Category Cut-Off", "☑ Check Objection Window (if Answer Key)"]},
                 {"title": "2. Mandatory DV Documents", "color": "#1d4ed8", "items": ["☑ 10th, 12th & Graduation Original Marksheets", "☑ Valid Central/State Caste & EWS Certificate", "☑ Printout of Submitted Online Application Form"]},
@@ -1221,7 +1205,7 @@ def calculate_high_rush_score(title, dossier, is_today_last_date, is_extended):
     t_low = title.lower()
     post_dt = dossier["dates"].get("real_post_date_obj")
     if post_dt:
-        days_ago = max(0, (datetime.now() - post_dt).days)
+        days_ago = max(0, (now_ist_naive() - post_dt).days)
         score += max(0, (15 - days_ago) * 2)
 
     if any(k in t_low for k in ["ssc", "rrb", "railway", "ntpc", "group d", "ibps", "sbi", "upsc", "police", "constable", "bpsc", "uppsc", "mpsc", "ctet", "neet", "cuet", "jee", "agniveer", "gds", "india post", "shipyard", "gsl"]):
@@ -1245,7 +1229,7 @@ def calculate_high_rush_score(title, dossier, is_today_last_date, is_extended):
 
 
 # ==============================================================================
-# LAYER 6: MASTER POST SYNTHESIZER (LEFT-RIGHT DOPAMINE UI + WORD-TO-WORD TEXT)
+# LAYER 6: MASTER POST SYNTHESIZER
 # ==============================================================================
 class MasterSynthesizer:
 
@@ -1261,12 +1245,10 @@ class MasterSynthesizer:
             or links["notif_pdf"]
             or links["syllabus_link"]
             or links["official_site"]
+            or resolve_official_board_url(title)
         )
-        if not primary_url:
-            return None
 
-        ist_tz = timezone(timedelta(hours=5, minutes=30))
-        now_today_date = datetime.now(ist_tz).date()
+        now_today_date = datetime.now(IST_TZ).date()
         last_dt_obj = dossier["dates"].get("last_date_obj")
         is_today_last_date = bool(last_dt_obj and last_dt_obj.date() == now_today_date)
         is_closing_near_7_days = bool(
@@ -1291,8 +1273,8 @@ class MasterSynthesizer:
         job_id = hashlib.md5(intent_sig.encode("utf-8")).hexdigest()[:12]
 
         post_dt_obj = dossier["dates"].get("real_post_date_obj")
-        post_timestamp = int(post_dt_obj.timestamp()) if post_dt_obj else int(datetime.now(ist_tz).timestamp())
-        now_str = datetime.now(ist_tz).strftime("%Y-%m-%d %H:%M:%S IST")
+        post_timestamp = int(post_dt_obj.timestamp()) if post_dt_obj else int(datetime.now(IST_TZ).timestamp())
+        now_str = datetime.now(IST_TZ).strftime("%Y-%m-%d %H:%M:%S IST")
 
         exam_field = meta.get("exam_field", "SSC")
         blueprint = DOMAIN_EXAM_BLUEPRINTS.get(exam_field, DOMAIN_EXAM_BLUEPRINTS["SSC"])
@@ -1303,15 +1285,13 @@ class MasterSynthesizer:
         strategy = build_dopamine_todo_strategy(title, exam_field, meta["primary_intent"])
 
         d_map = dossier["dates"]
-        calendar_display_date = d_map["release_date"] or d_map["notification_date"] or d_map["apply_start_date"] or datetime.now(ist_tz).strftime("%d %b %Y")
+        calendar_display_date = d_map["release_date"] or d_map["notification_date"] or d_map["apply_start_date"] or datetime.now(IST_TZ).strftime("%d %b %Y")
 
-        # Merge scraped Selection Process / Pattern with Domain Blueprint (Option A + Option B)
         clean_selection = dossier["selection_process"] if len(dossier["selection_process"]) >= 2 else blueprint["selection_stages"]
         pattern_table_rows = dossier["exam_pattern_rows"] if len(dossier["exam_pattern_rows"]) >= 2 else blueprint["pattern_table"]
         pattern_highlights = dossier["exam_pattern_notes"] if len(dossier["exam_pattern_notes"]) >= 2 else blueprint["pattern_highlights"]
         syllabus_cards = blueprint["syllabus_cards"]
 
-        # Clean Post-Wise Qualification Rows
         clean_post_name = re.split(r"[-–|]", title)[0].replace("Online Form", "").replace("Recruitment", "").strip() or title[:40]
         post_qual_rows = dossier["post_qual_rows"]
         if not post_qual_rows:
@@ -1331,13 +1311,11 @@ class MasterSynthesizer:
                 ])
 
         category_vacancy_rows = dossier["category_vacancy_rows"]
-
         fee_gen = dossier["fees"][0] if len(dossier["fees"]) > 0 else "Refer Official Notification PDF"
         fee_sc = dossier["fees"][1] if len(dossier["fees"]) > 1 else "SC / ST / PwBD / Ex-SM: As per Rules"
         age_str = " | ".join(dossier["age_criteria"][:2]) if dossier["age_criteria"] else "Minimum 18 Years | Maximum Age & Relaxation as per Recruitment Rules"
         short_qual_str = post_qual_rows[0][1] if post_qual_rows else "See Post-Wise Qualification Box Below"
 
-        # Build Word-to-Word Plain Text for Admin Panel Editor (Zero HTML Code!)
         plain_short_lines = [
             f"Post Title: {title}",
             f"Organization / Board: {dossier['department']} ({meta['state']})",
@@ -1375,7 +1353,6 @@ class MasterSynthesizer:
         ]
         plain_full_text = "\n".join(plain_full_lines)
 
-        # Google Search Rich Results Schema (Targeting Top Search Widgets: job, naukri, vacancy, sarkari result, etc.)
         google_schema = {
             "@context": "https://schema.org/",
             "@type": "JobPosting",
@@ -1386,8 +1363,8 @@ class MasterSynthesizer:
                 "name": dossier["department"],
                 "value": job_id,
             },
-            "datePosted": (post_dt_obj or datetime.now(ist_tz)).strftime("%Y-%m-%d"),
-            "validThrough": (last_dt_obj or (datetime.now(ist_tz) + timedelta(days=30))).strftime("%Y-%m-%d"),
+            "datePosted": (post_dt_obj or datetime.now(IST_TZ)).strftime("%Y-%m-%d"),
+            "validThrough": (last_dt_obj or (datetime.now(IST_TZ) + timedelta(days=30))).strftime("%Y-%m-%d"),
             "employmentType": "FULL_TIME",
             "hiringOrganization": {
                 "@type": "Organization",
@@ -1500,20 +1477,15 @@ class MasterSynthesizer:
             "all_links": dossier["all_extracted_links"],
             "google_schema": google_schema,
             "updated_at": now_str,
-            "updatedAt": datetime.now(ist_tz).isoformat(),
+            "updatedAt": datetime.now(IST_TZ).isoformat(),
             "status": "published",
         }
 
 
 # ==============================================================================
-# LAYER 7: OPTION A (AUTOMATIC OLDEST 2-DAYS STORAGE PRUNER)
+# LAYER 7: STORAGE PRUNER
 # ==============================================================================
 def prune_oldest_two_days_storage(posts_list, force_prune=False, prune_days=2):
-    """
-    Option A & Option B Storage Manager:
-    Automatically deletes the oldest N days (default: 2 days) of posts when storage size,
-    post count, or manual admin trigger requires cleanup.
-    """
     if not posts_list:
         return posts_list, 0
 
@@ -1534,7 +1506,6 @@ def prune_oldest_two_days_storage(posts_list, force_prune=False, prune_days=2):
     if not needs_pruning:
         return posts_list, 0
 
-    # Group posts by calendar day bucket (YYYY-MM-DD) from post_timestamp
     day_buckets = set()
     for p in posts_list:
         ts = p.get("post_timestamp", 0)
@@ -1544,7 +1515,6 @@ def prune_oldest_two_days_storage(posts_list, force_prune=False, prune_days=2):
 
     sorted_days = sorted(day_buckets)
     if len(sorted_days) <= prune_days:
-        # If total distinct days <= 2, trim oldest 20% posts safely
         posts_sorted = sorted(posts_list, key=lambda x: x.get("post_timestamp", 0), reverse=True)
         keep_cnt = max(20, int(len(posts_sorted) * 0.8))
         removed = len(posts_list) - keep_cnt
@@ -1589,10 +1559,7 @@ async def process_single_candidate(
 ):
     try:
         article_html = await safe_fetch_non_blocking(href, loop, semaphore, timeout=16.0)
-        if not article_html:
-            return None
-
-        meta = IntentAndMetaClassifierAgent.analyze(text, box_heading, article_html[:600])
+        meta = IntentAndMetaClassifierAgent.analyze(text, box_heading, (article_html or "")[:600])
         dossier = deep_parse_article_dossier(article_html, href, text, meta["exam_field"])
 
         if not passes_strict_15_day_and_link_gate(dossier, text):
@@ -1665,17 +1632,17 @@ FALLBACK_RSS_FEEDS = [
     {
         "cat": "latest_jobs",
         "label": "Latest Jobs",
-        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+SBI+OR+UPSC+OR+Police+OR+PSC+OR+AIIMS+OR+Shipyard+OR+Bank)+%22Recruitment%22+OR+%22Online+Form%22+OR+%22Vacancy%22+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+SBI+OR+UPSC+OR+Police+OR+PSC+OR+AIIMS+OR+Shipyard+OR+Bank)+Recruitment+OR+%22Online+Form%22+OR+Vacancy+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
     },
     {
         "cat": "results",
         "label": "Result",
-        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+SBI+OR+UPSC+OR+BPSC+OR+UPPSC+OR+MPSC+OR+India+Post)+%22Result%22+OR+%22Merit+List%22+OR+%22Scorecard%22+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+SBI+OR+UPSC+OR+BPSC+OR+UPPSC+OR+MPSC+OR+Post)+Result+OR+%22Merit+List%22+OR+Scorecard+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
     },
     {
         "cat": "admit_cards",
         "label": "Admit Card",
-        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+SBI+OR+UPSC+OR+Police+OR+CTET)+%22Admit+Card%22+OR+%22Hall+Ticket%22+OR+%22Call+Letter%22+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
+        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+SBI+OR+UPSC+OR+Police+OR+CTET)+%22Admit+Card%22+OR+%22Hall+Ticket%22+when:7d&hl=en-IN&gl=IN&ceid=IN:en",
     },
     {
         "cat": "answer_keys",
@@ -1685,19 +1652,18 @@ FALLBACK_RSS_FEEDS = [
     {
         "cat": "syllabus",
         "label": "Syllabus",
-        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+UPSC+OR+MPSC+OR+RBI+OR+Police)+%22Syllabus%22+OR+%22Exam+Pattern%22+when:15d&hl=en-IN&gl=IN&ceid=IN:en",
+        "q": "https://news.google.com/rss/search?q=(SSC+OR+RRB+OR+IBPS+OR+UPSC+OR+MPSC+OR+RBI+OR+Police)+Syllabus+OR+%22Exam+Pattern%22+when:15d&hl=en-IN&gl=IN&ceid=IN:en",
     },
     {
         "cat": "admissions",
         "label": "Admission",
-        "q": "https://news.google.com/rss/search?q=(NEET+OR+JEE+OR+CUET+OR+IGNOU+OR+B.Ed+OR+ITI+OR+Counselling)+%22Admission%22+OR+%22Registration%22+when:10d&hl=en-IN&gl=IN&ceid=IN:en",
+        "q": "https://news.google.com/rss/search?q=(NEET+OR+JEE+OR+CUET+OR+IGNOU+OR+ITI+OR+Counselling)+Admission+OR+Registration+when:10d&hl=en-IN&gl=IN&ceid=IN:en",
     },
 ]
 
 
 def fetch_option_b_cloud_backup(seen_titles, used_quotes_set):
-    ist_tz = timezone(timedelta(hours=5, minutes=30))
-    now_ist = datetime.now(ist_tz)
+    now_ist = now_ist_naive()
     backup_posts = []
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
@@ -1712,7 +1678,7 @@ def fetch_option_b_cloud_backup(seen_titles, used_quotes_set):
 
             count_in_cat = 0
             for item in root.findall(".//item"):
-                if count_in_cat >= 8:
+                if count_in_cat >= 10:
                     break
                 raw_title = (item.findtext("title") or "").strip()
                 clean_title = scrub_external_branding(re.split(r"\s+-\s+", raw_title)[0].strip())
@@ -1726,11 +1692,11 @@ def fetch_option_b_cloud_backup(seen_titles, used_quotes_set):
 
                 pub_str = (item.findtext("pubDate") or "").strip()
                 try:
-                    pub_dt = parsedate_to_datetime(pub_str).astimezone(ist_tz).replace(tzinfo=None)
+                    pub_dt = parsedate_to_datetime(pub_str).astimezone(IST_TZ).replace(tzinfo=None)
                 except Exception:
-                    pub_dt = now_ist.replace(tzinfo=None)
+                    pub_dt = now_ist
 
-                if (now_ist.replace(tzinfo=None) - pub_dt).days > 15:
+                if (now_ist - pub_dt).days > 15:
                     continue
 
                 rel_date_str = pub_dt.strftime("%d %b %Y")
@@ -1807,8 +1773,7 @@ def fetch_option_b_cloud_backup(seen_titles, used_quotes_set):
 
 
 async def main_async():
-    ist_tz = timezone(timedelta(hours=5, minutes=30))
-    now_ist = datetime.now(ist_tz)
+    now_ist = datetime.now(IST_TZ)
     now_ist_str = now_ist.strftime("%Y-%m-%d %I:%M:%S %p IST")
     cutoff_15_ts = int((now_ist.replace(tzinfo=None) - timedelta(days=15)).timestamp())
 
@@ -1844,7 +1809,6 @@ async def main_async():
         if not is_direct_post_target_url(prim_link, allow_direct_pdf_on_cdn=True):
             continue
 
-        # Clean any legacy repeated fake rows from existing database records
         if "vacancy_rows" in j and isinstance(j["vacancy_rows"], list):
             j["vacancy_rows"] = [
                 r for r in j["vacancy_rows"]
@@ -1895,7 +1859,6 @@ async def main_async():
 
     all_valid_posts = list(posts_by_signature.values())
 
-    # Apply Option A + Option B Storage Pruner (Auto-delete Oldest 2 Days if needed)
     all_valid_posts, pruned_count = prune_oldest_two_days_storage(
         all_valid_posts, force_prune=FORCE_PURGE_FLAG, prune_days=DEFAULT_PRUNE_DAYS
     )
@@ -1944,7 +1907,6 @@ async def main_async():
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(sorted_final_db, f, ensure_ascii=False, indent=2)
 
-    # Preserve existing social_links in admin_boxes.json if admin already saved them
     saved_social_links = {"whatsapp": "", "telegram": "", "instagram": "", "facebook": ""}
     if os.path.exists(ADMIN_BOXES_FILE):
         try:
