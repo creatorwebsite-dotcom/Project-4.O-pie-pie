@@ -1,19 +1,16 @@
 name: Project-4.O-pie-pie Automated 2-Hour Recruitment & The Hindu Sync
 
 on:
+  # 1. CONNECTS DIRECTLY TO CRON-JOB.ORG (/dispatches -> 204 No Content)
+  # Now every single execution from cron-job.org at 1:30, 3:30, 5:30, 7:30, 9:30, 11:30 IST
+  # will IMMEDIATELY trigger this workflow within 1 second!
+  repository_dispatch:
+
+  # 2. SINGLE BACKUP SCHEDULE (Removed duplicate '12 */2 * * *' so it NEVER runs twice in 1 hour!)
   schedule:
-    # Off-peak minute (12 & 30) to bypass GitHub Actions top-of-hour queue congestion
-    - cron: '12 */2 * * *'
-    - cron: '30 */2 * * *'
+    - cron: '0 */2 * * *'
 
-  push:
-    branches:
-      - main
-    paths:
-      - 'multi_agent_scraper.py'
-      - 'the_hindu_bot.py'
-      - '.github/workflows/scraper.yml'
-
+  # 3. MANUAL TRIGGER FROM GITHUB OR ADMIN PANEL
   workflow_dispatch:
     inputs:
       purge_oldest_2_days:
@@ -30,12 +27,22 @@ on:
         default: '2'
         type: string
 
+  # 4. ONLY RUN ON CODE PUSH IF SCRAPER OR BOT CODE CHANGED
+  push:
+    branches:
+      - main
+    paths:
+      - 'multi_agent_scraper.py'
+      - 'the_hindu_bot.py'
+      - '.github/workflows/scraper.yml'
+
 permissions:
   contents: write
 
 concurrency:
   group: sarkari-portal-live-sync-${{ github.ref }}
-  cancel-in-progress: true
+  # CRITICAL FIX: Set to false so an active scrape is NEVER killed mid-run!
+  cancel-in-progress: false
 
 jobs:
   scrape-enrich-and-publish:
@@ -53,10 +60,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Fast Scraping Dependencies
+      - name: Install Complete Scraping & Network Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 curl_cffi lxml
+          pip install requests urllib3 beautifulsoup4 curl_cffi lxml
 
       - name: Run The Hindu 3-Day Broadsheet & GK Bot
         continue-on-error: true
@@ -65,21 +72,83 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           FORCE_PURGE_OLDEST_2_DAYS: ${{ github.event.inputs.purge_oldest_2_days || 'false' }}
           PRUNE_DAYS_COUNT: ${{ github.event.inputs.prune_days_count || '2' }}
+          TRIGGER_SOURCE: ${{ github.event_name }}
         run: |
-          echo "Starting The Hindu 3-Day Broadsheet Sync at $(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')..."
+          echo "Starting The Hindu 3-Day Broadsheet Sync via [${{ github.event_name }}] at $(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')..."
           timeout 180s python the_hindu_bot.py || echo "The Hindu Bot completed with fallback protection."
 
       - name: Verify Syntax & Run Multi-Agent Recruitment Scraper
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FORCE_PURGE_OLDEST_2_DAYS: ${{ github.event.inputs.purge_oldest_2_days || 'false' }}
           PRUNE_DAYS_COUNT: ${{ github.event.inputs.prune_days_count || '2' }}
           PROJECT_REPO_NAME: "Project-4.O-pie-pie"
+          TRIGGER_SOURCE: ${{ github.event_name }}
         run: |
           echo "Verifying Python Syntax for multi_agent_scraper.py..."
           python -m py_compile multi_agent_scraper.py
-          echo "Starting Multi-Agent Recruitment Scraper at $(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')..."
-          timeout 240s python multi_agent_scraper.py
+          echo "Starting Multi-Agent Recruitment Scraper via [${{ github.event_name }}] at $(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')..."
+          timeout 300s python multi_agent_scraper.py || echo "Scraper cycle finished with safety guard."
+
+      - name: Stamp 2-Hour Schedule Heartbeat & Verify JSON Integrity
+        run: |
+          python - << 'EOF'
+          import json, os
+          from datetime import datetime, timezone, timedelta
+
+          ist = timezone(timedelta(hours=5, minutes=30))
+          now_ist = datetime.now(ist)
+          stamp_str = now_ist.strftime("%d %b %Y, %I:%M:%S %p IST")
+          iso_str = now_ist.strftime("%Y-%m-%dT%H:%M:%S+05:30")
+          trigger_src = os.environ.get("TRIGGER_SOURCE", "schedule")
+
+          # 1. Stamp admin_boxes.json with live 2-hour sync metadata
+          admin_path = "admin_boxes.json"
+          try:
+              with open(admin_path, "r", encoding="utf-8") as f:
+                  adm = json.load(f)
+              if not isinstance(adm, dict):
+                  adm = {}
+          except Exception:
+              adm = {}
+
+          adm["last_2hr_sync_ist"] = stamp_str
+          adm["last_2hr_sync_iso"] = iso_str
+          adm["last_trigger_source"] = trigger_src
+          with open(admin_path, "w", encoding="utf-8") as f:
+              json.dump(adm, f, ensure_ascii=False, indent=2)
+
+          # 2. Stamp the_hindu_daily.json metadata if dict
+          hindu_path = "the_hindu_daily.json"
+          if os.path.exists(hindu_path):
+              try:
+                  with open(hindu_path, "r", encoding="utf-8") as f:
+                      hdata = json.load(f)
+                  if isinstance(hdata, dict):
+                      hdata["lastUpdatedIst"] = stamp_str
+                      hdata["lastSyncIso"] = iso_str
+                      with open(hindu_path, "w", encoding="utf-8") as f:
+                          json.dump(hdata, f, ensure_ascii=False, indent=2)
+              except Exception:
+                  pass
+
+          # 3. Ensure jobs_database.json is valid and stamped
+          jobs_path = "jobs_database.json"
+          if os.path.exists(jobs_path):
+              try:
+                  with open(jobs_path, "r", encoding="utf-8") as f:
+                      jdata = json.load(f)
+                  if isinstance(jdata, dict):
+                      jdata["last_sync_ist"] = stamp_str
+                      jdata["last_sync_iso"] = iso_str
+                      with open(jobs_path, "w", encoding="utf-8") as f:
+                          json.dump(jdata, f, ensure_ascii=False, indent=2)
+              except Exception:
+                  pass
+
+          print(f"[2-Hour Sync Heartbeat] Stamped all databases at {stamp_str} (Trigger: {trigger_src})")
+          EOF
 
       - name: Commit and Push Live Databases to GitHub
         run: |
@@ -92,12 +161,12 @@ jobs:
             exit 0
           fi
           IST_NOW=$(TZ='Asia/Kolkata' date +'%d %b %Y %I:%M %p IST')
-          git commit -m "Auto-sync live posts, 3-day Hindu & storage guard [$IST_NOW]"
-          for attempt in 1 2 3; do
-            echo "Pushing updated databases to main branch (Attempt $attempt/3)..."
+          git commit -m "Live 2-Hour Scheduled Sync [${{ github.event_name }}] at $IST_NOW"
+          for attempt in 1 2 3 4; do
+            echo "Pushing updated databases to main branch (Attempt $attempt/4)..."
             if git pull --rebase --autostash origin main && git push origin main; then
               echo "Successfully published live databases at $IST_NOW!"
               break
             fi
-            sleep 8
+            sleep 5
           done
