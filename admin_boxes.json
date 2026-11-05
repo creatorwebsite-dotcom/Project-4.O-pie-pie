@@ -1,11 +1,89 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "5/11/2026, 11:49:28 am",
+  "updated_at": "2026-11-05 12:07:54 PM IST",
+  "window_days": 15,
+  "pruned_posts_last_run": 0,
+  "unseen_auto_published_count": 147,
+  "category_counts": {
+    "latest_jobs": 37,
+    "results": 32,
+    "admit_cards": 44,
+    "answer_keys": 14,
+    "syllabus": 10,
+    "admissions": 10
+  },
+  "trending_top_6": [
+    {
+      "id": "eecad9706002",
+      "title": "UPESSC Assistant Teacher Form (12405 Posts)",
+      "sub": "Date Extended",
+      "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 138,
+      "active": true
+    },
+    {
+      "id": "3919c89162dd",
+      "title": "UPESSC TGT Online Form (17,735 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 125,
+      "active": true
+    },
+    {
+      "id": "79e7b4e22681",
+      "title": "RRB ALP Admit Card 2026 Released for CBT 1; Exam on November 3, 4 and 5 for 11,127 Posts",
+      "sub": "Admit Card",
+      "url": "https://indianrailways.gov.in",
+      "details": "Official notification for RRB ALP Admit Card 2026 Released for CBT 1; Exam on November 3, 4 and 5 for 11,127 Posts. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 117,
+      "active": true
+    },
+    {
+      "id": "c3e7b14b18d5",
+      "title": "RRB Station Master Recruitment 2026 Out, Apply Online Starts For 1265 Posts",
+      "sub": "Syllabus",
+      "url": "https://indianrailways.gov.in",
+      "details": "Official notification for RRB Station Master Recruitment 2026 Out, Apply Online Starts For 1265 Posts. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 110,
+      "active": true
+    },
+    {
+      "id": "4e1e27f5daef",
+      "title": "UPSSSC JE Online Form (1156 Posts)",
+      "sub": "Latest Jobs",
+      "url": "http://sarkariresult.com.cm/wp-content/uploads/2026/10/ViewPdf-2.pdf",
+      "details": "Application Fee General, OBC, EWS : ₹ 25/- SC, ST : ₹ 25/- PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 110,
+      "active": true
+    },
+    {
+      "id": "bbdadb6fc597",
+      "title": "UPPSC RO/ARO Online Form (501 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://uppsc.up.nic.in/OuterPages/View_Enclosure.aspx?ID=307&flag=H&FID=946",
+      "details": "Application Fee For General / OBC / EWS : ₹ 125/- For SC / ST :₹ 65/- For PH : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 110,
+      "active": true
+    }
+  ],
+  "standard_boxes": [
+    "Latest Jobs",
+    "Result",
+    "Admit Card",
+    "Answer Key",
+    "Syllabus",
+    "Admission"
+  ],
   "social_links": {
     "whatsapp": "",
     "telegram": "",
     "instagram": "",
     "facebook": ""
   },
-  "trending_top_6": []
+  "new_custom_boxes": [],
+  "last_2hr_sync_ist": "05 Nov 2026, 12:08:06 PM IST",
+  "last_2hr_sync_iso": "2026-11-05T12:08:06+05:30",
+  "last_trigger_source": "schedule"
 }
