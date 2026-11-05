@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-05 05:31:42 PM IST",
+  "updated_at": "2026-11-05 07:31:53 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 9,
-  "unseen_auto_published_count": 371,
+  "pruned_posts_last_run": 10,
+  "unseen_auto_published_count": 395,
   "category_counts": {
-    "latest_jobs": 109,
-    "results": 77,
+    "latest_jobs": 113,
+    "results": 83,
     "admit_cards": 64,
-    "answer_keys": 36,
-    "syllabus": 34,
-    "admissions": 51
+    "answer_keys": 38,
+    "syllabus": 36,
+    "admissions": 61
   },
   "trending_top_6": [
     {
@@ -41,6 +41,15 @@
       "active": true
     },
     {
+      "id": "1a262a993538",
+      "title": "Kolkata Police Recruitment 2026 Notification Out For 5893 Posts, Check Online Apply Date",
+      "sub": "Latest Jobs",
+      "url": "https://uppbpb.gov.in",
+      "details": "Official notification for Kolkata Police Recruitment 2026 Notification Out For 5893 Posts, Check Online Apply Date. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 118,
+      "active": true
+    },
+    {
       "id": "81ba508cf03c",
       "title": "7,268 Vacancies Announced: Odisha Police Constable Recruitment 2026",
       "sub": "Latest Jobs",
@@ -55,15 +64,6 @@
       "sub": "Latest Jobs",
       "url": "https://ssc.gov.in",
       "details": "Official notification for UPESSC Principal Recruitment 2026 Out For 2647 Posts, Apply Link , Eligibility. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 118,
-      "active": true
-    },
-    {
-      "id": "ea4aec96eddf",
-      "title": "RRB JE Vacancy 2026 Increased, Check Revised Zone-Wise 4,487 Vacancy Details Here",
-      "sub": "Latest Jobs",
-      "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB JE Vacancy 2026 Increased, Check Revised Zone-Wise 4,487 Vacancy Details Here. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 118,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "05 Nov 2026, 05:31:54 PM IST",
-  "last_2hr_sync_iso": "2026-11-05T17:31:54+05:30",
+  "last_2hr_sync_ist": "05 Nov 2026, 07:32:03 PM IST",
+  "last_2hr_sync_iso": "2026-11-05T19:32:03+05:30",
   "last_trigger_source": "schedule"
 }
