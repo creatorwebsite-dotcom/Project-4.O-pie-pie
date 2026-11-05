@@ -1,89 +1,11 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-05 09:31:38 AM IST",
-  "window_days": 15,
-  "pruned_posts_last_run": 10,
-  "unseen_auto_published_count": 1029,
-  "category_counts": {
-    "latest_jobs": 324,
-    "results": 195,
-    "admit_cards": 124,
-    "answer_keys": 98,
-    "syllabus": 76,
-    "admissions": 212
-  },
-  "trending_top_6": [
-    {
-      "id": "caeaac64ca96",
-      "title": "BPSC School Teacher Form (33,320 Posts)",
-      "sub": "Date Extended",
-      "url": "https://bpsc.bihar.gov.in/wp-content/uploads/BPSC_content/Notices/Important-Notice-cum-Corrigendum-152026-School-Teacher-Class-9-10-11-12-remaining-vacancies_BPSC-20260929-qxkdgl.pdf",
-      "details": "Application Fee For All Category Candidates : ₹ 100/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
-      "active": true
-    },
-    {
-      "id": "eecad9706002",
-      "title": "UPESSC Assistant Teacher Form (12405 Posts)",
-      "sub": "Date Extended",
-      "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
-      "active": true
-    },
-    {
-      "id": "420d7f6e39e6",
-      "title": "UPESSC PRT Assistant Teacher Online Form 2026 (12405 Posts) – Date Extend",
-      "sub": "Date Extended",
-      "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 138,
-      "active": true
-    },
-    {
-      "id": "505c1f5ae4b4",
-      "title": "BPSC School Teacher TRE 4.0 Online Form 2026 (33,320 Posts)",
-      "sub": "Date Extended",
-      "url": "https://bpsc.bihar.gov.in/wp-content/uploads/BPSC_content/Notices/Important-Notice-cum-Corrigendum-152026-School-Teacher-Class-9-10-11-12-remaining-vacancies_BPSC-20260929-qxkdgl.pdf",
-      "details": "Application Fee For All Category Candidates : ₹ 100/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 138,
-      "active": true
-    },
-    {
-      "id": "7d97eaa4b36e",
-      "title": "BPSC TRE 4.0: Registration date extended for 33320 posts, apply at bpsc.bih.nic.in | Hindustan Times",
-      "sub": "Date Extended",
-      "url": "https://bpsc.bih.nic.in",
-      "details": "Official notification for BPSC TRE 4.0: Registration date extended for 33320 posts, apply at bpsc.bih.nic.in | Hindustan Times. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 128,
-      "active": true
-    },
-    {
-      "id": "f7a14a56db7b",
-      "title": "UPESSC PRT recruitment 2026: Registration window closes today for 12,405 posts; direct link to apply here",
-      "sub": "Latest Jobs",
-      "url": "https://ssc.gov.in",
-      "details": "Official notification for UPESSC PRT recruitment 2026: Registration window closes today for 12,405 posts; direct link to apply here. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
-      "active": true
-    }
-  ],
-  "standard_boxes": [
-    "Latest Jobs",
-    "Result",
-    "Admit Card",
-    "Answer Key",
-    "Syllabus",
-    "Admission"
-  ],
+  "updated_at": "5/11/2026, 9:38:55 am",
   "social_links": {
     "whatsapp": "",
     "telegram": "",
     "instagram": "",
     "facebook": ""
   },
-  "new_custom_boxes": [],
-  "last_2hr_sync_ist": "05 Nov 2026, 09:31:52 AM IST",
-  "last_2hr_sync_iso": "2026-11-05T09:31:52+05:30",
-  "last_trigger_source": "schedule"
+  "trending_top_6": []
 }
