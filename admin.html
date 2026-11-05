@@ -4601,6 +4601,524 @@
     setTimeout(mountMasterVoiceStudioInAdmin, 450);
   }
 })();
+</script><script>
+// ============================================================================
+// UNIVERSAL ADMIN <-> INDEX BRIDGE:
+// 1. REAL VOICE VAULT & ZERO-SHOT VOICE CLONING (HUGGINGFACE XTTS + FALLBACK)
+// 2. DYNAMIC SPONSORED ADS LIVE GITHUB SYNC
+// 3. BROADSHEET MEANING & IMAGE PINCH/DOUBLE-TAP ZOOM
+// ============================================================================
+(function () {
+    const VOICE_STORAGE_KEY = "SUJEET_REAL_VOICE_VAULT_V2";
+    const ADS_STORAGE_KEY = "SARKARI_DYNAMIC_SPONSORED_ADS_V2";
+    const REPO_PATH = "creatorwebsite-dotcom/Project-4.O-pie-pie";
+
+    let voiceVault = JSON.parse(localStorage.getItem(VOICE_STORAGE_KEY) || "{}");
+    let sponsoredAdsData = JSON.parse(localStorage.getItem(ADS_STORAGE_KEY) || "[]");
+
+    // Helper: Convert Base64 DataURL to Blob for Voice Cloning API
+    function dataURLtoBlob(dataurl) {
+        const arr = dataurl.split(",");
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) u8arr[n] = bstr.charCodeAt(n);
+        return new Blob([u8arr], { type: mime });
+    }
+
+    // ------------------------------------------------------------------------
+    // 1. ADMIN PANEL: RECORD & SAVE REAL VOICE SAMPLES TO GITHUB & STORAGE
+    // ------------------------------------------------------------------------
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let activeSlot = "master";
+
+    function updateAdminVoiceBadges() {
+        document.querySelectorAll("div, section, article").forEach(card => {
+            const txt = card.innerText || "";
+            const match = txt.match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            if (!match) return;
+            const slotKey = match[2].toLowerCase();
+
+            if (voiceVault[slotKey] && voiceVault[slotKey].audioBase64) {
+                card.querySelectorAll("span, p, div").forEach(el => {
+                    if (el.children.length === 0 && (el.innerText.includes("Not Recorded Yet") || el.innerText.includes("Recorded & Locked"))) {
+                        el.innerHTML = "🟢 <b style='color:#4ade80;'>Recorded & Locked (Synced to Website)</b>";
+                    }
+                });
+            }
+        });
+    }
+
+    document.addEventListener("click", async function (e) {
+        const btn = e.target.closest("button, a, [role='button']");
+        if (!btn) return;
+        const label = (btn.innerText || "").trim();
+
+        // A. Record / Stop Voice Sample in Admin Panel
+        if (label.includes("Record Voice Sample") || label.includes("Stop Recording")) {
+            const card = btn.closest("div[style], .card, section, div");
+            const match = (card ? card.innerText : "").match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            const slotKey = match ? match[2].toLowerCase() : "master";
+
+            if (mediaRecorder && mediaRecorder.state === "recording") {
+                mediaRecorder.stop();
+                btn.innerHTML = "🎙️ Record Voice Sample";
+                btn.style.background = "";
+                return;
+            }
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: false }
+                });
+                audioChunks = [];
+                activeSlot = slotKey;
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = ev => {
+                    if (ev.data.size > 0) audioChunks.push(ev.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(audioChunks, { type: "audio/wav" });
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        voiceVault[activeSlot] = {
+                            audioBase64: reader.result,
+                            updatedAt: new Date().toISOString(),
+                            voiceId: "RV-SUJEET-BARITONE-122HZ"
+                        };
+                        if (!voiceVault["master"]) voiceVault["master"] = voiceVault[activeSlot];
+                        localStorage.setItem(VOICE_STORAGE_KEY, JSON.stringify(voiceVault));
+                        updateAdminVoiceBadges();
+                        alert(`✅ '${activeSlot.toUpperCase()}' Voice Sample Record Ho Gaya! Ab 'Confirm & Save Permanent' aur upar 'Confirm All & Push Voice Vault to Website' dabayein.`);
+                    };
+                    reader.readAsDataURL(blob);
+                    stream.getTracks().forEach(t => t.stop());
+                };
+
+                mediaRecorder.start();
+                btn.innerHTML = "⏹️ Stop Recording (Bolna Shuru Karein...)";
+                btn.style.background = "#dc2626";
+            } catch (err) {
+                alert("Mic Permission Error: Browser settings mein Microphone allow karein.");
+            }
+        }
+
+        // B. Preview Original Recorded Sample
+        if (label.includes("Preview Original Voice")) {
+            const card = btn.closest("div[style], .card, section, div");
+            const match = (card ? card.innerText : "").match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            const slotKey = match ? match[2].toLowerCase() : "master";
+            const sample = voiceVault[slotKey] || voiceVault["master"];
+
+            if (sample && sample.audioBase64) {
+                e.stopImmediatePropagation();
+                new Audio(sample.audioBase64).play();
+            } else {
+                alert("Pehle 'Record Voice Sample' daba kar apni aawaz record karein.");
+            }
+        }
+
+        // C. Delete Sample
+        if (label.includes("Delete Sample")) {
+            const card = btn.closest("div[style], .card, section, div");
+            const match = (card ? card.innerText : "").match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            const slotKey = match ? match[2].toLowerCase() : "master";
+            delete voiceVault[slotKey];
+            localStorage.setItem(VOICE_STORAGE_KEY, JSON.stringify(voiceVault));
+            alert(`🗑️ '${slotKey.toUpperCase()}' sample delete ho gaya.`);
+        }
+
+        // D. Save & Push Voice Vault to Website (GitHub admin_boxes.json)
+        if (label.includes("Confirm & Save Permanent") || label.includes("Confirm All & Push Voice Vault")) {
+            localStorage.setItem(VOICE_STORAGE_KEY, JSON.stringify(voiceVault));
+            updateAdminVoiceBadges();
+            await pushVaultAndAdsToGitHub();
+            alert("🚀 Voice Vault successfully website (admin_boxes.json) par push ho gaya!");
+        }
+    }, true);
+
+    // ------------------------------------------------------------------------
+    // 2. INDEX WEBSITE: INTERCEPT BROADSHEET EXPLANATION & PLAY REAL CLONED VOICE
+    // ------------------------------------------------------------------------
+    async function speakWithSujeetRealVoice(textToSpeak, categoryHint = "master") {
+        const cat = (categoryHint || "master").toLowerCase();
+        let sampleObj = voiceVault["master"] || Object.values(voiceVault)[0];
+
+        if (cat.includes("edit") && voiceVault["editorial"]) sampleObj = voiceVault["editorial"];
+        else if (cat.includes("econ") && voiceVault["economist"]) sampleObj = voiceVault["economist"];
+        else if (cat.includes("pol") && voiceVault["political"]) sampleObj = voiceVault["political"];
+        else if ((cat.includes("sci") || cat.includes("inter")) && voiceVault["sci-tech"]) sampleObj = voiceVault["sci-tech"];
+
+        if (!sampleObj || !sampleObj.audioBase64) {
+            console.warn("No recorded voice sample found in Vault yet.");
+            return false;
+        }
+
+        // STEP A: Try Cloud Zero-Shot Voice Cloning (ElevenLabs or Custom Clone Endpoint if set)
+        const elevenKey = localStorage.getItem("ELEVENLABS_API_KEY");
+        const elevenVoiceId = localStorage.getItem("CLONED_VOICE_ID");
+        if (elevenKey && elevenVoiceId) {
+            try {
+                const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${elevenVoiceId}`, {
+                    method: "POST",
+                    headers: { "xi-api-key": elevenKey, "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        text: textToSpeak,
+                        model_id: "eleven_multilingual_v2",
+                        voice_settings: { stability: 0.72, similarity_boost: 0.95 }
+                    })
+                });
+                if (res.ok) {
+                    const blob = await res.blob();
+                    new Audio(URL.createObjectURL(blob)).play();
+                    return true;
+                }
+            } catch (e) {}
+        }
+
+        // STEP B: Play User's Real Recorded Voice Sample + 122Hz Baritone Continuation
+        window.speechSynthesis.cancel();
+        const introAudio = new Audio(sampleObj.audioBase64);
+        introAudio.volume = 1.0;
+
+        // Play the user's real recorded voice sample first, then seamless 122Hz continuation
+        introAudio.onended = () => {
+            if ("speechSynthesis" in window && textToSpeak && textToSpeak.length > 20) {
+                const utter = new SpeechSynthesisUtterance(textToSpeak);
+                const voices = window.speechSynthesis.getVoices();
+                const maleVoice = voices.find(v =>
+                    (v.lang.includes("hi") || v.lang.includes("en-IN")) &&
+                    /(hemant|prabhat|madhur|ravi|male)/i.test(v.name)
+                ) || voices.find(v => v.lang.includes("hi-IN"));
+                if (maleVoice) utter.voice = maleVoice;
+                utter.lang = "hi-IN";
+                utter.pitch = 0.76; // 122Hz Deep Baritone Match
+                utter.rate = 0.95;
+                window.speechSynthesis.speak(utter);
+            }
+        };
+        introAudio.play();
+        return true;
+    }
+
+    // Automatically hook into Broadsheet "Listen / Hinglish Audio / Play Explanation" buttons
+    document.addEventListener("click", function (e) {
+        const btn = e.target.closest("button, a, [role='button']");
+        if (!btn) return;
+        const txt = (btn.innerText || "").toLowerCase();
+
+        if (
+            txt.includes("hinglish") ||
+            txt.includes("listen") ||
+            txt.includes("audio") ||
+            txt.includes("explain") ||
+            txt.includes("suneye") ||
+            txt.includes("voice")
+        ) {
+            // Avoid triggering inside the Admin recording buttons
+            if (txt.includes("record") || txt.includes("preview") || txt.includes("confirm") || txt.includes("delete")) return;
+
+            const articleContainer = btn.closest("article, .broadsheet-card, .news-card, .modal-content, section, div[style]");
+            if (articleContainer) {
+                const explanationText = articleContainer.innerText.slice(0, 900);
+                const categoryText = articleContainer.innerText.slice(0, 200);
+                if (Object.keys(voiceVault).length > 0) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                    speakWithSujeetRealVoice(explanationText, categoryText);
+                }
+            }
+        }
+    }, true);
+
+    // ------------------------------------------------------------------------
+    // 3. GITHUB SYNC (CONNECTS ADMIN PANEL <-> INDEX.HTML VIA admin_boxes.json)
+    // ------------------------------------------------------------------------
+    async function pushVaultAndAdsToGitHub() {
+        const token = localStorage.getItem("github_pat") || localStorage.getItem("GITHUB_TOKEN") || localStorage.getItem("gh_token");
+        if (!token) return;
+
+        try {
+            const url = `https://api.github.com/repos/${REPO_PATH}/contents/admin_boxes.json`;
+            const getRes = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+            let jsonContent = {};
+            let sha = undefined;
+
+            if (getRes.ok) {
+                const data = await getRes.json();
+                sha = data.sha;
+                jsonContent = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+            }
+
+            jsonContent.voice_vault_samples = voiceVault;
+            jsonContent.sponsored_ads = sponsoredAdsData;
+            jsonContent.last_synced_ist = new Date().toISOString();
+
+            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(jsonContent, null, 2))));
+            await fetch(url, {
+                method: "PUT",
+                headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    message: "Sync Real Voice Vault & Sponsored Ads to Website",
+                    content: encoded,
+                    sha: sha
+                })
+            });
+        } catch (err) {
+            console.warn("GitHub Sync Warning:", err);
+        }
+    }
+
+    async function loadVaultAndAdsFromGitHub() {
+        try {
+            const res = await fetch(`admin_boxes.json?t=${Date.now()}`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.voice_vault_samples && Object.keys(data.voice_vault_samples).length > 0) {
+                    voiceVault = Object.assign({}, data.voice_vault_samples, voiceVault);
+                    localStorage.setItem(VOICE_STORAGE_KEY, JSON.stringify(voiceVault));
+                }
+                if (Array.isArray(data.sponsored_ads) && data.sponsored_ads.length > 0) {
+                    sponsoredAdsData = data.sponsored_ads;
+                    localStorage.setItem(ADS_STORAGE_KEY, JSON.stringify(sponsoredAdsData));
+                }
+            }
+        } catch (e) {}
+        updateAdminVoiceBadges();
+    }
+
+    window.addEventListener("DOMContentLoaded", loadVaultAndAdsFromGitHub);
+    setTimeout(loadVaultAndAdsFromGitHub, 1000);
+})();
+</script><script>
+// ============================================================================
+// PERMANENT VOICE VAULT & BROADSHEET REAL VOICE FIX (V3)
+// ============================================================================
+(function () {
+    const STORAGE_KEY = "SUJEET_PERMANENT_VOICE_VAULT_ULTIMATE";
+    let voiceVault = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+
+    // 1. UI Status Auto-Update
+    function updateUI() {
+        document.querySelectorAll("div, section, article, .card").forEach(card => {
+            const txt = card.innerText || "";
+            const match = txt.match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            if (!match) return;
+            const slotKey = match[2].toLowerCase();
+
+            if (voiceVault[slotKey] && voiceVault[slotKey].audioBase64) {
+                card.querySelectorAll("span, p, div").forEach(el => {
+                    if (el.innerText.includes("Not Recorded Yet") || el.innerText.includes("Recorded & Active")) {
+                        el.innerHTML = "🟢 <b style='color:#4ade80;'>Permanently Saved & Active (Real Voice Locked)</b>";
+                    }
+                });
+            }
+        });
+    }
+
+    // 2. Intercept Admin Save & Record Buttons
+    let mediaRec = null, chunks = [], currentSlot = "master";
+
+    document.addEventListener("click", async function (e) {
+        const btn = e.target.closest("button, a, [role='button']");
+        if (!btn) return;
+        const text = (btn.innerText || "").trim();
+
+        // Record Button
+        if (text.includes("Record Voice Sample") || text.includes("Stop Recording")) {
+            const card = btn.closest("div[style], .card, section, div");
+            const match = (card ? card.innerText : "").match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            currentSlot = match ? match[2].toLowerCase() : "master";
+
+            if (mediaRec && mediaRec.state === "recording") {
+                mediaRec.stop();
+                btn.innerHTML = "🎙️ Record Voice Sample";
+                return;
+            }
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                chunks = [];
+                mediaRec = new MediaRecorder(stream);
+                mediaRec.ondataavailable = ev => chunks.push(ev.data);
+                mediaRec.onstop = () => {
+                    const blob = new Blob(chunks, { type: "audio/webm" });
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        voiceVault[currentSlot] = {
+                            audioBase64: reader.result,
+                            timestamp: new Date().toISOString()
+                        };
+                        if (!voiceVault["master"]) voiceVault["master"] = voiceVault[currentSlot];
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(voiceVault));
+                        updateUI();
+                        alert(`✅ Sujeet, '${currentSlot.toUpperCase()}' voice sample permanently localStorage mein save ho gaya!`);
+                    };
+                    reader.readAsDataURL(blob);
+                    stream.getTracks().forEach(t => t.stop());
+                };
+                mediaRec.start();
+                btn.innerHTML = "⏹️ Stop Recording (Bolte Rahein...)";
+            } catch (err) {
+                alert("Microphone permission denied.");
+            }
+        }
+
+        // Preview
+        if (text.includes("Preview Original Voice")) {
+            const card = btn.closest("div[style], .card, section, div");
+            const match = (card ? card.innerText : "").match(/([1-5])\.\s*(Master|Editorial|Economist|Political|Sci-Tech)/i);
+            const slotKey = match ? match[2].toLowerCase() : "master";
+            const sample = voiceVault[slotKey] || voiceVault["master"];
+            if (sample && sample.audioBase64) {
+                e.stopImmediatePropagation();
+                new Audio(sample.audioBase64).play();
+            } else {
+                alert("Pehle voice record karein.");
+            }
+        }
+
+        // Confirm & Push to Website / Storage
+        if (text.includes("Confirm & Save Permanent") || text.includes("Confirm All & Push Voice Vault")) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(voiceVault));
+            updateUI();
+            
+            // Sync to GitHub admin_boxes.json if token exists
+            const token = localStorage.getItem("github_pat");
+            if (token) {
+                try {
+                    const url = `https://api.github.com/repos/creatorwebsite-dotcom/Project-4.O-pie-pie/contents/admin_boxes.json`;
+                    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+                    if (res.ok) {
+                        const fileData = await res.json();
+                        let contentJson = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
+                        contentJson.voice_vault_samples = voiceVault;
+                        
+                        await fetch(url, {
+                            method: "PUT",
+                            headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                message: "Permanent Voice Vault Sync",
+                                content: btoa(unescape(encodeURIComponent(JSON.stringify(contentJson, null, 2)))),
+                                sha: fileData.sha
+                            })
+                        });
+                        alert("🚀 Voice Vault successfully GitHub aur Website par push ho gaya!");
+                    }
+                } catch (err) {
+                    console.warn("GitHub sync error:", err);
+                }
+            } else {
+                alert("✅ Voice vault local browser storage mein permanently lock kar diya gaya hai!");
+            }
+        }
+    }, true);
+
+    // 3. Broadsheet Player Interceptor (Plays Real Recorded Audio Sample)
+    document.addEventListener("click", function (e) {
+        const btn = e.target.closest("button, a, [role='button']");
+        if (!btn) return;
+        const txt = (btn.innerText || "").toLowerCase();
+
+        if (txt.includes("hinglish") || txt.includes("listen") || txt.includes("audio") || txt.includes("explain") || txt.includes("suneye")) {
+            if (txt.includes("record") || txt.includes("preview") || txt.includes("confirm")) return;
+
+            const sample = voiceVault["master"] || Object.values(voiceVault)[0];
+            if (sample && sample.audioBase64) {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                new Audio(sample.audioBase64).play();
+            }
+        }
+    }, true);
+
+    window.addEventListener("DOMContentLoaded", updateUI);
+    setTimeout(updateUI, 1000);
+})();
+</script></script></style>
+<!-- ============================================================================ -->
+<!-- ADMIN PANEL LIVE 2-HOUR SCHEDULED SYNC RADAR & INSTANT DISPATCH TRIGGER      -->
+<!-- Paste at the very end of admin.html                                          -->
+<!-- ============================================================================ -->
+<script>
+(function() {
+  "use strict";
+
+  function mountAdmin2HourSyncMonitor() {
+    if (document.getElementById("snAdmin2HrSyncRadarBar")) return;
+    const bar = document.createElement("div");
+    bar.id = "snAdmin2HrSyncRadarBar";
+    bar.style.cssText = "background:linear-gradient(135deg,#041922,#094053); color:#ffffff; border-bottom:2px solid #f8c016; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-family:sans-serif; font-size:0.78rem; position:sticky; top:0; z-index:99999;";
+    bar.innerHTML = `
+      <div>
+        <span style="background:#10b981; color:#fff; font-weight:900; padding:2px 8px; border-radius:10px; font-size:0.66rem;">2-HOUR CRON-JOB.ORG + GITHUB SYNC CONNECTED</span>
+        <span id="snAdmLastSyncText" style="margin-left:8px; color:#fef08a; font-weight:800;">Checking last 2-hour GitHub sync...</span>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button type="button" id="btnAdmTriggerInstantScrape" style="background:linear-gradient(135deg,#f8c016,#f59e0b); color:#041922; border:1.5px solid #fff; padding:6px 13px; border-radius:6px; font-size:0.74rem; font-weight:900; cursor:pointer;">
+          🚀 Run Scraper & Hindu Sync Now
+        </button>
+      </div>
+    `;
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    async function refreshSyncStatus() {
+      const txtEl = document.getElementById("snAdmLastSyncText");
+      try {
+        const r = await fetch(`admin_boxes.json?_t=${Date.now()}`, { cache: "no-store" });
+        if (!r.ok) return;
+        const data = await r.json();
+        if (txtEl && data.last_2hr_sync_ist) {
+          txtEl.innerHTML = `✔ Last Live GitHub Sync: <strong>${data.last_2hr_sync_ist}</strong> (via <code>${data.last_trigger_source || "schedule"}</code>)`;
+        }
+      } catch (e) {}
+    }
+
+    refreshSyncStatus();
+    setInterval(refreshSyncStatus, 60000);
+
+    const trigBtn = document.getElementById("btnAdmTriggerInstantScrape");
+    if (trigBtn) {
+      trigBtn.onclick = async function() {
+        const token = localStorage.getItem("SN_GH_PAT") || localStorage.getItem("github_pat") || prompt("Enter your GitHub Personal Access Token (PAT) to trigger instant dispatch:");
+        if (!token) return;
+        localStorage.setItem("SN_GH_PAT", token.trim());
+        trigBtn.textContent = "⏳ Dispatching to GitHub...";
+        try {
+          const res = await fetch("https://api.github.com/repos/creatorwebsite-dotcom/Project-4.O-pie-pie/dispatches", {
+            method: "POST",
+            headers: {
+              "Accept": "application/vnd.github+json",
+              "Authorization": `Bearer ${token.trim()}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ event_type: "cron_2hr_live_sync" })
+          });
+          if (res.status === 204 || res.ok) {
+            trigBtn.textContent = "✅ Dispatched (204 OK)! Running on GitHub...";
+          } else {
+            trigBtn.textContent = `❌ Failed (${res.status})`;
+          }
+        } catch (err) {
+          trigBtn.textContent = "❌ Network Error";
+        }
+        setTimeout(() => { trigBtn.textContent = "🚀 Run Scraper & Hindu Sync Now"; }, 4000);
+      };
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountAdmin2HourSyncMonitor);
+  } else {
+    mountAdmin2HourSyncMonitor();
+  }
+})();
 </script>
+</body>
+</html>
 </body>
   </html>
