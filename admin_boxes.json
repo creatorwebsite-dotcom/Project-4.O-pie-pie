@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-05 12:07:54 PM IST",
+  "updated_at": "2026-11-05 01:31:42 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 0,
-  "unseen_auto_published_count": 147,
+  "pruned_posts_last_run": 8,
+  "unseen_auto_published_count": 241,
   "category_counts": {
-    "latest_jobs": 37,
-    "results": 32,
-    "admit_cards": 44,
-    "answer_keys": 14,
-    "syllabus": 10,
-    "admissions": 10
+    "latest_jobs": 74,
+    "results": 50,
+    "admit_cards": 55,
+    "answer_keys": 24,
+    "syllabus": 17,
+    "admissions": 21
   },
   "trending_top_6": [
     {
@@ -32,39 +32,39 @@
       "active": true
     },
     {
+      "id": "75eb3e7c4019",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 125,
+      "active": true
+    },
+    {
+      "id": "1ade9f27b6fe",
+      "title": "Railway RRC CR Apprentice Online Form 2026 (2861 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://rrccr.com/",
+      "details": "Railway Recruitment Cell (RRC-CR) , has released a notification on the official website for the recruitment of RRC CR Apprentice Posts. This recruitment is for 2861 positions. RRC Application Form has started on 03 November 2026 & the candidates can apply until 02 December 2026 . Candidates must check the complete details for RRC CR Apprentice Recruitment 2026. which has given below.",
+      "rushScore": 118,
+      "active": true
+    },
+    {
+      "id": "98caf671d10b",
+      "title": "RRB NTPC Graduate Level Online Form 2026 (3548 Posts)",
+      "sub": "Closing Soon",
+      "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments",
+      "details": "Application Fee For General / OBC / EWS : ₹ 500/- For SC / ST / EBC : ₹ 250/- For All Category female : ₹ 250/- Fess Refund : General / OBC : Rs. 400/- will be refunded and Other candidates : Rs. 250/- will be refunded to the bank account after appearing in Stage I Exam. Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 118,
+      "active": true
+    },
+    {
       "id": "79e7b4e22681",
       "title": "RRB ALP Admit Card 2026 Released for CBT 1; Exam on November 3, 4 and 5 for 11,127 Posts",
       "sub": "Admit Card",
       "url": "https://indianrailways.gov.in",
       "details": "Official notification for RRB ALP Admit Card 2026 Released for CBT 1; Exam on November 3, 4 and 5 for 11,127 Posts. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 117,
-      "active": true
-    },
-    {
-      "id": "c3e7b14b18d5",
-      "title": "RRB Station Master Recruitment 2026 Out, Apply Online Starts For 1265 Posts",
-      "sub": "Syllabus",
-      "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB Station Master Recruitment 2026 Out, Apply Online Starts For 1265 Posts. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 110,
-      "active": true
-    },
-    {
-      "id": "4e1e27f5daef",
-      "title": "UPSSSC JE Online Form (1156 Posts)",
-      "sub": "Latest Jobs",
-      "url": "http://sarkariresult.com.cm/wp-content/uploads/2026/10/ViewPdf-2.pdf",
-      "details": "Application Fee General, OBC, EWS : ₹ 25/- SC, ST : ₹ 25/- PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 110,
-      "active": true
-    },
-    {
-      "id": "bbdadb6fc597",
-      "title": "UPPSC RO/ARO Online Form (501 Posts)",
-      "sub": "Latest Jobs",
-      "url": "https://uppsc.up.nic.in/OuterPages/View_Enclosure.aspx?ID=307&flag=H&FID=946",
-      "details": "Application Fee For General / OBC / EWS : ₹ 125/- For SC / ST :₹ 65/- For PH : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 110,
       "active": true
     }
   ],
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "05 Nov 2026, 12:08:06 PM IST",
-  "last_2hr_sync_iso": "2026-11-05T12:08:06+05:30",
+  "last_2hr_sync_ist": "05 Nov 2026, 01:31:54 PM IST",
+  "last_2hr_sync_iso": "2026-11-05T13:31:54+05:30",
   "last_trigger_source": "schedule"
 }
