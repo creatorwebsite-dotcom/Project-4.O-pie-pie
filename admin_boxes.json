@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-05 05:18:36 PM IST",
+  "updated_at": "2026-11-05 05:31:42 PM IST",
   "window_days": 15,
   "pruned_posts_last_run": 9,
-  "unseen_auto_published_count": 339,
+  "unseen_auto_published_count": 371,
   "category_counts": {
-    "latest_jobs": 99,
-    "results": 70,
+    "latest_jobs": 109,
+    "results": 77,
     "admit_cards": 64,
     "answer_keys": 36,
-    "syllabus": 29,
-    "admissions": 41
+    "syllabus": 34,
+    "admissions": 51
   },
   "trending_top_6": [
     {
@@ -41,29 +41,29 @@
       "active": true
     },
     {
+      "id": "81ba508cf03c",
+      "title": "7,268 Vacancies Announced: Odisha Police Constable Recruitment 2026",
+      "sub": "Latest Jobs",
+      "url": "https://uppbpb.gov.in",
+      "details": "Official notification for 7,268 Vacancies Announced: Odisha Police Constable Recruitment 2026. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 118,
+      "active": true
+    },
+    {
+      "id": "d90c2a719e7e",
+      "title": "UPESSC Principal Recruitment 2026 Out For 2647 Posts, Apply Link , Eligibility",
+      "sub": "Latest Jobs",
+      "url": "https://ssc.gov.in",
+      "details": "Official notification for UPESSC Principal Recruitment 2026 Out For 2647 Posts, Apply Link , Eligibility. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 118,
+      "active": true
+    },
+    {
       "id": "ea4aec96eddf",
       "title": "RRB JE Vacancy 2026 Increased, Check Revised Zone-Wise 4,487 Vacancy Details Here",
       "sub": "Latest Jobs",
       "url": "https://indianrailways.gov.in",
       "details": "Official notification for RRB JE Vacancy 2026 Increased, Check Revised Zone-Wise 4,487 Vacancy Details Here. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 118,
-      "active": true
-    },
-    {
-      "id": "1ade9f27b6fe",
-      "title": "Railway RRC CR Apprentice Online Form 2026 (2861 Posts)",
-      "sub": "Latest Jobs",
-      "url": "https://rrccr.com/",
-      "details": "Railway Recruitment Cell (RRC-CR) , has released a notification on the official website for the recruitment of RRC CR Apprentice Posts. This recruitment is for 2861 positions. RRC Application Form has started on 03 November 2026 & the candidates can apply until 02 December 2026 . Candidates must check the complete details for RRC CR Apprentice Recruitment 2026. which has given below.",
-      "rushScore": 118,
-      "active": true
-    },
-    {
-      "id": "98caf671d10b",
-      "title": "RRB NTPC Graduate Level Online Form 2026 (3548 Posts)",
-      "sub": "Closing Soon",
-      "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments",
-      "details": "Application Fee For General / OBC / EWS : ₹ 500/- For SC / ST / EBC : ₹ 250/- For All Category female : ₹ 250/- Fess Refund : General / OBC : Rs. 400/- will be refunded and Other candidates : Rs. 250/- will be refunded to the bank account after appearing in Stage I Exam. Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 118,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "05 Nov 2026, 05:18:45 PM IST",
-  "last_2hr_sync_iso": "2026-11-05T17:18:45+05:30",
+  "last_2hr_sync_ist": "05 Nov 2026, 05:31:54 PM IST",
+  "last_2hr_sync_iso": "2026-11-05T17:31:54+05:30",
   "last_trigger_source": "schedule"
 }
