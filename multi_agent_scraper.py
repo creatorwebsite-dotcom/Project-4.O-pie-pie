@@ -1948,3 +1948,87 @@ def main():
 
 if __name__ == "__main__":
     main()
+# ==============================================================================
+# AUTO-SANITIZER FOR jobs_database.json (PASTE AT THE VERY END OF multi_agent_scraper.py)
+# Automatically purges general news, crime/scam/arrest reports, foreign news,
+# and The Hindu broadsheet items from jobs_database.json after every scrape run!
+# ==============================================================================
+import json
+import os
+import re
+
+def sanitize_jobs_database_file(json_path="jobs_database.json"):
+    if not os.path.exists(json_path):
+        return
+
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return
+
+    posts = data if isinstance(data, list) else data.get("posts", [])
+    if not isinstance(posts, list):
+        return
+
+    block_rx = re.compile(
+        r"(\barrested\b|\bheld\b|\bbust\b|\bbusted\b|\buncover\b|\bscam\b|\bracket\b|"
+        r"\bimpersonation\b|\bfake\b|\bfraud\b|\bbail\b|\bplea\b|court\s*rejects|"
+        r"harassment|complaint|\blodges\b|vacancy\s*reserve|pass\s*out\s*of|police\s*academy|"
+        r"kurash|result\s+in\b|results\s+in\b|selling\s*pressure|\bgold\b|tinubu|"
+        r"s\.?\s*sudan|south\s*sudan|omollo|asks\s*mps|raise\s*concerns|human\s*rights|"
+        r"police\s*cars|staffing\s*issues|russia\s*job|russian\s*embassy|"
+        r"exam\s*analysis|difficulty\s*level|good\s*attempts|thehindu\.com|vocabHinglish)",
+        re.IGNORECASE
+    )
+
+    valid_authority_rx = re.compile(
+        r"(\bssc\b|\bibps\b|\bsbi\b|\brbi\b|\bnabard\b|\blic\b|\bnicl\b|\brrb\b|\brailway\b|"
+        r"\bntpc\b|\bupsc\b|\bmpsc\b|\buppsc\b|\bbpsc\b|\bmppsc\b|\brpsc\b|\bhpsc\b|\bwbpsc\b|"
+        r"\bupsssc\b|\bbssc\b|\bhssc\b|\bdsssb\b|\bcsbc\b|\bdrdo\b|\bisro\b|\bkvs\b|\bnvs\b|"
+        r"\bctet\b|\btet\b|\bneet\b|\bjee\b|\bcuet\b|\bnta\b|\bvtu\b|\bhprca\b|\bgds\b|"
+        r"\barmy\b|\bnavy\b|\bair\s*force\b|\bnda\b|\bcds\b|\bbsf\b|\bcrpf\b|\bcisf\b|"
+        r"\bcgept\b|\bcourt\b|\bkotwal\b|\btalathi\b|\bpatwari\b|\blekhpal\b|\bconstable\b|"
+        r"\bclerk\b|\bofficer\b|\bteacher\b|\bnurse\b|\bapprentice\b|\brecruitment\b)",
+        re.IGNORECASE
+    )
+
+    valid_action_rx = re.compile(
+        r"(online\s*form|offline\s*form|apply\s*online|recruitment|vacancy|vacancies|bharti|"
+        r"notification|\b\d+\s*posts?\b|admit\s*card|hall\s*ticket|exam\s*date|typing\s*test|"
+        r"result\s*202\d|result\s*out|recruitment\s*results|merit\s*list|selection\s*list|"
+        r"cut\s*off|answer\s*key|syllabus|admission|counselling|seat\s*allotment)",
+        re.IGNORECASE
+    )
+
+    clean_posts = []
+    for p in posts:
+        if not isinstance(p, dict):
+            continue
+        if "fullParagraphs" in p or "vocabHinglish4" in p:
+            continue
+        title = str(p.get("title") or p.get("post_title") or "").strip()
+        dept = str(p.get("dept") or p.get("organization") or "").strip()
+        combined = f"{title} {dept}"
+
+        if len(title) < 8 or len(title) > 150:
+            continue
+        if block_rx.search(combined):
+            continue
+        if not valid_authority_rx.search(combined) or not valid_action_rx.search(combined):
+            continue
+
+        clean_posts.append(p)
+
+    if isinstance(data, list):
+        out_data = clean_posts
+    else:
+        data["posts"] = clean_posts
+        out_data = data
+
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(out_data, f, ensure_ascii=False, indent=2)
+    print(f"[Sarkari Firewall] Cleaned {json_path}: Kept {len(clean_posts)} verified Sarkari posts.")
+
+if __name__ == "__main__":
+    sanitize_jobs_database_file("jobs_database.json")
