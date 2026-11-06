@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-06 09:31:23 AM IST",
+  "updated_at": "2026-11-06 11:31:27 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 4,
-  "unseen_auto_published_count": 482,
+  "pruned_posts_last_run": 6,
+  "unseen_auto_published_count": 513,
   "category_counts": {
-    "latest_jobs": 122,
-    "results": 112,
-    "admit_cards": 68,
-    "answer_keys": 38,
-    "syllabus": 39,
-    "admissions": 103
+    "latest_jobs": 130,
+    "results": 126,
+    "admit_cards": 70,
+    "answer_keys": 40,
+    "syllabus": 40,
+    "admissions": 107
   },
   "trending_top_6": [
     {
@@ -41,6 +41,15 @@
       "active": true
     },
     {
+      "id": "06fc752490f5",
+      "title": "UPSSSC Regional Youth Welfare Officer Online Form 2026 – Last Date Today",
+      "sub": "Today Last Date",
+      "url": "https://upsssc.gov.in/ViewPdf.aspx?ZAav3PHO8SadE1elv4czrrIC+FQDR9n9BYbJOCnh3Rs=",
+      "details": "Application Fee For General, OBC, EWS : ₹ 25/- For SC / ST : ₹ 25/- For PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 122,
+      "active": true
+    },
+    {
       "id": "1a262a993538",
       "title": "Kolkata Police Recruitment 2026 Notification Out For 5893 Posts, Check Online Apply Date",
       "sub": "Latest Jobs",
@@ -55,15 +64,6 @@
       "sub": "Latest Jobs",
       "url": "https://uppbpb.gov.in",
       "details": "Official notification for 7,268 Vacancies Announced: Odisha Police Constable Recruitment 2026. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 118,
-      "active": true
-    },
-    {
-      "id": "d90c2a719e7e",
-      "title": "UPESSC Principal Recruitment 2026 Out For 2647 Posts, Apply Link , Eligibility",
-      "sub": "Latest Jobs",
-      "url": "https://ssc.gov.in",
-      "details": "Official notification for UPESSC Principal Recruitment 2026 Out For 2647 Posts, Apply Link , Eligibility. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 118,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "06 Nov 2026, 09:32:09 AM IST",
-  "last_2hr_sync_iso": "2026-11-06T09:32:09+05:30",
+  "last_2hr_sync_ist": "06 Nov 2026, 11:31:40 AM IST",
+  "last_2hr_sync_iso": "2026-11-06T11:31:40+05:30",
   "last_trigger_source": "schedule"
 }
