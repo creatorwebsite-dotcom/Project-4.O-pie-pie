@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-06 01:31:34 PM IST",
+  "updated_at": "2026-11-06 02:22:48 PM IST",
   "window_days": 15,
   "pruned_posts_last_run": 5,
-  "unseen_auto_published_count": 535,
+  "unseen_auto_published_count": 552,
   "category_counts": {
-    "latest_jobs": 137,
-    "results": 133,
-    "admit_cards": 75,
-    "answer_keys": 41,
+    "latest_jobs": 141,
+    "results": 134,
+    "admit_cards": 76,
+    "answer_keys": 46,
     "syllabus": 40,
-    "admissions": 109
+    "admissions": 115
   },
   "trending_top_6": [
     {
@@ -50,20 +50,20 @@
       "active": true
     },
     {
+      "id": "458969a3ba1e",
+      "title": "RRB NTPC Graduate recruitment 2026: Registration ends today for over 3,000 vacancies; direct link to appl",
+      "sub": "Latest Jobs",
+      "url": "https://indianrailways.gov.in",
+      "details": "Official notification for RRB NTPC Graduate recruitment 2026: Registration ends today for over 3,000 vacancies; direct link to appl. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 118,
+      "active": true
+    },
+    {
       "id": "1a262a993538",
       "title": "Kolkata Police Recruitment 2026 Notification Out For 5893 Posts, Check Online Apply Date",
       "sub": "Latest Jobs",
       "url": "https://uppbpb.gov.in",
       "details": "Official notification for Kolkata Police Recruitment 2026 Notification Out For 5893 Posts, Check Online Apply Date. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 118,
-      "active": true
-    },
-    {
-      "id": "81ba508cf03c",
-      "title": "7,268 Vacancies Announced: Odisha Police Constable Recruitment 2026",
-      "sub": "Latest Jobs",
-      "url": "https://uppbpb.gov.in",
-      "details": "Official notification for 7,268 Vacancies Announced: Odisha Police Constable Recruitment 2026. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 118,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "06 Nov 2026, 01:31:48 PM IST",
-  "last_2hr_sync_iso": "2026-11-06T13:31:48+05:30",
+  "last_2hr_sync_ist": "06 Nov 2026, 02:22:58 PM IST",
+  "last_2hr_sync_iso": "2026-11-06T14:22:58+05:30",
   "last_trigger_source": "schedule"
 }
