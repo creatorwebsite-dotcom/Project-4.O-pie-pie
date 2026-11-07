@@ -1,14 +1,14 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-07 09:31:26 PM IST",
+  "updated_at": "2026-11-07 11:31:32 PM IST",
   "window_days": 15,
   "pruned_posts_last_run": 3,
-  "unseen_auto_published_count": 706,
+  "unseen_auto_published_count": 710,
   "category_counts": {
-    "latest_jobs": 192,
-    "results": 170,
-    "admit_cards": 96,
-    "answer_keys": 50,
+    "latest_jobs": 196,
+    "results": 171,
+    "admit_cards": 97,
+    "answer_keys": 48,
     "syllabus": 50,
     "admissions": 148
   },
@@ -29,6 +29,15 @@
       "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 138,
+      "active": true
+    },
+    {
+      "id": "c956d06b1b76",
+      "title": "West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage",
+      "sub": "Latest Jobs",
+      "url": "https://uppbpb.gov.in",
+      "details": "Official notification for West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 125,
       "active": true
     },
     {
@@ -57,15 +66,6 @@
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 125,
       "active": true
-    },
-    {
-      "id": "06fc752490f5",
-      "title": "UPSSSC Regional Youth Welfare Officer Online Form 2026 – Last Date Today",
-      "sub": "Today Last Date",
-      "url": "https://upsssc.gov.in/ViewPdf.aspx?ZAav3PHO8SadE1elv4czrrIC+FQDR9n9BYbJOCnh3Rs=",
-      "details": "Application Fee For General, OBC, EWS : ₹ 25/- For SC / ST : ₹ 25/- For PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 122,
-      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "07 Nov 2026, 09:31:37 PM IST",
-  "last_2hr_sync_iso": "2026-11-07T21:31:37+05:30",
+  "last_2hr_sync_ist": "07 Nov 2026, 11:31:42 PM IST",
+  "last_2hr_sync_iso": "2026-11-07T23:31:42+05:30",
   "last_trigger_source": "schedule"
 }
