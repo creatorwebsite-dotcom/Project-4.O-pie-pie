@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-07 11:56:42 PM IST",
+  "updated_at": "2026-11-08 01:31:28 AM IST",
   "window_days": 15,
   "pruned_posts_last_run": 3,
-  "unseen_auto_published_count": 715,
+  "unseen_auto_published_count": 720,
   "category_counts": {
-    "latest_jobs": 200,
+    "latest_jobs": 203,
     "results": 171,
     "admit_cards": 98,
     "answer_keys": 48,
     "syllabus": 50,
-    "admissions": 148
+    "admissions": 150
   },
   "trending_top_6": [
     {
@@ -29,6 +29,15 @@
       "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 138,
+      "active": true
+    },
+    {
+      "id": "93d2c132fe8d",
+      "title": "TNPSC 6,574 Group IV Services Online Form 2026",
+      "sub": "Today Last Date",
+      "url": "https://tnpsc.gov.in/Document/english/Addendum%20%2011B.pdf",
+      "details": "The Tamil Nadu Public Service Commission (TNPSC) has released the TNPSC Group 4 Notification 2026 for the Combined Civil Services Examination-IV (Group IV Services). The detailed notification was issued on 06 October 2026 under Advertisement No. 747 and Notification No. 11/2026 for 6,574 vacancies across 46 post entries .",
+      "rushScore": 135,
       "active": true
     },
     {
@@ -55,16 +64,7 @@
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "75eb3e7c4019",
-      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
-      "sub": "Latest Jobs",
-      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
+      "rushScore": 123,
       "active": true
     }
   ],
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "07 Nov 2026, 11:56:55 PM IST",
-  "last_2hr_sync_iso": "2026-11-07T23:56:55+05:30",
+  "last_2hr_sync_ist": "08 Nov 2026, 01:31:42 AM IST",
+  "last_2hr_sync_iso": "2026-11-08T01:31:42+05:30",
   "last_trigger_source": "schedule"
 }
