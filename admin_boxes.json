@@ -1,15 +1,15 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-07 01:31:32 PM IST",
+  "updated_at": "2026-11-07 03:31:34 PM IST",
   "window_days": 15,
   "pruned_posts_last_run": 3,
-  "unseen_auto_published_count": 665,
+  "unseen_auto_published_count": 673,
   "category_counts": {
-    "latest_jobs": 177,
+    "latest_jobs": 180,
     "results": 162,
-    "admit_cards": 89,
-    "answer_keys": 49,
-    "syllabus": 48,
+    "admit_cards": 91,
+    "answer_keys": 50,
+    "syllabus": 50,
     "admissions": 140
   },
   "trending_top_6": [
@@ -29,6 +29,15 @@
       "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 138,
+      "active": true
+    },
+    {
+      "id": "c0971824a59b",
+      "title": "MPSC Group C Recruitment 2026 Notification Out for 16,797 Posts, Apply Online at @mpsconline.gov.in",
+      "sub": "Syllabus",
+      "url": "https://mpsc.gov.in",
+      "details": "Official notification for MPSC Group C Recruitment 2026 Notification Out for 16,797 Posts, Apply Online at @mpsconline.gov.in. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 125,
       "active": true
     },
     {
@@ -57,15 +66,6 @@
       "details": "Application Fee For General, OBC, EWS : ₹ 25/- For SC / ST : ₹ 25/- For PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 122,
       "active": true
-    },
-    {
-      "id": "c25ef3a4852b",
-      "title": "Railway RRC NR Apprentice Online Form 2026 (4651 Posts)",
-      "sub": "Latest Jobs",
-      "url": "https://rrcnr.org/",
-      "details": "Railway Recruitment Cell (RRC-NR) , has released a Notification on its official website for the recruitment of RRC NR Apprentice Posts. This recruitment is for 4651 positions. RRC Application Form will start on 11 November 2026 & the candidates can apply until 11 December 2026 . Candidates must check the complete details for RRC NR Apprentice Recruitment 2026. which has given below.",
-      "rushScore": 118,
-      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "07 Nov 2026, 01:31:45 PM IST",
-  "last_2hr_sync_iso": "2026-11-07T13:31:45+05:30",
+  "last_2hr_sync_ist": "07 Nov 2026, 03:31:46 PM IST",
+  "last_2hr_sync_iso": "2026-11-07T15:31:46+05:30",
   "last_trigger_source": "schedule"
 }
