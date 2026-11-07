@@ -1,11 +1,11 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-07 09:31:32 AM IST",
+  "updated_at": "2026-11-07 09:49:15 AM IST",
   "window_days": 15,
   "pruned_posts_last_run": 4,
-  "unseen_auto_published_count": 651,
+  "unseen_auto_published_count": 653,
   "category_counts": {
-    "latest_jobs": 168,
+    "latest_jobs": 170,
     "results": 161,
     "admit_cards": 88,
     "answer_keys": 49,
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "07 Nov 2026, 09:31:46 AM IST",
-  "last_2hr_sync_iso": "2026-11-07T09:31:46+05:30",
+  "last_2hr_sync_ist": "07 Nov 2026, 09:49:23 AM IST",
+  "last_2hr_sync_iso": "2026-11-07T09:49:23+05:30",
   "last_trigger_source": "schedule"
 }
