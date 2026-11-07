@@ -1,18 +1,27 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-07 09:49:15 AM IST",
+  "updated_at": "2026-11-07 11:31:28 AM IST",
   "window_days": 15,
   "pruned_posts_last_run": 4,
-  "unseen_auto_published_count": 653,
+  "unseen_auto_published_count": 657,
   "category_counts": {
-    "latest_jobs": 170,
+    "latest_jobs": 171,
     "results": 161,
-    "admit_cards": 88,
+    "admit_cards": 89,
     "answer_keys": 49,
     "syllabus": 48,
-    "admissions": 137
+    "admissions": 139
   },
   "trending_top_6": [
+    {
+      "id": "45bd52449ad2",
+      "title": "UPESSC PRT Assistant Teacher Re-Open Form 2026 (12405 Posts)",
+      "sub": "Date Extended",
+      "url": "https://www.upessc.up.gov.in/Notice/2f5b-2b53-4364-eeff-c38d.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 140,
+      "active": true
+    },
     {
       "id": "eecad9706002",
       "title": "UPESSC Assistant Teacher Form (12405 Posts)",
@@ -28,7 +37,7 @@
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 123,
+      "rushScore": 125,
       "active": true
     },
     {
@@ -37,7 +46,7 @@
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 123,
+      "rushScore": 125,
       "active": true
     },
     {
@@ -57,15 +66,6 @@
       "details": "Official notification for Odisha Police Recruitment 2026: OUSSSC Announces 7,268 Vacancies; Apply Till November 12. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 118,
       "active": true
-    },
-    {
-      "id": "458969a3ba1e",
-      "title": "RRB NTPC Graduate recruitment 2026: Registration ends today for over 3,000 vacancies; direct link to appl",
-      "sub": "Latest Jobs",
-      "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB NTPC Graduate recruitment 2026: Registration ends today for over 3,000 vacancies; direct link to appl. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 118,
-      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "07 Nov 2026, 09:49:23 AM IST",
-  "last_2hr_sync_iso": "2026-11-07T09:49:23+05:30",
+  "last_2hr_sync_ist": "07 Nov 2026, 11:31:37 AM IST",
+  "last_2hr_sync_iso": "2026-11-07T11:31:37+05:30",
   "last_trigger_source": "schedule"
 }
