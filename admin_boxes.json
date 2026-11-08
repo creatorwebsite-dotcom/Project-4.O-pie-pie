@@ -1,14 +1,14 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-08 11:31:32 PM IST",
+  "updated_at": "2026-11-09 12:07:47 AM IST",
   "window_days": 15,
   "pruned_posts_last_run": 6,
-  "unseen_auto_published_count": 773,
+  "unseen_auto_published_count": 770,
   "category_counts": {
-    "latest_jobs": 231,
+    "latest_jobs": 229,
     "results": 180,
-    "admit_cards": 102,
-    "answer_keys": 48,
+    "admit_cards": 103,
+    "answer_keys": 46,
     "syllabus": 48,
     "admissions": 164
   },
@@ -32,12 +32,21 @@
       "active": true
     },
     {
-      "id": "93d2c132fe8d",
-      "title": "TNPSC 6,574 Group IV Services Online Form 2026",
-      "sub": "Today Last Date",
-      "url": "https://tnpsc.gov.in/Document/english/Addendum%20%2011B.pdf",
-      "details": "The Tamil Nadu Public Service Commission (TNPSC) has released the TNPSC Group 4 Notification 2026 for the Combined Civil Services Examination-IV (Group IV Services). The detailed notification was issued on 06 October 2026 under Advertisement No. 747 and Notification No. 11/2026 for 6,574 vacancies across 46 post entries .",
-      "rushScore": 135,
+      "id": "c956d06b1b76",
+      "title": "West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage",
+      "sub": "Latest Jobs",
+      "url": "https://uppbpb.gov.in",
+      "details": "Official notification for West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 125,
+      "active": true
+    },
+    {
+      "id": "c0971824a59b",
+      "title": "MPSC Group C Recruitment 2026 Notification Out for 16,797 Posts, Apply Online at @mpsconline.gov.in",
+      "sub": "Syllabus",
+      "url": "https://mpsc.gov.in",
+      "details": "Official notification for MPSC Group C Recruitment 2026 Notification Out for 16,797 Posts, Apply Online at @mpsconline.gov.in. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 125,
       "active": true
     },
     {
@@ -46,7 +55,7 @@
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
+      "rushScore": 123,
       "active": true
     },
     {
@@ -55,16 +64,7 @@
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "c956d06b1b76",
-      "title": "West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage",
-      "sub": "Latest Jobs",
-      "url": "https://uppbpb.gov.in",
-      "details": "Official notification for West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
+      "rushScore": 123,
       "active": true
     }
   ],
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "08 Nov 2026, 11:31:44 PM IST",
-  "last_2hr_sync_iso": "2026-11-08T23:31:44+05:30",
+  "last_2hr_sync_ist": "09 Nov 2026, 12:08:00 AM IST",
+  "last_2hr_sync_iso": "2026-11-09T00:08:00+05:30",
   "last_trigger_source": "schedule"
 }
