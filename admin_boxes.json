@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-11 05:31:34 PM IST",
+  "updated_at": "2026-11-11 06:57:21 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 5,
-  "unseen_auto_published_count": 950,
+  "pruned_posts_last_run": 4,
+  "unseen_auto_published_count": 959,
   "category_counts": {
-    "latest_jobs": 307,
-    "results": 188,
-    "admit_cards": 124,
+    "latest_jobs": 309,
+    "results": 187,
+    "admit_cards": 125,
     "answer_keys": 54,
     "syllabus": 53,
-    "admissions": 224
+    "admissions": 231
   },
   "trending_top_6": [
     {
@@ -29,6 +29,15 @@
       "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 138,
+      "active": true
+    },
+    {
+      "id": "410f8522b383",
+      "title": "MPSC 16,797 Group C Online Form 2026",
+      "sub": "Latest Jobs",
+      "url": "https://mpsconline.gov.in/",
+      "details": "The Maharashtra Public Service Commission (MPSC) has issued important updates regarding the MPSC Group C Recruitment 2026 , covering a total of 16,717 vacancies across various departments of the Maharashtra Government. The recruitment includes posts such as Clerk-Typist, Tax Assistant, Technical Assistant, Assistant Motor Vehicle Inspector, Industry Inspector and several other Group C positions.",
+      "rushScore": 125,
       "active": true
     },
     {
@@ -57,15 +66,6 @@
       "details": "Application Fee For General, OBC, EWS : ₹ 25/- For SC / ST : ₹ 25/- For PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 122,
       "active": true
-    },
-    {
-      "id": "f7a14a56db7b",
-      "title": "UPESSC PRT recruitment 2026: Registration window closes today for 12,405 posts; direct link to apply here",
-      "sub": "Latest Jobs",
-      "url": "https://ssc.gov.in",
-      "details": "Official notification for UPESSC PRT recruitment 2026: Registration window closes today for 12,405 posts; direct link to apply here. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 119,
-      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "11 Nov 2026, 05:31:57 PM IST",
-  "last_2hr_sync_iso": "2026-11-11T17:31:57+05:30",
+  "last_2hr_sync_ist": "11 Nov 2026, 06:57:44 PM IST",
+  "last_2hr_sync_iso": "2026-11-11T18:57:44+05:30",
   "last_trigger_source": "schedule"
 }
