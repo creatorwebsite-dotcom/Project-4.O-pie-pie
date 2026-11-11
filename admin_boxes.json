@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-11 06:57:21 PM IST",
+  "updated_at": "2026-11-11 07:31:34 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 4,
-  "unseen_auto_published_count": 959,
+  "pruned_posts_last_run": 8,
+  "unseen_auto_published_count": 989,
   "category_counts": {
-    "latest_jobs": 309,
-    "results": 187,
-    "admit_cards": 125,
-    "answer_keys": 54,
+    "latest_jobs": 325,
+    "results": 192,
+    "admit_cards": 131,
+    "answer_keys": 56,
     "syllabus": 53,
-    "admissions": 231
+    "admissions": 232
   },
   "trending_top_6": [
     {
@@ -59,12 +59,12 @@
       "active": true
     },
     {
-      "id": "06fc752490f5",
-      "title": "UPSSSC Regional Youth Welfare Officer Online Form 2026 – Last Date Today",
-      "sub": "Today Last Date",
-      "url": "https://upsssc.gov.in/ViewPdf.aspx?ZAav3PHO8SadE1elv4czrrIC+FQDR9n9BYbJOCnh3Rs=",
-      "details": "Application Fee For General, OBC, EWS : ₹ 25/- For SC / ST : ₹ 25/- For PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 122,
+      "id": "3919c89162dd",
+      "title": "UPESSC TGT Online Form (17,735 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 123,
       "active": true
     }
   ],
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "11 Nov 2026, 06:57:44 PM IST",
-  "last_2hr_sync_iso": "2026-11-11T18:57:44+05:30",
+  "last_2hr_sync_ist": "11 Nov 2026, 07:31:48 PM IST",
+  "last_2hr_sync_iso": "2026-11-11T19:31:48+05:30",
   "last_trigger_source": "schedule"
 }
