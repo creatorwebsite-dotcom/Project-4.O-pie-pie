@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-11 11:31:36 AM IST",
+  "updated_at": "2026-11-11 01:31:32 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 3,
-  "unseen_auto_published_count": 922,
+  "pruned_posts_last_run": 16,
+  "unseen_auto_published_count": 923,
   "category_counts": {
-    "latest_jobs": 291,
-    "results": 191,
-    "admit_cards": 123,
-    "answer_keys": 54,
-    "syllabus": 55,
-    "admissions": 208
+    "latest_jobs": 298,
+    "results": 188,
+    "admit_cards": 122,
+    "answer_keys": 52,
+    "syllabus": 53,
+    "admissions": 210
   },
   "trending_top_6": [
     {
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "11 Nov 2026, 11:32:00 AM IST",
-  "last_2hr_sync_iso": "2026-11-11T11:32:00+05:30",
+  "last_2hr_sync_ist": "11 Nov 2026, 01:31:56 PM IST",
+  "last_2hr_sync_iso": "2026-11-11T13:31:56+05:30",
   "last_trigger_source": "schedule"
 }
