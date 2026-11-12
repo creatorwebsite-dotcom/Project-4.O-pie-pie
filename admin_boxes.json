@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-12 09:31:27 AM IST",
+  "updated_at": "2026-11-12 11:31:41 AM IST",
   "window_days": 15,
   "pruned_posts_last_run": 4,
-  "unseen_auto_published_count": 1029,
+  "unseen_auto_published_count": 1044,
   "category_counts": {
-    "latest_jobs": 345,
-    "results": 199,
-    "admit_cards": 133,
+    "latest_jobs": 353,
+    "results": 200,
+    "admit_cards": 134,
     "answer_keys": 58,
     "syllabus": 53,
-    "admissions": 241
+    "admissions": 246
   },
   "trending_top_6": [
     {
@@ -41,30 +41,30 @@
       "active": true
     },
     {
+      "id": "3919c89162dd",
+      "title": "UPESSC TGT Online Form (17,735 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 125,
+      "active": true
+    },
+    {
+      "id": "75eb3e7c4019",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 125,
+      "active": true
+    },
+    {
       "id": "c956d06b1b76",
       "title": "West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage",
       "sub": "Latest Jobs",
       "url": "https://uppbpb.gov.in",
       "details": "Official notification for West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "c0971824a59b",
-      "title": "MPSC Group C Recruitment 2026 Notification Out for 16,797 Posts, Apply Online at @mpsconline.gov.in",
-      "sub": "Syllabus",
-      "url": "https://mpsc.gov.in",
-      "details": "Official notification for MPSC Group C Recruitment 2026 Notification Out for 16,797 Posts, Apply Online at @mpsconline.gov.in. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "06fc752490f5",
-      "title": "UPSSSC Regional Youth Welfare Officer Online Form 2026 – Last Date Today",
-      "sub": "Today Last Date",
-      "url": "https://upsssc.gov.in/ViewPdf.aspx?ZAav3PHO8SadE1elv4czrrIC+FQDR9n9BYbJOCnh3Rs=",
-      "details": "Application Fee For General, OBC, EWS : ₹ 25/- For SC / ST : ₹ 25/- For PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 122,
       "active": true
     }
   ],
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "12 Nov 2026, 09:31:35 AM IST",
-  "last_2hr_sync_iso": "2026-11-12T09:31:35+05:30",
+  "last_2hr_sync_ist": "12 Nov 2026, 11:31:57 AM IST",
+  "last_2hr_sync_iso": "2026-11-12T11:31:57+05:30",
   "last_trigger_source": "schedule"
 }
