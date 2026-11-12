@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-12 01:31:33 PM IST",
+  "updated_at": "2026-11-12 03:31:33 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 26,
-  "unseen_auto_published_count": 1033,
+  "pruned_posts_last_run": 9,
+  "unseen_auto_published_count": 1057,
   "category_counts": {
-    "latest_jobs": 356,
-    "results": 195,
-    "admit_cards": 126,
-    "answer_keys": 56,
-    "syllabus": 51,
-    "admissions": 249
+    "latest_jobs": 364,
+    "results": 196,
+    "admit_cards": 132,
+    "answer_keys": 60,
+    "syllabus": 52,
+    "admissions": 253
   },
   "trending_top_6": [
     {
@@ -41,6 +41,15 @@
       "active": true
     },
     {
+      "id": "3b18867114c0",
+      "title": "SSC GD PET PST Admit Card 2026 Out",
+      "sub": "Admit Card",
+      "url": "https://ssccr.gov.in/admit-card/696529dfde07fd2f63e510d9",
+      "details": "The Staff Selection Commission (SSC) has released the SSC GD PET PST Admit Card 2026 on 12 November 2026. Candidates who qualified in the Computer-Based Examination can download their admit cards for the Physical Efficiency Test (PET) and Physical Standard Test (PST) from the official website. Candidates must log in using their registration number/roll number and date of birth or password to access the call letter.",
+      "rushScore": 125,
+      "active": true
+    },
+    {
       "id": "3919c89162dd",
       "title": "UPESSC TGT Online Form (17,735 Posts)",
       "sub": "Latest Jobs",
@@ -55,15 +64,6 @@
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "c956d06b1b76",
-      "title": "West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage",
-      "sub": "Latest Jobs",
-      "url": "https://uppbpb.gov.in",
-      "details": "Official notification for West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "12 Nov 2026, 01:31:44 PM IST",
-  "last_2hr_sync_iso": "2026-11-12T13:31:44+05:30",
+  "last_2hr_sync_ist": "12 Nov 2026, 03:31:42 PM IST",
+  "last_2hr_sync_iso": "2026-11-12T15:31:42+05:30",
   "last_trigger_source": "schedule"
 }
