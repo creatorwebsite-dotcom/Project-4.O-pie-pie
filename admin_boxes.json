@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-12 11:31:32 PM IST",
+  "updated_at": "2026-11-13 01:31:29 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 8,
-  "unseen_auto_published_count": 1130,
+  "pruned_posts_last_run": 7,
+  "unseen_auto_published_count": 1134,
   "category_counts": {
-    "latest_jobs": 385,
+    "latest_jobs": 388,
     "results": 204,
     "admit_cards": 144,
     "answer_keys": 69,
     "syllabus": 54,
-    "admissions": 274
+    "admissions": 275
   },
   "trending_top_6": [
     {
@@ -59,11 +59,11 @@
       "active": true
     },
     {
-      "id": "3919c89162dd",
-      "title": "UPESSC TGT Online Form (17,735 Posts)",
+      "id": "c956d06b1b76",
+      "title": "West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage",
       "sub": "Latest Jobs",
-      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "url": "https://uppbpb.gov.in",
+      "details": "Official notification for West Bengal Police Recruitment Adds 10,544 Vacancies Amid Staff Shortage. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "12 Nov 2026, 11:31:41 PM IST",
-  "last_2hr_sync_iso": "2026-11-12T23:31:41+05:30",
+  "last_2hr_sync_ist": "13 Nov 2026, 01:31:40 AM IST",
+  "last_2hr_sync_iso": "2026-11-13T01:31:40+05:30",
   "last_trigger_source": "schedule"
 }
