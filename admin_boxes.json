@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-12 05:31:28 PM IST",
+  "updated_at": "2026-11-12 05:36:33 PM IST",
   "window_days": 15,
   "pruned_posts_last_run": 7,
-  "unseen_auto_published_count": 1079,
+  "unseen_auto_published_count": 1083,
   "category_counts": {
     "latest_jobs": 370,
-    "results": 198,
-    "admit_cards": 136,
+    "results": 199,
+    "admit_cards": 137,
     "answer_keys": 63,
     "syllabus": 53,
-    "admissions": 259
+    "admissions": 261
   },
   "trending_top_6": [
     {
@@ -50,17 +50,17 @@
       "active": true
     },
     {
-      "id": "3919c89162dd",
-      "title": "UPESSC TGT Online Form (17,735 Posts)",
-      "sub": "Latest Jobs",
-      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "id": "45222509181b",
+      "title": "RRB ALP CBT 1 Answer Key 2026",
+      "sub": "Closing Soon",
+      "url": "https://rrb.digialm.com/EForms/configuredHtml/33244/102956/cOPXnjiLXCY5nEw5Vt/login.html",
+      "details": "The Railway Recruitment Boards (RRBs) have issued the RRB ALP Answer Key 2026 notice for the Assistant Loco Pilot CBT 1 examination under CEN 01/2026. The provisional answer key and response sheet download link will be activated on 12 November 2026 at 7:00 PM . Candidates who appeared for the examination held from 3 to 5 November 2026 can check their question papers, recorded responses and correct answers through the official RRB portal.",
       "rushScore": 125,
       "active": true
     },
     {
-      "id": "75eb3e7c4019",
-      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
+      "id": "3919c89162dd",
+      "title": "UPESSC TGT Online Form (17,735 Posts)",
       "sub": "Latest Jobs",
       "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "12 Nov 2026, 05:31:37 PM IST",
-  "last_2hr_sync_iso": "2026-11-12T17:31:37+05:30",
+  "last_2hr_sync_ist": "12 Nov 2026, 05:36:42 PM IST",
+  "last_2hr_sync_iso": "2026-11-12T17:36:42+05:30",
   "last_trigger_source": "schedule"
 }
