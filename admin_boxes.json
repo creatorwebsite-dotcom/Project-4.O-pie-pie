@@ -1,18 +1,27 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-14 06:08:11 AM IST",
+  "updated_at": "2026-11-14 01:59:26 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 10,
-  "unseen_auto_published_count": 1235,
+  "pruned_posts_last_run": 19,
+  "unseen_auto_published_count": 1252,
   "category_counts": {
     "latest_jobs": 413,
-    "results": 222,
-    "admit_cards": 161,
-    "answer_keys": 76,
-    "syllabus": 64,
-    "admissions": 299
+    "results": 227,
+    "admit_cards": 168,
+    "answer_keys": 75,
+    "syllabus": 63,
+    "admissions": 306
   },
   "trending_top_6": [
+    {
+      "id": "4b04fb87d2b4",
+      "title": "RRB 1,688 NTPC UG Online Form 2026",
+      "sub": "Today Last Date",
+      "url": "https://www.rrbapply.gov.in/assets/forms/corrigendum1_07_2026_NTPC_UG.pdf",
+      "details": "Total Vacancies 1,688 Posts Ticket Clerk, Accounts Clerk, Junior Clerk, Trains Clerk Qualification 12th Pass Age Limit 18–30 Years Application Opens 15 Oct 2026 Last Date 15 Nov 2026, 11:59 PM Initial Salary ₹19,900–21,700 Application Fee ₹500 / ₹250 Selection Process CBT 1, CBT 2, Typing Test (if applicable), DV, Medical Apply Mode Online Only",
+      "rushScore": 147,
+      "active": true
+    },
     {
       "id": "45bd52449ad2",
       "title": "UPESSC PRT Assistant Teacher Re-Open Form 2026 (12405 Posts)",
@@ -32,38 +41,29 @@
       "active": true
     },
     {
-      "id": "9971a1e8d88a",
-      "title": "RRB Group D Result 2026 Out For 22,195 Posts: What's Next? Check Physical Test Details",
-      "sub": "Result",
+      "id": "849df1ee41db",
+      "title": "RRB NTPC UG Recruitment 2026: Last Date Extended to November 15, Apply Online for 1688 Vacancies at rrbapply.gov.in",
+      "sub": "Date Extended",
       "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB Group D Result 2026 Out For 22,195 Posts: What's Next? Check Physical Test Details. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "details": "Official notification for RRB NTPC UG Recruitment 2026: Last Date Extended to November 15, Apply Online for 1688 Vacancies at rrbapply.gov.in. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
     },
     {
-      "id": "9dcaae145010",
-      "title": "RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks",
-      "sub": "Result",
-      "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "410f8522b383",
-      "title": "MPSC 16,797 Group C Online Form 2026",
+      "id": "3919c89162dd",
+      "title": "UPESSC TGT Online Form (17,735 Posts)",
       "sub": "Latest Jobs",
-      "url": "https://mpsconline.gov.in/",
-      "details": "The Maharashtra Public Service Commission (MPSC) has issued important updates regarding the MPSC Group C Recruitment 2026 , covering a total of 16,717 vacancies across various departments of the Maharashtra Government. The recruitment includes posts such as Clerk-Typist, Tax Assistant, Technical Assistant, Assistant Motor Vehicle Inspector, Industry Inspector and several other Group C positions.",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 125,
       "active": true
     },
     {
-      "id": "3b18867114c0",
-      "title": "SSC GD PET PST Admit Card 2026 Out",
-      "sub": "Admit Card",
-      "url": "https://ssccr.gov.in/admit-card/696529dfde07fd2f63e510d9",
-      "details": "The Staff Selection Commission (SSC) has released the SSC GD PET PST Admit Card 2026 on 12 November 2026. Candidates who qualified in the Computer-Based Examination can download their admit cards for the Physical Efficiency Test (PET) and Physical Standard Test (PST) from the official website. Candidates must log in using their registration number/roll number and date of birth or password to access the call letter.",
+      "id": "75eb3e7c4019",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
+      "sub": "Latest Jobs",
+      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 125,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "14 Nov 2026, 06:08:20 AM IST",
-  "last_2hr_sync_iso": "2026-11-14T06:08:20+05:30",
+  "last_2hr_sync_ist": "14 Nov 2026, 01:59:37 PM IST",
+  "last_2hr_sync_iso": "2026-11-14T13:59:37+05:30",
   "last_trigger_source": "schedule"
 }
