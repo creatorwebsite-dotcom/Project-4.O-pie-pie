@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-17 05:27:22 AM IST",
+  "updated_at": "2026-11-17 12:22:11 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 13,
-  "unseen_auto_published_count": 1306,
+  "pruned_posts_last_run": 105,
+  "unseen_auto_published_count": 1229,
   "category_counts": {
-    "latest_jobs": 432,
-    "results": 222,
-    "admit_cards": 174,
-    "answer_keys": 77,
-    "syllabus": 65,
-    "admissions": 336
+    "latest_jobs": 412,
+    "results": 214,
+    "admit_cards": 170,
+    "answer_keys": 65,
+    "syllabus": 58,
+    "admissions": 310
   },
   "trending_top_6": [
     {
@@ -32,20 +32,11 @@
       "active": true
     },
     {
-      "id": "eecad9706002",
-      "title": "UPESSC Assistant Teacher Form (12405 Posts)",
-      "sub": "Date Extended",
-      "url": "https://www.upessc.up.gov.in/Notice/a429-726e-4862-f3dc-8a6f.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 138,
-      "active": true
-    },
-    {
       "id": "38ab4716935b",
       "title": "RRB Group D Score Card 2026",
       "sub": "Result",
       "url": "https://rrb.digialm.com/EForms/configuredHtml/33128/101714/login.html",
-      "details": "The CEN 09/2025 notification covers 22,195 vacancies in Level-1 (Group D) posts. The basic eligibility details are given below.",
+      "details": "The Railway Recruitment Boards (RRBs) have released the RRB Group D Score Card 2026 for CEN 09/2025 on 16 November 2026 at 05:00 PM. Candidates who appeared in the CBT can now log in with their Registration Number and Date of Birth and download their score card with percentile score and normalized marks.",
       "rushScore": 125,
       "active": true
     },
@@ -66,6 +57,15 @@
       "details": "Official notification for RRB Group D Result 2026 Out For 22,195 Posts: What's Next? Check Physical Test Details. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
+    },
+    {
+      "id": "9dcaae145010",
+      "title": "RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks",
+      "sub": "Result",
+      "url": "https://indianrailways.gov.in",
+      "details": "Official notification for RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 125,
+      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "17 Nov 2026, 05:27:35 AM IST",
-  "last_2hr_sync_iso": "2026-11-17T05:27:35+05:30",
+  "last_2hr_sync_ist": "17 Nov 2026, 12:22:22 PM IST",
+  "last_2hr_sync_iso": "2026-11-17T12:22:22+05:30",
   "last_trigger_source": "schedule"
 }
