@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-19 03:17:25 PM IST",
+  "updated_at": "2026-11-20 12:17:37 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 150,
-  "unseen_auto_published_count": 1150,
+  "pruned_posts_last_run": 11,
+  "unseen_auto_published_count": 1179,
   "category_counts": {
-    "latest_jobs": 395,
-    "results": 155,
-    "admit_cards": 194,
-    "answer_keys": 51,
-    "syllabus": 64,
-    "admissions": 291
+    "latest_jobs": 398,
+    "results": 153,
+    "admit_cards": 199,
+    "answer_keys": 60,
+    "syllabus": 68,
+    "admissions": 301
   },
   "trending_top_6": [
     {
@@ -29,15 +29,6 @@
       "url": "https://www.upessc.up.gov.in/Notice/2f5b-2b53-4364-eeff-c38d.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 140,
-      "active": true
-    },
-    {
-      "id": "38ab4716935b",
-      "title": "RRB Group D Score Card 2026",
-      "sub": "Result",
-      "url": "https://rrb.digialm.com/EForms/configuredHtml/33128/101714/login.html",
-      "details": "The Railway Recruitment Boards (RRBs) have released the RRB Group D Score Card 2026 for CEN 09/2025 on 16 November 2026 at 05:00 PM. Candidates who appeared in the CBT can now log in with their Registration Number and Date of Birth and download their score card with percentile score and normalized marks.",
-      "rushScore": 125,
       "active": true
     },
     {
@@ -66,6 +57,15 @@
       "details": "Official notification for RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
+    },
+    {
+      "id": "410f8522b383",
+      "title": "MPSC 16,797 Group C Online Form 2026",
+      "sub": "Latest Jobs",
+      "url": "https://mpsconline.gov.in/",
+      "details": "The Maharashtra Public Service Commission (MPSC) has issued important updates regarding the MPSC Group C Recruitment 2026 , covering a total of 16,717 vacancies across various departments of the Maharashtra Government. The recruitment includes posts such as Clerk-Typist, Tax Assistant, Technical Assistant, Assistant Motor Vehicle Inspector, Industry Inspector and several other Group C positions.",
+      "rushScore": 125,
+      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "19 Nov 2026, 03:17:37 PM IST",
-  "last_2hr_sync_iso": "2026-11-19T15:17:37+05:30",
+  "last_2hr_sync_ist": "20 Nov 2026, 12:17:51 AM IST",
+  "last_2hr_sync_iso": "2026-11-20T00:17:51+05:30",
   "last_trigger_source": "schedule"
 }
