@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-21 02:37:12 PM IST",
+  "updated_at": "2026-11-21 10:34:10 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 97,
-  "unseen_auto_published_count": 1096,
+  "pruned_posts_last_run": 4,
+  "unseen_auto_published_count": 1138,
   "category_counts": {
-    "latest_jobs": 313,
-    "results": 168,
-    "admit_cards": 203,
-    "answer_keys": 67,
-    "syllabus": 74,
-    "admissions": 271
+    "latest_jobs": 327,
+    "results": 178,
+    "admit_cards": 215,
+    "answer_keys": 68,
+    "syllabus": 73,
+    "admissions": 277
   },
   "trending_top_6": [
     {
@@ -25,19 +25,19 @@
     {
       "id": "3919c89162dd",
       "title": "UPESSC TGT Online Form (17,735 Posts)",
-      "sub": "Closing Soon",
-      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "sub": "Date Extended",
+      "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
+      "rushScore": 140,
       "active": true
     },
     {
-      "id": "75eb3e7c4019",
-      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
-      "sub": "Closing Soon",
-      "url": "https://www.upessc.up.gov.in/Notice/5520-7034-4820-d1bb-554c.pdf",
+      "id": "93509941c801",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts) – Extended",
+      "sub": "Date Extended",
+      "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 125,
+      "rushScore": 140,
       "active": true
     },
     {
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "21 Nov 2026, 02:37:23 PM IST",
-  "last_2hr_sync_iso": "2026-11-21T14:37:23+05:30",
+  "last_2hr_sync_ist": "21 Nov 2026, 10:34:25 PM IST",
+  "last_2hr_sync_iso": "2026-11-21T22:34:25+05:30",
   "last_trigger_source": "schedule"
 }
