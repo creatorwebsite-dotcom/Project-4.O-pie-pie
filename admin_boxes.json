@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-23 07:39:23 AM IST",
+  "updated_at": "2026-11-23 07:28:10 PM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 19,
-  "unseen_auto_published_count": 1157,
+  "pruned_posts_last_run": 17,
+  "unseen_auto_published_count": 1174,
   "category_counts": {
-    "latest_jobs": 318,
+    "latest_jobs": 320,
     "results": 191,
-    "admit_cards": 230,
-    "answer_keys": 60,
-    "syllabus": 79,
-    "admissions": 279
+    "admit_cards": 226,
+    "answer_keys": 66,
+    "syllabus": 82,
+    "admissions": 289
   },
   "trending_top_6": [
     {
@@ -28,7 +28,7 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 136,
+      "rushScore": 140,
       "active": true
     },
     {
@@ -37,7 +37,16 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 136,
+      "rushScore": 140,
+      "active": true
+    },
+    {
+      "id": "6e0507364114",
+      "title": "IBPS Clerk Prelims Result 2026",
+      "sub": "Result",
+      "url": "https://www.ibps.in/",
+      "details": "As of 23 November 2026, the official result link has not been independently confirmed as active. Candidates should visit the recruitment page regularly to check for the latest announcement.",
+      "rushScore": 125,
       "active": true
     },
     {
@@ -57,15 +66,6 @@
       "details": "Official notification for RRB Group D Result 2026 Out For 22,195 Posts: What's Next? Check Physical Test Details. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
-    },
-    {
-      "id": "9dcaae145010",
-      "title": "RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks",
-      "sub": "Result",
-      "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB Group D Result 2026: Zone-wise PET shortlist released for 22,195 vacancies, check cut-off marks. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
-      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "23 Nov 2026, 07:39:36 AM IST",
-  "last_2hr_sync_iso": "2026-11-23T07:39:36+05:30",
+  "last_2hr_sync_ist": "23 Nov 2026, 07:28:19 PM IST",
+  "last_2hr_sync_iso": "2026-11-23T19:28:19+05:30",
   "last_trigger_source": "schedule"
 }
