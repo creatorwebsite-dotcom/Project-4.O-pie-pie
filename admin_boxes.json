@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-23 07:28:10 PM IST",
+  "updated_at": "2026-11-24 07:00:54 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 17,
-  "unseen_auto_published_count": 1174,
+  "pruned_posts_last_run": 18,
+  "unseen_auto_published_count": 1211,
   "category_counts": {
-    "latest_jobs": 320,
-    "results": 191,
-    "admit_cards": 226,
+    "latest_jobs": 329,
+    "results": 200,
+    "admit_cards": 235,
     "answer_keys": 66,
     "syllabus": 82,
-    "admissions": 289
+    "admissions": 299
   },
   "trending_top_6": [
     {
@@ -28,7 +28,7 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
+      "rushScore": 138,
       "active": true
     },
     {
@@ -37,7 +37,7 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
+      "rushScore": 138,
       "active": true
     },
     {
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "23 Nov 2026, 07:28:19 PM IST",
-  "last_2hr_sync_iso": "2026-11-23T19:28:19+05:30",
+  "last_2hr_sync_ist": "24 Nov 2026, 07:01:08 AM IST",
+  "last_2hr_sync_iso": "2026-11-24T07:01:08+05:30",
   "last_trigger_source": "schedule"
 }
