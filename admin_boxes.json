@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-24 05:27:02 PM IST",
+  "updated_at": "2026-11-25 03:27:09 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 17,
-  "unseen_auto_published_count": 1254,
+  "pruned_posts_last_run": 169,
+  "unseen_auto_published_count": 1151,
   "category_counts": {
-    "latest_jobs": 330,
-    "results": 203,
-    "admit_cards": 255,
-    "answer_keys": 71,
-    "syllabus": 86,
-    "admissions": 309
+    "latest_jobs": 289,
+    "results": 192,
+    "admit_cards": 247,
+    "answer_keys": 59,
+    "syllabus": 87,
+    "admissions": 277
   },
   "trending_top_6": [
     {
@@ -28,7 +28,7 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
+      "rushScore": 138,
       "active": true
     },
     {
@@ -37,16 +37,7 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
-      "active": true
-    },
-    {
-      "id": "1c7141ab516f",
-      "title": "KEA FDA SDA Online Form 2026 (5,431 Vacancy)",
-      "sub": "Today Last Date",
-      "url": "https://cetonline.karnataka.gov.in/kea/",
-      "details": "Latest Updates on this Recruitment KPSC FDA SDA Syllabus 2026 - Check Subject-Wise Syllabus and Exam Pattern Posted 31 Oct 2026",
-      "rushScore": 135,
+      "rushScore": 138,
       "active": true
     },
     {
@@ -66,6 +57,15 @@
       "details": "As of 23 November 2026, the official result link has not been independently confirmed as active. Candidates should visit the recruitment page regularly to check for the latest announcement.",
       "rushScore": 125,
       "active": true
+    },
+    {
+      "id": "849df1ee41db",
+      "title": "RRB NTPC UG Recruitment 2026: Last Date Extended to November 15, Apply Online for 1688 Vacancies at rrbapply.gov.in",
+      "sub": "Date Extended",
+      "url": "https://indianrailways.gov.in",
+      "details": "Official notification for RRB NTPC UG Recruitment 2026: Last Date Extended to November 15, Apply Online for 1688 Vacancies at rrbapply.gov.in. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "rushScore": 125,
+      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "24 Nov 2026, 05:27:18 PM IST",
-  "last_2hr_sync_iso": "2026-11-24T17:27:18+05:30",
+  "last_2hr_sync_ist": "25 Nov 2026, 03:27:23 AM IST",
+  "last_2hr_sync_iso": "2026-11-25T03:27:23+05:30",
   "last_trigger_source": "schedule"
 }
