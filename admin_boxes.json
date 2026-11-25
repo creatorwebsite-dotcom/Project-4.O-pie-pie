@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-25 03:27:09 AM IST",
+  "updated_at": "2026-11-25 10:17:40 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 169,
-  "unseen_auto_published_count": 1151,
+  "pruned_posts_last_run": 22,
+  "unseen_auto_published_count": 1182,
   "category_counts": {
-    "latest_jobs": 289,
+    "latest_jobs": 299,
     "results": 192,
-    "admit_cards": 247,
-    "answer_keys": 59,
-    "syllabus": 87,
-    "admissions": 277
+    "admit_cards": 251,
+    "answer_keys": 60,
+    "syllabus": 93,
+    "admissions": 287
   },
   "trending_top_6": [
     {
@@ -41,29 +41,29 @@
       "active": true
     },
     {
-      "id": "f62232a5a7fa",
-      "title": "Gujarat Police Recruitment Expanded to 12,993 Posts; 12,752 Lokrakshak and 241 PSI Vacancies Announced",
+      "id": "4e1e27f5daef",
+      "title": "UPSSSC JE Online Form (1156 Posts)",
+      "sub": "Today Last Date",
+      "url": "http://sarkariresult.com.cm/wp-content/uploads/2026/10/ViewPdf-2.pdf",
+      "details": "Application Fee General, OBC, EWS : ₹ 25/- SC, ST : ₹ 25/- PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 132,
+      "active": true
+    },
+    {
+      "id": "c81363543b5f",
+      "title": "UPSSSC Junior Engineer JE (Mechanical) Online Form 2026 (1156 Posts) – Last Date Today",
+      "sub": "Today Last Date",
+      "url": "http://sarkariresult.com.cm/wp-content/uploads/2026/10/ViewPdf-2.pdf",
+      "details": "Application Fee General, OBC, EWS : ₹ 25/- SC, ST : ₹ 25/- PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 132,
+      "active": true
+    },
+    {
+      "id": "f79bf1cb4cc6",
+      "title": "Odisha has 88,905 vacancies across depts, 26,101 in police force: CM Majhi",
       "sub": "Latest Jobs",
       "url": "https://uppbpb.gov.in",
-      "details": "Official notification for Gujarat Police Recruitment Expanded to 12,993 Posts; 12,752 Lokrakshak and 241 PSI Vacancies Announced. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "6e0507364114",
-      "title": "IBPS Clerk Prelims Result 2026",
-      "sub": "Result",
-      "url": "https://www.ibps.in/",
-      "details": "As of 23 November 2026, the official result link has not been independently confirmed as active. Candidates should visit the recruitment page regularly to check for the latest announcement.",
-      "rushScore": 125,
-      "active": true
-    },
-    {
-      "id": "849df1ee41db",
-      "title": "RRB NTPC UG Recruitment 2026: Last Date Extended to November 15, Apply Online for 1688 Vacancies at rrbapply.gov.in",
-      "sub": "Date Extended",
-      "url": "https://indianrailways.gov.in",
-      "details": "Official notification for RRB NTPC UG Recruitment 2026: Last Date Extended to November 15, Apply Online for 1688 Vacancies at rrbapply.gov.in. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
+      "details": "Official notification for Odisha has 88,905 vacancies across depts, 26,101 in police force: CM Majhi. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
       "rushScore": 125,
       "active": true
     }
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "25 Nov 2026, 03:27:23 AM IST",
-  "last_2hr_sync_iso": "2026-11-25T03:27:23+05:30",
+  "last_2hr_sync_ist": "25 Nov 2026, 10:17:54 AM IST",
+  "last_2hr_sync_iso": "2026-11-25T10:17:54+05:30",
   "last_trigger_source": "schedule"
 }
