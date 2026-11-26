@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-25 10:11:49 PM IST",
+  "updated_at": "2026-11-26 06:58:52 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 20,
-  "unseen_auto_published_count": 1264,
+  "pruned_posts_last_run": 13,
+  "unseen_auto_published_count": 1273,
   "category_counts": {
-    "latest_jobs": 318,
-    "results": 206,
-    "admit_cards": 280,
-    "answer_keys": 64,
-    "syllabus": 99,
-    "admissions": 297
+    "latest_jobs": 316,
+    "results": 207,
+    "admit_cards": 273,
+    "answer_keys": 65,
+    "syllabus": 105,
+    "admissions": 307
   },
   "trending_top_6": [
     {
@@ -23,12 +23,21 @@
       "active": true
     },
     {
+      "id": "2e8d379fabc1",
+      "title": "UPESSC 17735 Assistant Teacher Online Form 2026",
+      "sub": "Date Extended",
+      "url": "https://apply.upessc.org/",
+      "details": "Update: UPESSC has extended the last date for online application and fee payment for Advertisement No. 07/2026 (TGT) to 28 November 2026, and the last date for correction in the online application to 30 November 2026. The written examination dates (23 and 24 December 2026) and all other terms are unchanged.",
+      "rushScore": 140,
+      "active": true
+    },
+    {
       "id": "3919c89162dd",
       "title": "UPESSC TGT Online Form (17,735 Posts)",
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 138,
+      "rushScore": 136,
       "active": true
     },
     {
@@ -37,7 +46,7 @@
       "sub": "Date Extended",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 138,
+      "rushScore": 136,
       "active": true
     },
     {
@@ -57,15 +66,6 @@
       "details": "Application Fee General, OBC, EWS : ₹ 25/- SC, ST : ₹ 25/- PH Candidates : ₹ 25/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 132,
       "active": true
-    },
-    {
-      "id": "f79bf1cb4cc6",
-      "title": "Odisha has 88,905 vacancies across depts, 26,101 in police force: CM Majhi",
-      "sub": "Latest Jobs",
-      "url": "https://uppbpb.gov.in",
-      "details": "Official notification for Odisha has 88,905 vacancies across depts, 26,101 in police force: CM Majhi. Check important dates, post-wise eligibility, exam pattern, syllabus and direct official links below.",
-      "rushScore": 125,
-      "active": true
     }
   ],
   "standard_boxes": [
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "25 Nov 2026, 10:12:02 PM IST",
-  "last_2hr_sync_iso": "2026-11-25T22:12:02+05:30",
+  "last_2hr_sync_ist": "26 Nov 2026, 06:59:04 AM IST",
+  "last_2hr_sync_iso": "2026-11-26T06:59:04+05:30",
   "last_trigger_source": "schedule"
 }
