@@ -1,18 +1,36 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-27 06:56:24 PM IST",
+  "updated_at": "2026-11-28 03:57:58 AM IST",
   "window_days": 15,
-  "pruned_posts_last_run": 80,
-  "unseen_auto_published_count": 1268,
+  "pruned_posts_last_run": 5,
+  "unseen_auto_published_count": 1280,
   "category_counts": {
-    "latest_jobs": 306,
-    "results": 223,
-    "admit_cards": 289,
-    "answer_keys": 61,
-    "syllabus": 105,
-    "admissions": 284
+    "latest_jobs": 310,
+    "results": 227,
+    "admit_cards": 281,
+    "answer_keys": 63,
+    "syllabus": 112,
+    "admissions": 287
   },
   "trending_top_6": [
+    {
+      "id": "3919c89162dd",
+      "title": "UPESSC TGT Online Form (17,735 Posts)",
+      "sub": "Today Last Date",
+      "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 160,
+      "active": true
+    },
+    {
+      "id": "75eb3e7c4019",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
+      "sub": "Today Last Date",
+      "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
+      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
+      "rushScore": 160,
+      "active": true
+    },
     {
       "id": "4b04fb87d2b4",
       "title": "RRB 1,688 NTPC UG Online Form 2026",
@@ -28,24 +46,6 @@
       "sub": "Date Extended",
       "url": "https://apply.upessc.org/",
       "details": "Update: UPESSC has extended the last date for online application and fee payment for Advertisement No. 07/2026 (TGT) to 28 November 2026, and the last date for correction in the online application to 30 November 2026. The written examination dates (23 and 24 December 2026) and all other terms are unchanged.",
-      "rushScore": 140,
-      "active": true
-    },
-    {
-      "id": "3919c89162dd",
-      "title": "UPESSC TGT Online Form (17,735 Posts)",
-      "sub": "Date Extended",
-      "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 140,
-      "active": true
-    },
-    {
-      "id": "75eb3e7c4019",
-      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
-      "sub": "Date Extended",
-      "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
-      "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
       "rushScore": 140,
       "active": true
     },
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "27 Nov 2026, 06:56:39 PM IST",
-  "last_2hr_sync_iso": "2026-11-27T18:56:39+05:30",
+  "last_2hr_sync_ist": "28 Nov 2026, 03:58:14 AM IST",
+  "last_2hr_sync_iso": "2026-11-28T03:58:14+05:30",
   "last_trigger_source": "schedule"
 }
