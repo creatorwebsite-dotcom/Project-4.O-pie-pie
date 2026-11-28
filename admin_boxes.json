@@ -1,16 +1,16 @@
 {
   "project_repo": "Project-4.O-pie-pie",
-  "updated_at": "2026-11-28 03:57:58 AM IST",
+  "updated_at": "2026-11-28 11:29:50 AM IST",
   "window_days": 15,
   "pruned_posts_last_run": 5,
-  "unseen_auto_published_count": 1280,
+  "unseen_auto_published_count": 1321,
   "category_counts": {
-    "latest_jobs": 310,
-    "results": 227,
-    "admit_cards": 281,
-    "answer_keys": 63,
-    "syllabus": 112,
-    "admissions": 287
+    "latest_jobs": 316,
+    "results": 236,
+    "admit_cards": 289,
+    "answer_keys": 64,
+    "syllabus": 119,
+    "admissions": 297
   },
   "trending_top_6": [
     {
@@ -19,16 +19,16 @@
       "sub": "Today Last Date",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 160,
+      "rushScore": 162,
       "active": true
     },
     {
-      "id": "75eb3e7c4019",
-      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts)",
+      "id": "a9e2e38d0b28",
+      "title": "UPESSC UP TGT Online Form 2026 (17,735 Posts) – Last Date Today",
       "sub": "Today Last Date",
       "url": "https://upessc.up.gov.in/Notice/47ad-baf9-4893-45ef-1f16.pdf",
       "details": "Application Fee For General, EWS, OBC : ₹ 1000/- For SC, ST : ₹ 500/- For PH : ₹ 300/- Payment Mode (Online): You can make the payment using the following methods: Debit Card Credit Card Internet Banking IMPS Cash Card / Mobile Wallet",
-      "rushScore": 160,
+      "rushScore": 162,
       "active": true
     },
     {
@@ -83,7 +83,7 @@
     "facebook": ""
   },
   "new_custom_boxes": [],
-  "last_2hr_sync_ist": "28 Nov 2026, 03:58:14 AM IST",
-  "last_2hr_sync_iso": "2026-11-28T03:58:14+05:30",
+  "last_2hr_sync_ist": "28 Nov 2026, 11:30:02 AM IST",
+  "last_2hr_sync_iso": "2026-11-28T11:30:02+05:30",
   "last_trigger_source": "schedule"
 }
